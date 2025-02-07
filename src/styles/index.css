@@ -6,6 +6,11 @@ p {
   margin: 0;
 }
 
+.navbar-brand:hover {
+  text-shadow: 0 0 15px #fff;
+  transform: rotateX(360deg);
+}
+
 .bg-slideshow-img {
   position: fixed;
   top: 0;
