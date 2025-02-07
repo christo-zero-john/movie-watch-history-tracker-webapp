@@ -59,10 +59,6 @@ p {
   transition: all 0.3s ease;
 }
 
-.movie-item:hover .hover-varient {
-  opacity: 1;
-}
-
 .movie-item .hover-variant .movie-name {
   font-size: 13px;
 }
@@ -86,6 +82,18 @@ p {
 }
 .movie-item .hover-varient .icon {
   height: 30px;
+}
+
+.movie-item:hover .hover-varient {
+  opacity: 1;
+}
+
+.movie-item:hover img {
+  transform: rotateY(360deg);
+}
+
+.movie-item:hover {
+  scale: 1.1;
 }
 
 @media (min-width: 768px) {
