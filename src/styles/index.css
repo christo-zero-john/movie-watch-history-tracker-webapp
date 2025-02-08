@@ -11,19 +11,6 @@ p {
   transform: rotateX(360deg);
 }
 
-.full-bg-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -90;
-  inset: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0.35;
-}
-
 .bg-slideshow-img {
   position: fixed;
   top: 0;
@@ -196,7 +183,23 @@ p {
   width: 70px;
 }
 
-.movie-summary-cover-img{
+.movie-summary-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.movie-summary-content{
+  background-color: #000000a4;
+}
+
+.movie-summary-cover-img {
   width: 200px;
 }
 
