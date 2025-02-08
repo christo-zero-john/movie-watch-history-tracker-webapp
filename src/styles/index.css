@@ -119,7 +119,10 @@ p {
 .offcanvas {
   width: 100vw;
   height: 100vh;
-  transition: none !important;
+}
+
+.offcanvas *{
+  transition: all 0.1s;
 }
 
 .offcanvas-header {
