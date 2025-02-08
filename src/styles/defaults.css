@@ -534,6 +534,34 @@
   background-color: #a047fa50;
 }
 
+.placeholder-light::placeholder {
+  color: white;
+}
+
+.placeholder-secondary::placeholder {
+  color: grey;
+}
+
+.placeholder-danger::placeholder {
+  color: red;
+}
+
+.placeholder-success::placeholder {
+  color: green;
+}
+
+.placeholder-primary::placeholder {
+  color: #003afa;
+}
+
+.placeholder-info::placeholder {
+  color: #008cff;
+}
+
+.placeholder-dark::placeholder {
+  color: #3d3d3d;
+}
+
 /* text shadow */
 .ts-normal-black {
   text-shadow: 0 0 2px #000;
