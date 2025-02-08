@@ -47,9 +47,12 @@ p {
 .movie-list,
 .my-genre,
 .genre-item,
-.add-movie-btn {
+.add-movie-btn,
+.search-options,
+.search-options button {
   background: none;
   box-shadow: inset 0 0 20px #ffffff4e;
+  color: #fff;
 }
 
 .movie-item {
@@ -120,6 +123,39 @@ p {
 .offcanvas-header {
   border-bottom: 3px solid #ffb64d;
   color: #ffb64d;
+}
+
+.offcanvas-body img {
+  opacity: 0.1;
+}
+
+.search-form-btn {
+  background-color: #ff824d;
+  color: #fff;
+}
+
+.search-form-btn:hover {
+  background-color: #f86b2e;
+  color: #fff;
+}
+
+.search-options {
+  max-width: 100vw;
+}
+
+.search-options button {
+  border: none;
+  border-radius: 5px;
+}
+
+.search-options button:hover,
+.so-btn.selected {
+  background-color: #fff;
+  color: #000;
+}
+
+.search-results .nothing {
+  color: #ff824d;
 }
 
 @media (min-width: 768px) {
