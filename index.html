@@ -202,6 +202,7 @@
           </div>
         </div>
 
+        <!-- Add movie btn -->
         <button
           class="p-0 ps-2 add-movie-btn text-light float-end sticky-bottom border-0 my-2"
           type="button"
@@ -245,6 +246,80 @@
             alt=""
             class="bg-slideshow-img"
           />
+
+          <div class="content">
+            <div class="form-section ms-md-5 mt-3">
+              <form action="" class="">
+                <input
+                  type="text"
+                  class="col-9 col-md-10 bg-transparent border-0 border-bottom border-3 placeholder-light text-light fs-5 fw-100"
+                  placeholder="SEARCH FOR ANYTHING"
+                />
+                <button
+                  class="btn search-form-btn fs-5 fw-600 px-3 py-1 ms-2"
+                  type="submit"
+                >
+                  GO
+                </button>
+              </form>
+
+              <div
+                class="search-options md-w-fit p-md-2 px-md-4 my-2 d-flex flex-row align-items-center flex-nowrap overflow-auto"
+              >
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                >
+                  name
+                </button>
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                >
+                  Description
+                </button>
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                >
+                  Genres
+                </button>
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                >
+                  Cast & Crew
+                </button>
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                >
+                  Release Date
+                </button>
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                >
+                  Keywords
+                </button>
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                >
+                  Production Companies
+                </button>
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                >
+                  Language
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="search-results d-flex flex-row justify-content-center align-items-center"
+            >
+              <h4 class="nothing col-md-6 op-07 mx-4 mx-md-auto mt-5 pt-5">
+                Search for something to appear here.... <br />
+                You can also choose what to search for....
+              </h4>
+
+              <div class="results"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
