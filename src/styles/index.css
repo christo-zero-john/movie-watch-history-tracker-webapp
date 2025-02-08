@@ -11,6 +11,19 @@ p {
   transform: rotateX(360deg);
 }
 
+.full-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -90;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.35;
+}
+
 .bg-slideshow-img {
   position: fixed;
   top: 0;
@@ -121,7 +134,7 @@ p {
   height: 100vh;
 }
 
-.offcanvas *{
+.offcanvas * {
   transition: all 0.1s;
 }
 
@@ -167,7 +180,6 @@ p {
   display: none;
 }
 
-
 .search-results .results {
   display: none;
 }
@@ -176,12 +188,16 @@ p {
   display: flex;
 }
 
-.search-results:hover .nothing{
+.search-results:hover .nothing {
   display: none;
 }
 
 .result-item .result-cover {
   width: 70px;
+}
+
+.movie-summary-cover-img{
+  width: 200px;
 }
 
 @media (min-width: 768px) {
