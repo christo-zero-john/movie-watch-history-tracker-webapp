@@ -111,6 +111,17 @@ p {
   right: 20px;
 }
 
+.offcanvas {
+  width: 100vw;
+  height: 100vh;
+  transition: none !important;
+}
+
+.offcanvas-header {
+  border-bottom: 3px solid #ffb64d;
+  color: #ffb64d;
+}
+
 @media (min-width: 768px) {
   .movie-item .hover-varient .top-side {
     height: 50%;
