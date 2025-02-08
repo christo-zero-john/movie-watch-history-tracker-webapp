@@ -49,7 +49,8 @@ p {
 .genre-item,
 .add-movie-btn,
 .search-options,
-.search-options button {
+.search-options button,
+.search-results .results .result-item {
   background: none;
   box-shadow: inset 0 0 20px #ffffff4e;
   color: #fff;
@@ -91,6 +92,7 @@ p {
   font-size: 11px;
   color: #ff824d;
 }
+
 .movie-item .hover-varient .icon {
   height: 30px;
 }
@@ -125,7 +127,7 @@ p {
   color: #ffb64d;
 }
 
-.offcanvas-body img {
+.offcanvas-body > .bg-slideshow-img {
   opacity: 0.1;
 }
 
@@ -156,6 +158,27 @@ p {
 
 .search-results .nothing {
   color: #ff824d;
+}
+
+.search-results .results {
+  display: none;
+}
+
+
+.search-results .results {
+  display: none;
+}
+
+.search-results:hover .results {
+  display: flex;
+}
+
+.search-results:hover .nothing{
+  display: none;
+}
+
+.result-item .result-cover {
+  width: 70px;
 }
 
 @media (min-width: 768px) {
