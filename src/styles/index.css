@@ -195,13 +195,19 @@ p {
   object-position: center;
 }
 
-.movie-summary-content{
+.movie-summary-content {
   background-color: #000000a4;
 }
 
 .movie-summary-cover-img {
   width: 200px;
 }
+
+.movie-summary-details .rating img {
+  width: 25px;
+  height: auto;
+}
+
 
 @media (min-width: 768px) {
   .movie-item .hover-varient .top-side {
