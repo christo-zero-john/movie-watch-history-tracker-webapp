@@ -249,7 +249,9 @@
             class="bg-slideshow-img"
           />
 
+          <!-- Main content inside search pop-up -->
           <div class="content">
+            <!-- movie search form -->
             <div class="form-section ms-md-5 mt-3">
               <form action="" class="">
                 <input
@@ -311,19 +313,22 @@
               </div>
             </div>
 
+            <!-- search results container -->
             <div class="search-results w-100">
               <h4 class="nothing col-md-7 op-07 mx-4 mx-md-auto mt-5 pt-5">
                 Search for something to appear here.... <br />
                 You can also choose what to search for in the options....
               </h4>
 
+              <!-- When clicked on the search-results div, the summary popup opens up in this stage -->
+              <!-- Search result item cards -->
               <div
                 data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                class="col-12 col-md-10 mx-auto flex-row justify-content-start align-items-center flex-wrap results"
+                data-bs-target="#movieDetailsSummary"
+                class="col-12 mx-auto flex-row justify-content-center align-items-center flex-wrap results"
               >
                 <div
-                  class="result-item m-2 pe-2 rounded d-flex flex-row justify-content-center align-items-center"
+                  class="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
                 >
                   <img
                     src="./src/assets/images/temp/cover-image.jpg"
@@ -375,7 +380,7 @@
                 </div>
 
                 <div
-                  class="result-item m-2 pe-2 rounded d-flex flex-row justify-content-center align-items-center"
+                  class="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
                 >
                   <img
                     src="./src/assets/images/temp/cover-image.jpg"
@@ -426,7 +431,7 @@
                   </div>
                 </div>
                 <div
-                  class="result-item m-2 pe-2 rounded d-flex flex-row justify-content-center align-items-center"
+                  class="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
                 >
                   <img
                     src="./src/assets/images/temp/cover-image.jpg"
@@ -477,7 +482,7 @@
                   </div>
                 </div>
                 <div
-                  class="result-item m-2 pe-2 rounded d-flex flex-row justify-content-center align-items-center"
+                  class="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
                 >
                   <img
                     src="./src/assets/images/temp/cover-image.jpg"
@@ -528,7 +533,7 @@
                   </div>
                 </div>
                 <div
-                  class="result-item m-2 pe-2 rounded d-flex flex-row justify-content-center align-items-center"
+                  class="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
                 >
                   <img
                     src="./src/assets/images/temp/cover-image.jpg"
@@ -579,7 +584,7 @@
                   </div>
                 </div>
                 <div
-                  class="result-item m-2 pe-2 rounded d-flex flex-row justify-content-center align-items-center"
+                  class="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
                 >
                   <img
                     src="./src/assets/images/temp/cover-image.jpg"
@@ -630,7 +635,7 @@
                   </div>
                 </div>
                 <div
-                  class="result-item m-2 pe-2 rounded d-flex flex-row justify-content-center align-items-center"
+                  class="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
                 >
                   <img
                     src="./src/assets/images/temp/cover-image.jpg"
@@ -693,15 +698,15 @@
       <!-- Modal -->
       <div
         class="modal fade"
-        id="exampleModal"
+        id="movieDetailsSummary"
         tabindex="-1"
-        aria-labelledby="exampleModalLabel"
+        aria-labelledby="movieDetailsSummaryLabel"
         aria-hidden="true"
       >
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
+              <h1 class="modal-title fs-5" id="movieDetailsSummaryLabel">
                 Modal title
               </h1>
               <button
