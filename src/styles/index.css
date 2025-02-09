@@ -241,6 +241,11 @@ p {
   opacity: 1;
 }
 
+.go-back-icon{
+  width: 60px;
+  height: 30px;
+}
+
 @media (min-width: 768px) {
   .movie-item .hover-varient .top-side {
     height: 50%;
