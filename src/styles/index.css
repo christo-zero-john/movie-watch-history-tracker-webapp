@@ -109,6 +109,14 @@ p {
   scale: 1.1;
 }
 
+.genre-section .genre-item:hover,
+.add-movie-btn:hover,
+.search-options button:hover,
+.so-btn.selected {
+  background-color: #fff;
+  color: #000;
+}
+
 .add-movie-btn {
   height: 50px;
   position: fixed;
@@ -153,12 +161,6 @@ p {
   border-radius: 5px;
 }
 
-.search-options button:hover,
-.so-btn.selected {
-  background-color: #fff;
-  color: #000;
-}
-
 .search-results .nothing {
   color: #ff824d;
 }
@@ -183,8 +185,8 @@ p {
   width: 70px;
 }
 
-.modal-body{
-  box-shadow: 2px 2px 20px  #ffffff77;
+.modal-body {
+  box-shadow: 2px 2px 20px #ffffff77;
 }
 
 .movie-summary-bg-img {
