@@ -201,8 +201,7 @@ p {
   object-position: center;
 }
 
-.movie-summary-content,
-.movie-details-content {
+.movie-summary-content {
   background-color: #000000b7;
 }
 
