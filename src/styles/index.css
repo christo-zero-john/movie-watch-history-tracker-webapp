@@ -183,6 +183,10 @@ p {
   width: 70px;
 }
 
+.modal-body{
+  box-shadow: 2px 2px 20px  #ffffff77;
+}
+
 .movie-summary-bg-img {
   position: absolute;
   top: 0;
@@ -196,11 +200,12 @@ p {
 }
 
 .movie-summary-content {
-  background-color: #000000a4;
+  background-color: #000000b7;
 }
 
 .movie-summary-cover-img {
   width: 200px;
+  height: fit-content;
 }
 
 .movie-summary-details .rating img {
@@ -208,9 +213,38 @@ p {
   height: auto;
 }
 
+.action-buttons button img {
+  background-color: #04002e;
+  border-radius: 50%;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+}
+
+.action-buttons button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  width: fit-content;
+}
+
+.action-buttons button p {
+  display: none;
+  opacity: 0;
+}
+
+.action-buttons button:hover p {
+  display: inline-block;
+  opacity: 1;
+}
 
 @media (min-width: 768px) {
   .movie-item .hover-varient .top-side {
     height: 50%;
+  }
+
+  .modal-dialog.col-md-8 {
+    max-width: 67%;
+    margin: 1.75rem auto;
   }
 }
