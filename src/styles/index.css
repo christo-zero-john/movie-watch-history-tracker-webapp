@@ -50,7 +50,8 @@ p {
 .add-movie-btn,
 .search-options,
 .search-options button,
-.search-results .results .result-item {
+.search-results .results .result-item,
+.recommended-movie-items {
   background: none;
   box-shadow: inset 0 0 20px #ffffff4e;
   color: #fff;
@@ -208,7 +209,7 @@ p {
 }
 
 .movie-summary-content {
-  background-color: #000000a9;
+  background-color: #000000c5;
 }
 
 .movie-summary-cover-img {
@@ -244,6 +245,18 @@ p {
 .action-buttons button:hover p {
   display: inline-block;
   opacity: 1;
+}
+
+.movie-details-bg-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .go-back-icon {
