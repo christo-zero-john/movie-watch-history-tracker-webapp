@@ -21,6 +21,7 @@ p {
   object-fit: cover;
   object-position: center;
   opacity: 0.35;
+  transition: all 1s;
 }
 
 .navbar {
