@@ -10,12 +10,12 @@ export class Offcanvas {
     offCanvasDiv.setAttribute("tabindex", "-1");
     offCanvasDiv.setAttribute(
       "aria-labelledby",
-      "movieSearchFormOffcanvasLabel"
+      "offcanvas-title"
     );
 
     offCanvasDiv.innerHTML = `
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="movieSearchFormOffcanvasLabel">
+        <h5 class="offcanvas-title" id="offcanvas-title">
         TITLE LOADING...
         </h5>
         <button
@@ -38,6 +38,6 @@ export class Offcanvas {
   }
 
   setTitle(title) {
-    document.getElementById("movieSearchFormOffcanvasLabel").innerText = title;
+    document.getElementById("offcanvas-title").innerHTML = title;
   }
 }
