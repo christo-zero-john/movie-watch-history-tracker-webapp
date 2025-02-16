@@ -35,10 +35,20 @@ export class Offcanvas {
   }
 
   setTitle(title) {
-    document.getElementById("offcanvas-title").innerText = title;
+    document.getElementById("offcanvas-title").innerHTML = title;
   }
 
   setContent(content) {
-    document.getElementById("offcanvas-body").innerText = content;
+    document.getElementById("offcanvas-body").innerHTML = content;
+  }
+
+  reset() {
+    this.setTitle("TITLE LOADING...");
+    this.setContent("DATA LOADING...");
+  }
+
+  hide() {
+    this.offcanvas.hide();
+    this.reset();
   }
 }
