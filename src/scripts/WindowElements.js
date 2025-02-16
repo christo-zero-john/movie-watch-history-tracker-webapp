@@ -30,5 +30,14 @@ export class Offcanvas {
     `;
 
     document.body.appendChild(offCanvasDiv);
+    this.offcanvas = new bootstrap.Offcanvas(offCanvasDiv);
+  }
+
+  show() {
+    this.offcanvas.show();
+  }
+
+  setTitle(title) {
+    this.offcanvas.setTitle(title);
   }
 }
