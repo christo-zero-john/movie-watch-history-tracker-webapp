@@ -113,5 +113,17 @@ export function startBgSlideShow() {
     "/src/assets/images/bg-slideshow/img 8.jpg",
     "/src/assets/images/bg-slideshow/img 9.jpg",
   ];
-  
+
+  const slideShowElements = document.querySelectorAll(".bg-slideshow-img");
+
+  console.log(slideShowElements);
+
+  setInterval(() => {
+    const index = Math.floor(Math.random() * 10);
+    slideShowElements.forEach((element) => {
+      element.style.opacity = 0;
+      element.style.opacity = 0.4;
+      element.src = bgImages[index];
+    });
+  }, 6000);
 }
