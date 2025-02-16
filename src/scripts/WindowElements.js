@@ -29,6 +29,7 @@ export class Modal {
   }
 
   setContent(content) {
+    console.log(document.getElementById("modal-body"));
     document.getElementById("modal-body").innerHTML = content;
   }
 
