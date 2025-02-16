@@ -99,3 +99,19 @@ export class Offcanvas {
     this.offcanvas.hide();
   }
 }
+
+export function startBgSlideShow() {
+  const bgImages = [
+    "/src/assets/images/bg-slideshow/img 0.jpg",
+    "/src/assets/images/bg-slideshow/img 1.jpg",
+    "/src/assets/images/bg-slideshow/img 2.jpg",
+    "/src/assets/images/bg-slideshow/img 3.jpg",
+    "/src/assets/images/bg-slideshow/img 4.jpg",
+    "/src/assets/images/bg-slideshow/img 5.jpg",
+    "/src/assets/images/bg-slideshow/img 6.jpg",
+    "/src/assets/images/bg-slideshow/img 7.jpg",
+    "/src/assets/images/bg-slideshow/img 8.jpg",
+    "/src/assets/images/bg-slideshow/img 9.jpg",
+  ];
+  
+}
