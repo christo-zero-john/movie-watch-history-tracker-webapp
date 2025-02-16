@@ -6,4 +6,10 @@ window.displayManager = new DisplayManager();
 window.modal = new Modal();
 window.offcanvas = new Offcanvas();
 window.offcanvas.show();
-window.offcanvas.setTitle("Movie Search");
+window.offcanvas.setTitle("Movie Search Form");
+window.offcanvas.setContent(
+    `
+    
+    `
+);
+
