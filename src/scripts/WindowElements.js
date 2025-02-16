@@ -1,4 +1,48 @@
-export class Modal {}
+export class Modal {
+  constructor() {
+    let ModalDiv = document.createElement("div");
+    ModalDiv.classList.add("modal", "fade");
+    ModalDiv.id = "modal";
+    ModalDiv.setAttribute("data-bs-backdrop", "static");
+    ModalDiv.setAttribute("tabindex", "-1");
+    ModalDiv.setAttribute("aria-labelledby", "modal-title");
+    ModalDiv.setAttribute("aria-hidden", "true");
+
+    ModalDiv.innerHTML = `
+       <div class="modal-dialog modal-dialog-centered col-md-8 mx-auto">
+          <div class="modal-content bg-transparent">
+            <div class="modal-body p-0 m-0" id="modal-body"></div>
+          </div>
+        </div>
+      `;
+
+    document.body.appendChild(ModalDiv);
+    this.modal = new bootstrap.Modal(ModalDiv);
+  }
+
+  show() {
+    this.modal.show();
+  }
+
+  setTitle() {
+    console.log("No header for this modal");
+  }
+
+  setContent(content) {
+    document.getElementById("modal-body").innerHTML = content;
+  }
+
+  reset() {
+    console.log("Resetting Offcanavs");
+    this.setContent("DATA LOADING...");
+  }
+
+  hide() {
+    console.log("Hiding Offcanavs");
+    this.reset();
+    this.modal.hide();
+  }
+}
 
 export class Offcanvas {
   constructor() {
@@ -43,12 +87,14 @@ export class Offcanvas {
   }
 
   reset() {
+    console.log("Resetting Offcanavs");
     this.setTitle("TITLE LOADING...");
     this.setContent("DATA LOADING...");
   }
 
   hide() {
-    this.offcanvas.hide();
+    console.log("Hiding Offcanavs");
     this.reset();
+    this.offcanvas.hide();
   }
 }
