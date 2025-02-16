@@ -82,8 +82,8 @@ p {
   font-size: 13px;
 }
 
-.movie-item .hover-variant .movie-date-time {
-  font-size: 10px;
+.movie-item .hover-variant .movie-date-time p{
+  font-size: 2px;
 }
 
 .movie-item .hover-varient .top-side {
@@ -281,4 +281,9 @@ p {
     max-width: 67%;
     margin: 1.75rem auto;
   }
+}
+
+.movie-item {
+  min-width: 100px;
+  min-height: 200px;
 }
