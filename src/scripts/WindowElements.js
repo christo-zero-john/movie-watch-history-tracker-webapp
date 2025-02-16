@@ -38,6 +38,6 @@ export class Offcanvas {
   }
 
   setTitle(title) {
-    this.offcanvas.setTitle(title);
+    document.getElementById("movieSearchFormOffcanvasLabel").innerText = title;
   }
 }
