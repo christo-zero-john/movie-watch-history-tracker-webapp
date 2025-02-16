@@ -8,10 +8,7 @@ export class Offcanvas {
     offCanvasDiv.setAttribute("data-bs-backdrop", "static");
 
     offCanvasDiv.setAttribute("tabindex", "-1");
-    offCanvasDiv.setAttribute(
-      "aria-labelledby",
-      "offcanvas-title"
-    );
+    offCanvasDiv.setAttribute("aria-labelledby", "offcanvas-title");
 
     offCanvasDiv.innerHTML = `
     <div class="offcanvas-header">
@@ -26,7 +23,7 @@ export class Offcanvas {
         ></button>
     </div>
 
-    <div class="offcanvas-body no-scrollbar">DATA LOADING...</div>
+    <div class="offcanvas-body no-scrollbar" id="offcanvas-body">DATA LOADING...</div>
     `;
 
     document.body.appendChild(offCanvasDiv);
@@ -38,6 +35,10 @@ export class Offcanvas {
   }
 
   setTitle(title) {
-    document.getElementById("offcanvas-title").innerHTML = title;
+    document.getElementById("offcanvas-title").innerText = title;
+  }
+
+  setContent(content) {
+    document.getElementById("offcanvas-body").innerText = content;
   }
 }
