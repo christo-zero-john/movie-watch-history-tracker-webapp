@@ -129,9 +129,7 @@
         <button
           class="p-0 ps-2 add-movie-btn rounded-end float-end sticky-bottom border-0 my-2"
           type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#movieSearchFormOffcanvas"
-          aria-controls="movieSearchFormOffcanvas"
+          onclick="window.searchMovie.openSearchForm()"
         >
           Add Movie
           <img
@@ -194,42 +192,50 @@
                 class="search-options md-w-fit p-md-2 px-md-4 my-2 d-flex flex-row align-items-center flex-nowrap overflow-auto"
               >
                 <button
-                  class="so-btn selected px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('name')"
                 >
-                  name
+                  Name
                 </button>
                 <button
                   class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('description')"
                 >
                   Description
                 </button>
                 <button
                   class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('genres')"
                 >
                   Genres
                 </button>
                 <button
                   class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('cast-crew')"
                 >
                   Cast & Crew
                 </button>
                 <button
                   class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('release-date')"
                 >
                   Release Date
                 </button>
                 <button
                   class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('keywords')"
                 >
                   Keywords
                 </button>
                 <button
                   class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('production-companies')"
                 >
                   Production Companies
                 </button>
                 <button
                   class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('language')"
                 >
                   Language
                 </button>
