@@ -115,14 +115,15 @@ export class SearchMovie {
     console.log(window.searchOptions);
   }
 
-  searchMovieHandler(event) {
+  async searchMovieHandler(event) {
     event.preventDefault();
     let searchTerm = document.getElementById("movie-search-term").value;
+    let searchResultDiv = document.getElementById("movie-search-result");
     searchResultDiv.innerHTML = `Searching for ${searchTerm}...`;
     if (searchTerm.length < 1) {
       window.confirm("Search term too short. Atleast 1 character required");
     } else {
-      let results = this.getResults(searchTerm);
+      let results = await this.getResults(searchTerm);
       this.displaySearchResults(results);
     }
   }
@@ -136,11 +137,13 @@ export class SearchMovie {
       results.push(movieItem);
     });
 
-    this.displaySearchResults(results);
+    return results;
   }
 
   displaySearchResults(searchResults) {
-    console.log("Displaying Search Results: ", results);
+    console.log("Displaying Search Results: ", searchResults);
     const searchResultDiv = document.getElementById("movie-search-result");
   }
 }
+
+
