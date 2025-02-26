@@ -20,7 +20,7 @@ p {
   width: 100vw;
   object-fit: cover;
   object-position: center;
-  opacity: 0.35;
+  opacity: 0.3;
   transition: all 1s;
 }
 
@@ -171,22 +171,6 @@ p {
 
 .search-results .nothing {
   color: #ff824d;
-}
-
-.search-results .results {
-  display: none;
-}
-
-.search-results .results {
-  display: none;
-}
-
-.search-results:hover .results {
-  display: flex;
-}
-
-.search-results:hover .nothing {
-  display: none;
 }
 
 .result-item .result-cover {
