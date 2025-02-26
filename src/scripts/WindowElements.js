@@ -121,8 +121,6 @@ export function startBgSlideShow() {
   setInterval(() => {
     const index = Math.floor(Math.random() * 10);
     slideShowElements.forEach((element) => {
-      element.style.opacity = 0;
-      element.style.opacity = 0.4;
       element.src = bgImages[index];
     });
   }, 6000);
