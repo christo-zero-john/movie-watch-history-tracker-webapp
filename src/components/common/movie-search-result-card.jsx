@@ -32,6 +32,7 @@ export default function MovieSearchResultCard({ movie }) {
         </Link>
       </div>
       <div className="text-start result-content p-2 small">
+        
         <Link
           to={`/details/${movie.id}`}
           className="nav-link movie-name fw-500 pt-2"
