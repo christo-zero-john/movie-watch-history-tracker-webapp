@@ -103,10 +103,13 @@ export class SearchMovie {
     if (window.searchOptions.includes(option)) {
       let index = window.searchOptions.indexOf(option);
       window.searchOptions.splice(index, 1);
-      event.target.classList.remove("selected");
+
+      // We can pass null as event to add or remove an option dynamically from other methods javascript. So to prevent an error in such case we should explicitly check whether the evnt has happened or not. Add or Remove class 'selected' from the button only if we got a valid event.
+
+      event && event.target.classList.remove("selected");
     } else {
       window.searchOptions.push(option);
-      event.target.classList.add("selected");
+      event && event.target.classList.add("selected");
     }
     if (window.searchOptions.length <= 0) {
       window.searchOptions.push("name");
@@ -119,10 +122,10 @@ export class SearchMovie {
     event.preventDefault();
     let searchTerm = document.getElementById("movie-search-term").value;
     let searchResultDiv = document.getElementById("movie-search-result");
-    searchResultDiv.innerHTML = `Searching for ${searchTerm}...`;
     if (searchTerm.length < 1) {
       window.confirm("Search term too short. Atleast 1 character required");
     } else {
+      searchResultDiv.innerHTML = `Searching for ${searchTerm}...`;
       let results = await this.getResults(searchTerm);
       this.displaySearchResults(results);
     }
@@ -130,8 +133,55 @@ export class SearchMovie {
 
   async getResults(searchTerm) {
     // Fetch search results from tmdb
-    let response = ["", "", "", "", ""];
+    let response = [];
     let results = [];
+    // for each search option in window.searchOptions, check whether the search term is valid and search for those, then push movie into the results array
+
+    let searchOptions = window.searchOptions;
+    console.log(`searching for ${searchTerm} in ${searchOptions.join(", ")}`);
+
+    // We should check whether the searchOptions are valid for the give search term. It is mandatory to check this except for  certain options like name, description, production-companies, keywords etc...
+    searchOptions.forEach(async (option) => {
+      // If the options are not equal to excluded options then validate searchTerm for those options
+      const excludeOptions = [
+        "name",
+        "description",
+        "production-companies",
+        "keywords",
+      ];
+
+      if (!excludeOptions.includes(option)) {
+        let validationStatus = await this.validateSearchOptions(
+          option,
+          searchTerm
+        );
+        console.log(validationStatus);
+        if (!validationStatus.success) {
+          console.log(
+            "Some unexpected error while validating option: ",
+            option
+          );
+        } else {
+          if (!validationStatus.valid) {
+            // If search term is invalid then remove that option and do not search for that option
+            console.log(`Search Term invalid for ${option}`);
+            let removeIndex = searchOptions.indexOf(option);
+            searchOptions.splice(removeIndex, 1);
+          } else {
+            console.log(
+              `Search Term valid for ${option}. Starting to fetch movies`
+            );
+          }
+        }
+      }
+    });
+    console.log(searchOptions);
+
+    searchOptions.forEach((option) => {
+      let searchResults = this.searchMovies(searchTerm, option);
+      response.push(searchResults);
+    });
+
     response.forEach((movie) => {
       let movieItem = window.displayManager.constructMovieItem(movie);
       results.push(movieItem);
@@ -140,10 +190,68 @@ export class SearchMovie {
     return results;
   }
 
+  async searchMovies(searchOptions, searchTerm) {
+    // Similar to multiple methods to validate searchOptions, we need multiple methods to search for different searchOptions. So we can define a key value pair object with 'option name' and 'tmdb search endpoint' and fetch movies from these endpoints.
+
+    const searchEndPoints = {
+      
+    }
+  }
+
+  async validateSearchOptions(option, searchTerm) {
+    // We need to validate searchTerm the search option, to make it simple I defined seperate methods to do the validation for each option and stored the 'option name' and 'validator function name' as key value pairs in the 'validators' object
+    const validators = {
+      genres: this.checkValidGenres,
+      "cast-crew": this.checkValidCastCrew,
+      language: this.checkValidLanguage,
+      "release-date": this.checkValidReleaseDate,
+    };
+
+    // console.log(validators[option]);
+    let validationStatus = validators[option](searchTerm);
+
+    return validationStatus;
+  }
+
+  // Validators methods for searchOptions
+  async checkValidGenres(searchTerm) {
+    console.log("Validating Genres for search term: ", searchTerm);
+    return {
+      success: true,
+      valid: false,
+      data: "some data",
+    };
+  }
+
+  async checkValidCastCrew(searchTerm) {
+    console.log("Validating CastCrew for search term: ", searchTerm);
+    return {
+      success: true,
+      valid: true,
+      data: "some data",
+    };
+  }
+
+  async checkValidLanguage(searchTerm) {
+    console.log("Validating Language for search term: ", searchTerm);
+    return {
+      success: true,
+      valid: true,
+      data: "some data",
+    };
+  }
+
+  async checkValidReleaseDate(searchTerm) {
+    console.log("Validating ReleaseDate for search term: ", searchTerm);
+    return {
+      success: true,
+      valid: true,
+      data: "some data",
+    };
+  }
+
   displaySearchResults(searchResults) {
     console.log("Displaying Search Results: ", searchResults);
     const searchResultDiv = document.getElementById("movie-search-result");
   }
 }
-
-
