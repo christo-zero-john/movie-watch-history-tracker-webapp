@@ -116,7 +116,7 @@ export function startBgSlideShow() {
 
   const slideShowElements = document.querySelectorAll(".bg-slideshow-img");
 
-  console.log(slideShowElements);
+  // console.log(slideShowElements);
 
   setInterval(() => {
     const index = Math.floor(Math.random() * 10);
