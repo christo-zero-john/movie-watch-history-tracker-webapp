@@ -175,7 +175,7 @@ export class SearchMovie {
         }
       }
     });
-    console.log(searchOptions);
+    console.log("Search Options: ", searchOptions);
 
     searchOptions.forEach((option) => {
       let searchResults = this.searchMovies(searchTerm, option);
@@ -193,9 +193,7 @@ export class SearchMovie {
   async searchMovies(searchOptions, searchTerm) {
     // Similar to multiple methods to validate searchOptions, we need multiple methods to search for different searchOptions. So we can define a key value pair object with 'option name' and 'tmdb search endpoint' and fetch movies from these endpoints.
 
-    const searchEndPoints = {
-      
-    }
+    const searchEndPoints = {};
   }
 
   async validateSearchOptions(option, searchTerm) {
