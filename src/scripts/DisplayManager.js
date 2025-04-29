@@ -9,7 +9,7 @@ export class DisplayManager {
     myMovies.push(this.constructMovieItem());
     console.log("Displaying Your Movies");
     let html = "";
-    console.log(myMovies);
+    console.log("My Movies", myMovies);
     html += myMovies.map((movie, index) => {
       movie.rating = this.constructStarRating(movie.rating);
       return `
@@ -113,7 +113,7 @@ export class DisplayManager {
 
   constructStarRating(rating) {
     // This method is used to construct html of rating stars
-    console.log("Original rating: ", rating);
+    // console.log("Original rating: ", rating);
     const fourStarRating = (rating / 10) * 4;
     const stars = [];
 
