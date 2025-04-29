@@ -1,9 +1,4 @@
 export class SearchMovie {
-  constructor() {
-    window.searchOptions = ["name"];
-    window.addOrRemoveSearchOption = this.addOrRemoveSearchOption;
-  }
-
   openSearchForm() {
     window.offcanvas.setTitle("Search a Movie");
     window.offcanvas.setContent(`
@@ -43,30 +38,6 @@ export class SearchMovie {
     `);
 
     window.offcanvas.show();
-  }
-
-  /**
-   * Add or remove search option from the global window.searchOptions object.
-   * Also an 'active' class is added or removed from the search option button that is clicked.
-   * Available search options: ['name', 'description', 'genres', 'cast-crew', 'release-date', 'keywords', 'production-companies', 'language']
-   */
-  addOrRemoveSearchOption(event, option) {
-    if (window.searchOptions.includes(option)) {
-      let index = window.searchOptions.indexOf(option);
-      window.searchOptions.splice(index, 1);
-
-      // We can pass null as event to add or remove an option dynamically from other methods javascript. So to prevent an error in such case we should explicitly check whether the evnt has happened or not. Add or Remove class 'selected' from the button only if we got a valid event.
-
-      event && event.target.classList.remove("selected");
-    } else {
-      window.searchOptions.push(option);
-      event && event.target.classList.add("selected");
-    }
-    if (window.searchOptions.length <= 0) {
-      window.searchOptions.push("name");
-      document.getElementById("name-option").classList.add("selected");
-    }
-    console.log(window.searchOptions);
   }
 
   async searchMovieHandler(event) {
@@ -184,7 +155,6 @@ export class SearchMovie {
     console.log("Displaying Search Results: ", searchResults);
     const searchResultDiv = document.getElementById("movie-search-result");
     searchResultDiv.innerHTML = "Displaying Results";
-    
   }
 
   demoDune() {
