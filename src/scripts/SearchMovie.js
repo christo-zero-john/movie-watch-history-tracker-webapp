@@ -30,61 +30,7 @@ export class SearchMovie {
                     >
                         GO
                     </button>
-                </form>
-
-                <div
-                class="search-options md-w-fit p-md-2 px-md-4 my-2 d-md-flex flex-row align-items-center flex-nowrap overflow-auto no-scrollbar"
-                >
-                <button
-                    class="selected so-btn px-2 px-md-4 m-2 m-md-3 m-md-0 mx-md-1 text-nowrap"
-                    onclick="window.addOrRemoveSearchOption(event, 'name')" id="name-option"
-                >
-                    Name
-                </button>
-                <button
-                    class="so-btn px-2 px-md-4 m-2 m-md-3 m-md-0 mx-md-1 text-nowrap"
-                    onclick="window.addOrRemoveSearchOption(event, 'description')"
-                >
-                    Description
-                </button>
-                <button
-                    class="so-btn px-2 px-md-4 m-2 m-md-3 m-md-0 mx-md-1 text-nowrap"
-                    onclick="window.addOrRemoveSearchOption(event, 'genres')"
-                >
-                    Genres
-                </button>
-                <button
-                    class="so-btn px-2 px-md-4 m-2 m-md-3 m-md-0 mx-md-1 text-nowrap"
-                    onclick="window.addOrRemoveSearchOption(event, 'cast-crew')"
-                >
-                    Cast & Crew
-                </button>
-                <button
-                    class="so-btn px-2 px-md-4 m-2 m-md-3 m-md-0 mx-md-1 text-nowrap"
-                    onclick="window.addOrRemoveSearchOption(event, 'release-date')"
-                >
-                    Release Date
-                </button>
-                <button
-                    class="so-btn px-2 px-md-4 m-2 m-md-3 m-md-0 mx-md-1 text-nowrap"
-                    onclick="window.addOrRemoveSearchOption(event, 'keywords')"
-                >
-                    Keywords
-                </button>
-                <button
-                    class="so-btn px-2 px-md-4 m-2 m-md-3 m-md-0 mx-md-1 text-nowrap"
-                    onclick="window.addOrRemoveSearchOption(event, 'production-companies')"
-                >
-                    Production Companies
-                </button>
-                <button
-                    class="so-btn px-2 px-md-4 m-2 m-md-3 m-md-0 mx-md-1 text-nowrap"
-                    onclick="window.addOrRemoveSearchOption(event, 'language')"
-                >
-                    Language
-                </button>
-                </div>
-            </div>
+                </form>               
 
             <div class="search-results w-100" id="movie-search-result">
               <h4 class="nothing col-md-7 op-07 mx-4 mx-md-auto mt-5 pt-5">
@@ -138,128 +84,64 @@ export class SearchMovie {
 
   async getResults(searchTerm) {
     // Fetch search results from tmdb
-    let response = [];
-    let results = [];
+    let searchResponse = [];
+    let searchResults = [];
+    // search for movie, construct search results as HTML, return results
 
-    // for each search option in window.searchOptions, check whether the search term is valid and search for those, then push movie into the results array
-    let searchOptions = window.searchOptions;
-    console.log(`searching for ${searchTerm} in ${searchOptions.join(", ")}`);
+    searchResponse = await this.searchMovies(searchTerm);
 
-    // We should check whether the searchOptions are valid for the give search term. It is mandatory to check this except for  certain options like name, description, production-companies, keywords etc... These optons which does not need validation is included in the exclude options
-    searchOptions.forEach(async (option) => {
-      // If the options are not equal to excluded options then validate searchTerm for those options
-      const excludeOptions = [
-        "name",
-        "description",
-        "production-companies",
-        "keywords",
-      ];
-
-      if (!excludeOptions.includes(option)) {
-        let validationStatus = await this.validateSearchOptions(
-          option,
-          searchTerm
-        );
-        console.log(validationStatus);
-        if (!validationStatus.success) {
-          console.log(
-            "Some unexpected error while validating option: ",
-            option
-          );
-        } else {
-          if (!validationStatus.valid) {
-            // If search term is invalid then remove that option and do not search for that option
-            console.log(`Search Term invalid for ${option}`);
-            let removeIndex = searchOptions.indexOf(option);
-            searchOptions.splice(removeIndex, 1);
-          } else {
-            console.log(
-              `Search Term valid for ${option}. Starting to fetch movies`
-            );
-          }
-        }
-      }
-    });
-    console.log("Search Options: ", searchOptions);
-
-    searchOptions.forEach((option) => {
-      let searchResults = this.searchMovies(searchTerm, option);
-      response.push(searchResults);
+    searchResponse.results.forEach((result) => {
+      // console.log(result);
+      searchResults.push(this.constructMovieItem(result));
     });
 
-    response.forEach((movie) => {
-      let movieItem = window.displayManager.constructMovieItem(movie);
-      results.push(movieItem);
-    });
-
-    return results;
+    return searchResults;
   }
 
-  async searchMovies(searchTerm, searchOptions) {
-    // Similar to multiple methods to validate searchOptions, we need multiple methods to search for different searchOptions. So we can define a key value pair object with 'option name' and 'tmdb search endpoint' and fetch movies from these endpoints.
+  async searchMovies(searchTerm) {
+    searchTerm = encodeURIComponent(searchTerm);
+    console.log("Searching for ", searchTerm);
 
-    const searchEndPoints = {
-      name: `https://api.themoviedb.org/3/search/movie?query=${searchTerm}`,
-      description: `/search/movie?query=${searchTerm}`,
-      genres: `https://api.themoviedb.org/3/discover/movie?with_genres=gid1,gid2,gid3`,
-      "cast-crew": `https://api.themoviedb.org/3/discover/movie?with_cast=person_id&with_crew=person_id`,
-      "release-date": `https://api.themoviedb.org/3/search`,
-      keywords: `https://api.themoviedb.org/3/search`,
-      "production-companies": `https://api.themoviedb.org/3/search`,
-      language: `https://api.themoviedb.org/3/search`,
+    const token =
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMzFiMDU4N2E5ODQ5ZDQyOTIyZmQwYzI2YWE0YmY5NiIsIm5iZiI6MTczODM0NTAwMS4yNTIsInN1YiI6IjY3OWQwYTI5YTliNGIxMjhmYjRkMzk2YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.sUL84tE8A-zqqvpXiEqRZ1O70pqBTrjGSCLoskvRA5o";
+
+    const searchURL = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}`;
+    const request = {
+      method: "GET",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
     };
+
+    try {
+      return fetch(searchURL, request)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          return data;
+        });
+    } catch (error) {
+      window.confirm("Something went wrong. See console for error!!");
+      console.log(error);
+    }
   }
 
-  async validateSearchOptions(option, searchTerm) {
-    // We need to validate searchTerm the search option, to make it simple I defined seperate methods to do the validation for each option and stored the 'option name' and 'validator function name' as key value pairs in the 'validators' object
-    const validators = {
-      genres: this.checkValidGenres,
-      "cast-crew": this.checkValidCastCrew,
-      language: this.checkValidLanguage,
-      "release-date": this.checkValidReleaseDate,
+  constructMovieItem(movie) {
+    // This method is used to construct movie item
+    console.log(movie);
+    const movieItem = {
+      id: movie.id,
+      name: movie.title,
+      duration: 112,
+      release_date: ["2014", "DEC", "06"],
+      rating: movie.popularity,
+      poster_path: movie.poster_image,
+      background_image: movie.backdrop_path,
+      genres: [],
     };
 
-    // console.log(validators[option]);
-    let validationStatus = validators[option](searchTerm);
-
-    return validationStatus;
-  }
-
-  // Validators methods for searchOptions
-  async checkValidGenres(searchTerm) {
-    console.log("Validating Genres for search term: ", searchTerm);
-    return {
-      success: true,
-      valid: false,
-      data: "some data",
-    };
-  }
-
-  async checkValidCastCrew(searchTerm) {
-    console.log("Validating CastCrew for search term: ", searchTerm);
-    return {
-      success: true,
-      valid: true,
-      data: "some data",
-    };
-  }
-
-  async checkValidLanguage(searchTerm) {
-    console.log("Validating Language for search term: ", searchTerm);
-    return {
-      success: true,
-      valid: true,
-      data: "some data",
-    };
-  }
-
-  async checkValidReleaseDate(searchTerm) {
-    console.log("Validating ReleaseDate for search term: ", searchTerm);
-    return {
-      success: true,
-      valid: true,
-      data: "some data",
-    };
+    return movieItem;
   }
 
   displaySearchResults(searchResults) {
