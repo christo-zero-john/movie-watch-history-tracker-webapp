@@ -90,9 +90,17 @@ export class SearchMovie {
 
     searchResponse = await this.searchMovies(searchTerm);
 
-    searchResponse.results.forEach((result) => {
-      searchResults.push(this.constructMovieItem(result));
-    });
+    if (searchResponse.results.length > 0) {
+      console.log(
+        `${searchResponse.total_results} Results found. Constucting movie items from search results.`
+      );
+      searchResponse.results.forEach((result) => {
+        searchResults.push(this.constructMovieItem(result));
+      });
+    } else {
+      console.log("No results found!!");
+    }
+
     console.log(searchResults);
 
     return searchResults;
