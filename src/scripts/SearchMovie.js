@@ -99,6 +99,11 @@ export class SearchMovie {
     window.offcanvas.show();
   }
 
+  /**
+   * Add or remove search option from the global window.searchOptions object.
+   * Also an 'active' class is added or removed from the search option button that is clicked.
+   * Available search options: ['name', 'description', 'genres', 'cast-crew', 'release-date', 'keywords', 'production-companies', 'language']
+   */
   addOrRemoveSearchOption(event, option) {
     if (window.searchOptions.includes(option)) {
       let index = window.searchOptions.indexOf(option);
@@ -135,12 +140,12 @@ export class SearchMovie {
     // Fetch search results from tmdb
     let response = [];
     let results = [];
-    // for each search option in window.searchOptions, check whether the search term is valid and search for those, then push movie into the results array
 
+    // for each search option in window.searchOptions, check whether the search term is valid and search for those, then push movie into the results array
     let searchOptions = window.searchOptions;
     console.log(`searching for ${searchTerm} in ${searchOptions.join(", ")}`);
 
-    // We should check whether the searchOptions are valid for the give search term. It is mandatory to check this except for  certain options like name, description, production-companies, keywords etc...
+    // We should check whether the searchOptions are valid for the give search term. It is mandatory to check this except for  certain options like name, description, production-companies, keywords etc... These optons which does not need validation is included in the exclude options
     searchOptions.forEach(async (option) => {
       // If the options are not equal to excluded options then validate searchTerm for those options
       const excludeOptions = [
@@ -190,10 +195,19 @@ export class SearchMovie {
     return results;
   }
 
-  async searchMovies(searchOptions, searchTerm) {
+  async searchMovies(searchTerm, searchOptions) {
     // Similar to multiple methods to validate searchOptions, we need multiple methods to search for different searchOptions. So we can define a key value pair object with 'option name' and 'tmdb search endpoint' and fetch movies from these endpoints.
 
-    const searchEndPoints = {};
+    const searchEndPoints = {
+      name: `https://api.themoviedb.org/3/search/movie?query=${searchTerm}`,
+      description: `/search/movie?query=${searchTerm}`,
+      genres: `https://api.themoviedb.org/3/discover/movie?with_genres=gid1,gid2,gid3`,
+      "cast-crew": `https://api.themoviedb.org/3/discover/movie?with_cast=person_id&with_crew=person_id`,
+      "release-date": `https://api.themoviedb.org/3/search`,
+      keywords: `https://api.themoviedb.org/3/search`,
+      "production-companies": `https://api.themoviedb.org/3/search`,
+      language: `https://api.themoviedb.org/3/search`,
+    };
   }
 
   async validateSearchOptions(option, searchTerm) {
