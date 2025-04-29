@@ -95,21 +95,6 @@ export class DisplayManager {
     document.getElementById("my-genre").innerHTML = html;
   }
 
-  constructMovieItem(movie) {
-    // This method is used to construct movie item
-    const movieItem = {
-      id: 317442,
-      name: "The Last: Naruto the Movie",
-      duration: 112,
-      release_date: ["2014", "DEC", "06"],
-      rating: 7.8,
-      poster_image: "/src/assets/images/temp/cover-image.jpg",
-      background_image: "",
-      genres: ["Animation", "Action", "Fantasy"],
-    };
-
-    return movieItem;
-  }
 
   constructStarRating(rating) {
     // This method is used to construct html of rating stars
