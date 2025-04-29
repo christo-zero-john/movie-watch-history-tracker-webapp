@@ -78,6 +78,7 @@ export class SearchMovie {
     } else {
       searchResultDiv.innerHTML = `Searching for ${searchTerm}...`;
       let results = await this.getResults(searchTerm);
+      console.log("Displaying search results");
       this.displaySearchResults(results);
     }
   }
@@ -101,7 +102,9 @@ export class SearchMovie {
       console.log("No results found!!");
     }
 
-    console.log(searchResults);
+    if (searchResults.length > 0) {
+      console.log("Searh results constructed successfully");
+    }
 
     return searchResults;
   }
@@ -180,5 +183,142 @@ export class SearchMovie {
   displaySearchResults(searchResults) {
     console.log("Displaying Search Results: ", searchResults);
     const searchResultDiv = document.getElementById("movie-search-result");
+    searchResultDiv.innerHTML = "Displaying Results";
+    
+  }
+
+  demoDune() {
+    this.displaySearchResults([
+      {
+        id: 347201,
+        name: "Boruto: Naruto the Movie",
+        duration: 0,
+        release_date: ["2015", "AUG", "07"],
+        rating: 12.7244,
+        poster_image: "/1k6iwC4KaPvTBt1JuaqXy3noZRY.jpg",
+        background_image: "/51oaRzcFOAZzxOVbQQHnSbbuSJU.jpg",
+        genres: [],
+      },
+      {
+        id: 118406,
+        name: "Road to Ninja: Naruto the Movie",
+        duration: 0,
+        release_date: ["2012", "JUL", "28"],
+        rating: 4.6453,
+        poster_image: "/xLal6fXNtiJN6Zw6qk21xAtdOeN.jpg",
+        background_image: "/sKh3GJ7eMStObW5BsgkztTmpg5H.jpg",
+        genres: [],
+      },
+      {
+        id: 317442,
+        name: "The Last: Naruto the Movie",
+        duration: 0,
+        release_date: ["2014", "DEC", "06"],
+        rating: 14.9513,
+        poster_image: "/bAQ8O5Uw6FedtlCbJTutenzPVKd.jpg",
+        background_image: "/l8ubUlfzlB5R2j9cJ3CN7tj0gmd.jpg",
+        genres: [],
+      },
+      {
+        id: 20982,
+        name: "Naruto Shippuden the Movie",
+        duration: 0,
+        release_date: ["2007", "AUG", "04"],
+        rating: 13.1148,
+        poster_image: "/vDkct38sSFSWJIATlfJw0l3QOIR.jpg",
+        background_image: "/sZIJkZPKySo398Me4HLeUM7eCy0.jpg",
+        genres: [],
+      },
+      {
+        id: 16907,
+        name: "Naruto the Movie: Ninja Clash in the Land of Snow",
+        duration: 0,
+        release_date: ["2004", "AUG", "21"],
+        rating: 10.3076,
+        poster_image: "/eUNRUeSNzm8LktH4HRaYiAReB6R.jpg",
+        background_image: "/bW0Hr19Xo7LDnMmywXuH5YoTMY5.jpg",
+        genres: [],
+      },
+      {
+        id: 16910,
+        name: "Naruto the Movie: Legend of the Stone of Gelel",
+        duration: 0,
+        release_date: ["2005", "AUG", "06"],
+        rating: 9.4157,
+        poster_image: "/itKMldwL6uhUZYO3X78NOFU4zzO.jpg",
+        background_image: "/ldwWnaWoW8ziEFflimoraZouyvB.jpg",
+        genres: [],
+      },
+      {
+        id: 50723,
+        name: "Naruto Shippuden the Movie: The Lost Tower",
+        duration: 0,
+        release_date: ["2010", "JUL", "31"],
+        rating: 10.3908,
+        poster_image: "/6e2YvN1tQK4xQHlmy7GJTuXOt2u.jpg",
+        background_image: "/a4MrZ711OIObIhSGF8SqcZQTyZo.jpg",
+        genres: [],
+      },
+      {
+        id: 17581,
+        name: "Naruto Shippuden the Movie: Bonds",
+        duration: 0,
+        release_date: ["2008", "AUG", "02"],
+        rating: 10.6535,
+        poster_image: "/bBqEiQbbfyt4MWR3NhDZMbS4Wp8.jpg",
+        background_image: "/xzIaIFXs14vr5BGoAQ2IJsQ60EB.jpg",
+        genres: [],
+      },
+      {
+        id: 75624,
+        name: "Naruto Shippuden the Movie: Blood Prison",
+        duration: 0,
+        release_date: ["2011", "JUL", "30"],
+        rating: 9.5798,
+        poster_image: "/4WT7zYFpe0fsbg6TitppiHddWAh.jpg",
+        background_image: "/Abv3ZtGV2NXxPimArb3LDLg2bDH.jpg",
+        genres: [],
+      },
+      {
+        id: 36728,
+        name: "Naruto Shippuden the Movie: The Will of Fire",
+        duration: 0,
+        release_date: ["2009", "AUG", "01"],
+        rating: 11.4014,
+        poster_image: "/pZzdFmztwmg0FUOVCMa7vReHhQN.jpg",
+        background_image: "/fq5r99Uwr0TEG1yc903LgPNNA9k.jpg",
+        genres: [],
+      },
+      {
+        id: 18861,
+        name: "Naruto the Movie: Guardians of the Crescent Moon Kingdom",
+        duration: 0,
+        release_date: ["2006", "AUG", "05"],
+        rating: 10.4193,
+        poster_image: "/mmKiJ93x6uhTwJlrxCoY38R4qo6.jpg",
+        background_image: "/j2oX7UeZJJD6tUczrVECcJCdLaG.jpg",
+        genres: [],
+      },
+      {
+        id: 1017204,
+        name: "The Day Naruto Became Hokage",
+        duration: 0,
+        release_date: ["2016", "JUL", "06"],
+        rating: 3.6453,
+        poster_image: "/7Zp4LaCbFNd1hxfxRDTdFqMzqxi.jpg",
+        background_image: "/eOI4aC1ZqYgHcJIPmi9YcAolrAd.jpg",
+        genres: [],
+      },
+      {
+        id: 609197,
+        name: "Naruto, the Genie, and the Three Wishes, Believe It!",
+        duration: 0,
+        release_date: ["2010", "JUL", "31"],
+        rating: 3.114,
+        poster_image: "/zuydzpfVgPDFZrBxauAUJMbBbXe.jpg",
+        background_image: "/9izS6dYvrytS7w69oSPlpSRrfQb.jpg",
+        genres: [],
+      },
+    ]);
   }
 }
