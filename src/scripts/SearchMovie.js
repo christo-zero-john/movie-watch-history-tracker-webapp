@@ -91,9 +91,9 @@ export class SearchMovie {
     searchResponse = await this.searchMovies(searchTerm);
 
     searchResponse.results.forEach((result) => {
-      // console.log(result);
       searchResults.push(this.constructMovieItem(result));
     });
+    console.log(searchResults);
 
     return searchResults;
   }
@@ -129,18 +129,43 @@ export class SearchMovie {
 
   constructMovieItem(movie) {
     // This method is used to construct movie item
-    console.log(movie);
+    // console.log(movie);
+
+    function constructReleaseDate(release_date) {
+      const MonthIDs = {
+        1: "JAN",
+        2: "FEB",
+        3: "MAR",
+        4: "APR",
+        5: "MAY",
+        6: "JUN",
+        7: "JUL",
+        8: "AUG",
+        9: "SEP",
+        10: "OCT",
+        11: "NOV",
+        12: "DEC",
+      };
+      release_date = release_date.split("-");
+
+      // convert month in number to month in words. Uses the + so that it is converted to number as the keys of MonthIDs object is a number
+      release_date[1] = MonthIDs[+release_date[1]];
+
+      return release_date;
+    }
+
     const movieItem = {
       id: movie.id,
       name: movie.title,
-      duration: 112,
-      release_date: ["2014", "DEC", "06"],
+      duration: 0,
+      release_date: constructReleaseDate(movie.release_date),
       rating: movie.popularity,
-      poster_path: movie.poster_image,
+      poster_image: movie.poster_path,
       background_image: movie.backdrop_path,
       genres: [],
     };
 
+    // console.log(movieItem);
     return movieItem;
   }
 
