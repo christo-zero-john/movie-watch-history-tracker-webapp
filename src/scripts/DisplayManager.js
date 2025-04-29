@@ -6,7 +6,6 @@ export class DisplayManager {
   displayMyMovies() {
     // This method is used to displays Movies in watch history
     const myMovies = [];
-    myMovies.push(this.constructMovieItem());
     console.log("Displaying Your Movies");
     let html = "";
     console.log("My Movies", myMovies);
