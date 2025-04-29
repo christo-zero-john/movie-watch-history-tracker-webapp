@@ -1,7 +1,3 @@
-* {
-  transition: all 0.5s !important;
-}
-
 p {
   margin: 0;
 }
@@ -83,7 +79,7 @@ p {
   font-size: 13px;
 }
 
-.movie-item .hover-variant .movie-date-time p{
+.movie-item .hover-variant .movie-date-time p {
   font-size: 2px;
 }
 
