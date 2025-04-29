@@ -94,7 +94,6 @@ export class DisplayManager {
     document.getElementById("my-genre").innerHTML = html;
   }
 
-
   constructStarRating(rating) {
     // This method is used to construct html of rating stars
     // console.log("Original rating: ", rating);
