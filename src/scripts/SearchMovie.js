@@ -111,7 +111,7 @@ export class SearchMovie {
 
   constructMovieItem(movie) {
     // This method is used to construct movie item
-    // console.log(movie);
+    console.log(movie);
 
     function constructReleaseDate(release_date) {
       const MonthIDs = {
@@ -145,6 +145,7 @@ export class SearchMovie {
       poster_image: movie.poster_path,
       background_image: movie.backdrop_path,
       genres: [],
+      original_name: movie.original_title,
     };
 
     // console.log(movieItem);
@@ -155,8 +156,80 @@ export class SearchMovie {
     console.log("Displaying Search Results: ", searchResults);
     const searchResultDiv = document.getElementById("movie-search-result");
     searchResultDiv.innerHTML = "Displaying Results";
+    searchResultDiv.innerHTML = ""; // Clear the search results div
+    searchResultDiv.classList.remove("nothing");
+    searchResultDiv.classList +=
+      " d-flex flex-row justify-content-center flex-wrap";
+    searchResults.forEach((result) => {
+      searchResultDiv.innerHTML += this.constructMovieHTML(result);
+    });
   }
 
+  /**
+   * @description - This method is used to construct the movie item to be displayed in the search results. It Takes in a movie object and return the movie item to be displayd in the search results
+   * @param {Object} movie - The movie object to be displayed
+   * @returns {string} - The HTML string to be displayed in the search results
+   */
+  constructMovieHTML(movie) {
+    // console.log("Constructing movie item: ", movie);
+    return `
+      <div
+        class="result-item hover-scale-11 col-12 col-md-5 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
+      >
+        <img
+          src="./src/assets/images/temp/cover-image.jpg"
+          alt=""
+          class="result-cover me-2"
+        />
+        <div class="result-content">
+          <p class="movie-name fw-500">${movie.name}${
+      movie.original_name &&
+      `<span class="original-name small fw-100"> [${movie.original_name}]</span>`
+    }</p>
+          <div class="mid-section d-flex flex-row">
+            <div
+              class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2"
+            >
+              <img
+                src="./src/assets/images/rating-stars/100-star.png"
+                alt=""
+                class="rating-star"
+              />
+              <img
+                src="./src/assets/images/rating-stars/80-star.png"
+                alt=""
+                class="rating-star"
+              />
+              <img
+                src="./src/assets/images/rating-stars/50-star.png"
+                alt=""
+                class="rating-star"
+              />
+              <img
+                src="./src/assets/images/rating-stars/40-star.png"
+                alt=""
+                class="rating-star"
+              />
+            </div>
+
+            <div class="movie-date-time mt-1 d-flex flex-row">
+              <p class="date small">${movie.release_date}</p>
+            </div>
+          </div>
+
+          <div class="action-buttons fs-4">
+            <a href="/details?movie=${movie.id}"
+              class="nav-link text-info fs-6 small p-0 px-2 d-inline-block"
+            >
+              Details
+            </a>
+            <button>+</button>
+            <button>☆</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
   demoDune() {
     this.displaySearchResults([
       {
