@@ -11,16 +11,19 @@ class searchMovie {
     const form = event.target;
     const formData = new FormData(form);
     const searchTerm = formData.get("search-term");
-    console.log(searchTerm);    
+    console.log(searchTerm);
 
     const searchURL = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}`;
+
+    // ... existing code ...
     const request = {
       method: "GET",
       headers: {
-        Authorization: token,
+        Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
         "Content-Type": "application/json",
       },
     };
+    console.log(request);
   };
 }
 export default new searchMovie();
