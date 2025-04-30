@@ -1,8 +1,31 @@
 {
-  "hash": "a3ecfbef",
-  "configHash": "593c3c1e",
-  "lockfileHash": "e3b0c442",
-  "browserHash": "7e360fc3",
-  "optimized": {},
-  "chunks": {}
+  "hash": "74353637",
+  "configHash": "2bdf954c",
+  "lockfileHash": "e8be1a2b",
+  "browserHash": "9e9639b2",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/.pnpm/react@19.1.0/node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "f846b164",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "f86867dd",
+      "needsInterop": true
+    },
+    "react-router": {
+      "src": "../../node_modules/.pnpm/react-router@7.5.3_react-do_77e2900315e2b34763e0336d6fca055b/node_modules/react-router/dist/development/index.mjs",
+      "file": "react-router.js",
+      "fileHash": "a1d080e6",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-K2U3W6PN": {
+      "file": "chunk-K2U3W6PN.js"
+    }
+  }
 }
