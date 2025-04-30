@@ -79,6 +79,9 @@ p {
 .movie-item .hover-variant .movie-name {
   font-size: 13px;
 }
+.movie-item .hover-variant .original-name{
+  font-size: 10px;
+}
 
 .movie-item .hover-variant .movie-date-time p {
   font-size: 2px;
