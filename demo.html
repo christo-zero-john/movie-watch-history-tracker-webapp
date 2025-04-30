@@ -46,26 +46,57 @@
           </form>
 
           <div class="search-results w-100" id="movie-search-result">
-            <div class="search-result-item w-fit">
-              <a href="/details/313234" class="nav-link d-flex flex-row justify-content-center align-items-center">
-                <img
-                  loading="lazy"
-                  class="search-result-poster w-full"
-                  src="https://media.themoviedb.org/t/p/w94_and_h141_bestv2/1k6iwC4KaPvTBt1JuaqXy3noZRY.jpg"
-                  alt="Boruto: Naruto the Movie"
-                />
+            <div
+              class="result-item hover-scale-11 col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
+            >
+              <img
+                src="./src/assets/images/temp/cover-image.jpg"
+                alt=""
+                class="result-cover me-2"
+              />
+              <div class="result-content">
+                <p class="movie-name fw-500">The Last: Naruto the movie</p>
+                <div class="mid-section d-flex flex-row">
+                  <div
+                    class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2"
+                  >
+                    <img
+                      src="./src/assets/images/rating-stars/100-star.png"
+                      alt=""
+                      class="rating-star"
+                    />
+                    <img
+                      src="./src/assets/images/rating-stars/80-star.png"
+                      alt=""
+                      class="rating-star"
+                    />
+                    <img
+                      src="./src/assets/images/rating-stars/50-star.png"
+                      alt=""
+                      class="rating-star"
+                    />
+                    <img
+                      src="./src/assets/images/rating-stars/40-star.png"
+                      alt=""
+                      class="rating-star"
+                    />
+                  </div>
 
-                <div class="details">
-                  <p class="movie-title">
-                    Boruto: Naruto the Movie
-                    <span class="original-title"
-                      >(BORUTO -NARUTO THE MOVIE-)</span
-                    >
-                  </p>
-                  <span class="release-date">7 AUG 2015</span>
-                  <div class="rating">3.5(67)</div>
+                  <div class="movie-date-time mt-1 d-flex flex-row">
+                    <p class="date small">Dec 06 2014</p>
+                  </div>
                 </div>
-              </a>
+
+                <div class="action-buttons fs-4">
+                  <button
+                    class="text-info fs-6 small p-0 px-2 d-inline-block"
+                  >
+                    Details
+                  </button>
+                  <button>+</button>
+                  <button>☆</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
