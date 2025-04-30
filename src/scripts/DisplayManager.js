@@ -94,32 +94,5 @@ export class DisplayManager {
     document.getElementById("my-genre").innerHTML = html;
   }
 
-  constructStarRating(rating) {
-    // This method is used to construct html of rating stars
-    // console.log("Original rating: ", rating);
-    const fourStarRating = (rating / 10) * 4;
-    const stars = [];
-
-    for (let i = 0; i < 4; i++) {
-      const remainingValue = fourStarRating - i;
-      let starImage;
-
-      if (remainingValue >= 1) {
-        starImage = "/src/assets/images/rating-stars/100-star.png";
-      } else if (remainingValue >= 0.75) {
-        starImage = "/src/assets/images/rating-stars/80-star.png";
-      } else if (remainingValue >= 0.5) {
-        starImage = "/src/assets/images/rating-stars/50-star.png";
-      } else if (remainingValue >= 0.25) {
-        starImage = "/src/assets/images/rating-stars/40-star.png";
-      } else if (remainingValue < 0.25 && remainingValue > 0.1) {
-        starImage = "/src/assets/images/rating-stars/10-star.png";
-      } else {
-        starImage = "/src/assets/images/rating-stars/0-star.png";
-      }
-      stars.push(starImage);
-    }
-
-    return stars;
-  }
+  
 }
