@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Watch History Tracker</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./src/styles/defaults.css" />
+    <link rel="stylesheet" href="./src/styles/index.css" />
+  </head>
+
+  <body class="bg-dark text-light">
+    <main class="watch-history-container pb-5">
+      <div class="content-wrapper">
+        <img
+          src="./src/assets/images/bg-slideshow/img 0.jpg"
+          alt=""
+          class="bg-slideshow-img"
+        />
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark p-0">
+          <div class="container-fluid">
+            <a
+              class="navbar-brand fs-3 text-light fw-bolder en-iceberg"
+              href="#"
+              >MWHT</a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/"
+                    >Watch History</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#movieSearchFormOffcanvas"
+                    aria-controls="movieSearchFormOffcanvas"
+                    >Explore</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/wishlist">Wishlist</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/recommended">Recommended</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <!-- User Statistics -->
+        <section
+          class="stats-container rounded md-w-fit mx-3 mx-md-auto my-4 p-3 px-0 pb-0 pb-md-3 d-flex flex-row align-items-center flex-nowrap overflow-auto no-scrollbar"
+        >
+          <div class="stat-item small d-flex flex-row w-fit mx-4">
+            <p class="stat-value text-nowrap fw-bold mx-2">
+              120HRS<br />42MINS
+            </p>
+            <p class="stat-label text-nowrap">TOTAL<br />WATCH TIME</p>
+          </div>
+
+          <div
+            class="stat-item small d-flex flex-row align-items-center w-fit mx-4"
+          >
+            <p class="stat-value text-nowrap fw-bold mx-2 fs-5">22</p>
+            <p class="stat-label text-nowrap">MOVIES<br />WATCHED</p>
+          </div>
+
+          <div class="stat-item small d-flex flex-row w-fit mx-4">
+            <p class="stat-value text-nowrap fw-bold mx-2 text-end">
+              15<br />DAYS
+            </p>
+            <p class="stat-label text-nowrap">CURRENT<br />STREAK</p>
+          </div>
+
+          <div
+            class="stat-item small d-flex flex-row align-items-center w-fit mx-4"
+          >
+            <p class="stat-value text-nowrap fw-bold mx-2 fs-5">37</p>
+            <p class="stat-label text-nowrap">GENRES<br />WATCHED</p>
+          </div>
+        </section>
+
+        <!-- Movies in Watch History -->
+        <section class="watched-movies col-12 col-md-11 ms-3 mx-md-auto">
+          <h2 class="section-title fs-6">Watched Movies</h2>
+          <div
+            class="movie-list p-3 p-md-4 pb-2 pb-md-3 rounded d-flex flex-row justify-content-start align-items-center flex-nowrap overflow-auto no-scrollbar"
+            id="my-movies"
+          >
+            <p class="fs-3">No Movie In Watch History...</p>
+          </div>
+        </section>
+
+        <!-- your genre section -->
+        <div class="genre-section col-11 mx-auto my-5 mb-4">
+          <h2 class="fs-6">Your Movie Genre</h2>
+          <div
+            class="p-2 pb-0 pb-md-2 rounded my-genre d-flex flex-row justify-content-start flex-nowrap overflow-auto no-scrollbar"
+            id="my-genre"
+          >
+            <p class="fs-3">No Movie genre to display</p>
+          </div>
+        </div>
+
+        <!-- Add movie btn -->
+        <button
+          class="p-0 ps-2 add-movie-btn rounded-end float-end sticky-bottom border-0 my-2"
+          type="button"
+          onclick="window.searchMovie.openSearchForm()"
+        >
+          Add Movie
+          <img
+            src="./src/assets/images/icons/add-movie-btn.png"
+            alt=""
+            class="h-100"
+          />
+        </button>
+      </div>
+    </main>
+
+    <!-- These are temporary components which are used to create different pop ups -->
+    <div class="hidden-components">
+      <!-- Movie Search Form Offcanvas -->
+      <div
+        class="offcanvas bg-dark text-light"
+        data-bs-backdrop="static"
+        tabindex="-1"
+        id="movieSearchFormOffcanvas"
+        aria-labelledby="movieSearchFormOffcanvasLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="movieSearchFormOffcanvasLabel">
+            ADD MOVIE TO WATCH HISTORY
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div class="offcanvas-body no-scrollbar">
+          <img
+            src="./src/assets/images/bg-slideshow/img 0.jpg"
+            alt=""
+            class="bg-slideshow-img"
+          />
+
+          <!-- Main content inside search pop-up -->
+          <div class="content">
+            <!-- movie search form -->
+            <div class="form-section ms-md-5 mt-3">
+              <form action="" class="">
+                <input
+                  type="text"
+                  class="col-9 col-md-10 bg-transparent border-0 border-bottom border-3 placeholder-light text-light fs-5 fw-100"
+                  placeholder="SEARCH FOR ANYTHING"
+                />
+                <button
+                  class="btn search-form-btn fs-5 fw-600 px-3 py-1 ms-2"
+                  type="submit"
+                >
+                  GO
+                </button>
+              </form>
+
+              <div
+                class="search-options md-w-fit p-md-2 px-md-4 my-2 d-flex flex-row align-items-center flex-nowrap overflow-auto"
+              >
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('name')"
+                >
+                  Name
+                </button>
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('description')"
+                >
+                  Description
+                </button>
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('genres')"
+                >
+                  Genres
+                </button>
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('cast-crew')"
+                >
+                  Cast & Crew
+                </button>
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('release-date')"
+                >
+                  Release Date
+                </button>
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('keywords')"
+                >
+                  Keywords
+                </button>
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('production-companies')"
+                >
+                  Production Companies
+                </button>
+                <button
+                  class="so-btn px-2 px-md-4 m-3 m-md-0 mx-md-1 text-nowrap"
+                  onclick="window.addOrRemoveSearchOption('language')"
+                >
+                  Language
+                </button>
+              </div>
+            </div>
+
+            <!-- search results container -->
+            <div class="search-results w-100">
+              <h4 class="nothing col-md-7 op-07 mx-4 mx-md-auto mt-5 pt-5">
+                Search for something to appear here.... <br />
+                You can also choose what to search for in the options....
+              </h4>
+
+              <!-- When clicked on the search-results div, the summary popup opens up in this stage -->
+              <!-- Search result item cards -->
+              <div
+                data-bs-toggle="modal"
+                data-bs-target="#movieDetailsSummary"
+                class="col-12 mx-auto flex-row justify-content-center align-items-center flex-wrap results"
+              >
+                <div
+                  class="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
+                >
+                  <img
+                    src="./src/assets/images/temp/cover-image.jpg"
+                    alt=""
+                    class="result-cover me-2"
+                  />
+                  <div class="result-content">
+                    <p class="movie-name fw-500">The Last: Naruto the movie</p>
+                    <div class="mid-section d-flex flex-row">
+                      <div
+                        class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2"
+                      >
+                        <img
+                          src="./src/assets/images/rating-stars/100-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/80-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/50-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/40-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                      </div>
+
+                      <div class="movie-date-time mt-1 d-flex flex-row">
+                        <p class="time me-2 small">1h 52m</p>
+                        <p class="date small">Dec 06 2014</p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="genre d-flex flex-row justify-content-center align-items-center float-end mt-3 me-md-2"
+                    >
+                      <p class="mx-1 small text-orange">Action</p>
+                      <p class="mx-1 small text-orange">Adventure</p>
+                      <p class="mx-1 small text-orange">Romance</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
+                >
+                  <img
+                    src="./src/assets/images/temp/cover-image.jpg"
+                    alt=""
+                    class="result-cover me-2"
+                  />
+                  <div class="result-content">
+                    <p class="movie-name fw-500">The Last: Naruto the movie</p>
+                    <div class="mid-section d-flex flex-row">
+                      <div
+                        class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2"
+                      >
+                        <img
+                          src="./src/assets/images/rating-stars/100-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/80-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/50-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/40-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                      </div>
+
+                      <div class="movie-date-time mt-1 d-flex flex-row">
+                        <p class="time me-2 small">1h 52m</p>
+                        <p class="date small">Dec 06 2014</p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="genre d-flex flex-row justify-content-center align-items-center float-end mt-3 me-md-2"
+                    >
+                      <p class="mx-1 small text-orange">Action</p>
+                      <p class="mx-1 small text-orange">Adventure</p>
+                      <p class="mx-1 small text-orange">Romance</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
+                >
+                  <img
+                    src="./src/assets/images/temp/cover-image.jpg"
+                    alt=""
+                    class="result-cover me-2"
+                  />
+                  <div class="result-content">
+                    <p class="movie-name fw-500">The Last: Naruto the movie</p>
+                    <div class="mid-section d-flex flex-row">
+                      <div
+                        class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2"
+                      >
+                        <img
+                          src="./src/assets/images/rating-stars/100-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/80-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/50-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/40-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                      </div>
+
+                      <div class="movie-date-time mt-1 d-flex flex-row">
+                        <p class="time me-2 small">1h 52m</p>
+                        <p class="date small">Dec 06 2014</p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="genre d-flex flex-row justify-content-center align-items-center float-end mt-3 me-md-2"
+                    >
+                      <p class="mx-1 small text-orange">Action</p>
+                      <p class="mx-1 small text-orange">Adventure</p>
+                      <p class="mx-1 small text-orange">Romance</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
+                >
+                  <img
+                    src="./src/assets/images/temp/cover-image.jpg"
+                    alt=""
+                    class="result-cover me-2"
+                  />
+                  <div class="result-content">
+                    <p class="movie-name fw-500">The Last: Naruto the movie</p>
+                    <div class="mid-section d-flex flex-row">
+                      <div
+                        class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2"
+                      >
+                        <img
+                          src="./src/assets/images/rating-stars/100-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/80-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/50-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/40-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                      </div>
+
+                      <div class="movie-date-time mt-1 d-flex flex-row">
+                        <p class="time me-2 small">1h 52m</p>
+                        <p class="date small">Dec 06 2014</p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="genre d-flex flex-row justify-content-center align-items-center float-end mt-3 me-md-2"
+                    >
+                      <p class="mx-1 small text-orange">Action</p>
+                      <p class="mx-1 small text-orange">Adventure</p>
+                      <p class="mx-1 small text-orange">Romance</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
+                >
+                  <img
+                    src="./src/assets/images/temp/cover-image.jpg"
+                    alt=""
+                    class="result-cover me-2"
+                  />
+                  <div class="result-content">
+                    <p class="movie-name fw-500">The Last: Naruto the movie</p>
+                    <div class="mid-section d-flex flex-row">
+                      <div
+                        class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2"
+                      >
+                        <img
+                          src="./src/assets/images/rating-stars/100-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/80-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/50-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/40-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                      </div>
+
+                      <div class="movie-date-time mt-1 d-flex flex-row">
+                        <p class="time me-2 small">1h 52m</p>
+                        <p class="date small">Dec 06 2014</p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="genre d-flex flex-row justify-content-center align-items-center float-end mt-3 me-md-2"
+                    >
+                      <p class="mx-1 small text-orange">Action</p>
+                      <p class="mx-1 small text-orange">Adventure</p>
+                      <p class="mx-1 small text-orange">Romance</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
+                >
+                  <img
+                    src="./src/assets/images/temp/cover-image.jpg"
+                    alt=""
+                    class="result-cover me-2"
+                  />
+                  <div class="result-content">
+                    <p class="movie-name fw-500">The Last: Naruto the movie</p>
+                    <div class="mid-section d-flex flex-row">
+                      <div
+                        class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2"
+                      >
+                        <img
+                          src="./src/assets/images/rating-stars/100-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/80-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/50-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/40-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                      </div>
+
+                      <div class="movie-date-time mt-1 d-flex flex-row">
+                        <p class="time me-2 small">1h 52m</p>
+                        <p class="date small">Dec 06 2014</p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="genre d-flex flex-row justify-content-center align-items-center float-end mt-3 me-md-2"
+                    >
+                      <p class="mx-1 small text-orange">Action</p>
+                      <p class="mx-1 small text-orange">Adventure</p>
+                      <p class="mx-1 small text-orange">Romance</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
+                >
+                  <img
+                    src="./src/assets/images/temp/cover-image.jpg"
+                    alt=""
+                    class="result-cover me-2"
+                  />
+                  <div class="result-content">
+                    <p class="movie-name fw-500">The Last: Naruto the movie</p>
+                    <div class="mid-section d-flex flex-row">
+                      <div
+                        class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2"
+                      >
+                        <img
+                          src="./src/assets/images/rating-stars/100-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/80-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/50-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                        <img
+                          src="./src/assets/images/rating-stars/40-star.png"
+                          alt=""
+                          class="rating-star"
+                        />
+                      </div>
+
+                      <div class="movie-date-time mt-1 d-flex flex-row">
+                        <p class="time me-2 small">1h 52m</p>
+                        <p class="date small">Dec 06 2014</p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="genre d-flex flex-row justify-content-center align-items-center float-end mt-3 me-md-2"
+                    >
+                      <p class="mx-1 small text-orange">Action</p>
+                      <p class="mx-1 small text-orange">Adventure</p>
+                      <p class="mx-1 small text-orange">Romance</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Movie result item summary details -->
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="movieDetailsSummary"
+        tabindex="-1"
+        aria-labelledby="modal-body"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered col-md-8 mx-auto">
+          <div class="modal-content bg-transparent">
+            <div class="modal-body p-0 m-0">
+              <img
+                src="./src/assets/images/bg-slideshow/img 3.jpg"
+                alt=""
+                class="movie-summary-bg-img rounded"
+              />
+
+              <div class="movie-summary-content d-flex flex-row p-3 h-fit">
+                <img
+                  src="./src/assets/images/temp/cover-image.jpg"
+                  alt=""
+                  class="movie-summary-cover-img rounded"
+                />
+                <div class="movie-details-summary ms-3">
+                  <h3 class="name text-nowrap px-2">
+                    The Last: Naruto the movie
+                  </h3>
+
+                  <div class="d-flex flex-row rating-date-time">
+                    <div
+                      class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2"
+                    >
+                      <img
+                        src="./src/assets/images/rating-stars/100-star.png"
+                        alt=""
+                        class="rating-star"
+                      />
+                      <img
+                        src="./src/assets/images/rating-stars/80-star.png"
+                        alt=""
+                        class="rating-star"
+                      />
+                      <img
+                        src="./src/assets/images/rating-stars/50-star.png"
+                        alt=""
+                        class="rating-star"
+                      />
+                      <img
+                        src="./src/assets/images/rating-stars/40-star.png"
+                        alt=""
+                        class="rating-star"
+                      />
+                    </div>
+
+                    <div class="movie-date-time mt-1 d-flex flex-row fs-5">
+                      <p class="time me-2">1h 52m</p>
+                      <p class="date">Dec 06 2014</p>
+                    </div>
+                  </div>
+
+                  <div class="genre mt-2">
+                    <p class="me-2 text-orange d-inline-block fs-5">Action</p>
+                    <p class="me-2 text-orange d-inline-block fs-5">
+                      Adventure
+                    </p>
+                    <p class="me-2 text-orange d-inline-block fs-5">Romance</p>
+                  </div>
+
+                  <p class="small movie-summary-description">
+                    Two years after the events of the Fourth Great Ninja War,
+                    the moon that Hagoromo Otsutsuki created long ago to seal
+                    away the Gedo Statue begins to descend towards the world,
+                    threatening to become a meteor that would destroy everything
+                    on impact. Amidst this crisis, a direct descendant of Kaguya
+                    Otsutsuki named Toneri Otsutsuki attempts to kidnap Hinata
+                    Hyuga but ends up abducting her younger sister Hanabi.
+                    Naruto and his allies now mount a rescue mission before
+                    finding themselves embroiled in a final battle to decide the
+                    fate of everything.
+                  </p>
+
+                  <div class="action-buttons">
+                    <button class="w-fit">
+                      <img
+                        src="./src/assets/images/icons/check-mark-icon.png"
+                        alt=""
+                        class="d-inline"
+                      />
+                      <p class="">Add to Watch History</p></button
+                    ><button class="">
+                      <img
+                        src="./src/assets/images/icons/star-icon.png"
+                        alt=""
+                        class="d-inline"
+                      />
+                      <p class="">Add to Wishlist</p></button
+                    ><button class="">
+                      <img
+                        src="./src/assets/images/icons/play-icon.png"
+                        alt=""
+                        class="d-inline"
+                      />
+                      <p class="">Play Trailer</p>
+                    </button>
+
+                    <a
+                      href="./details.html"
+                      class="link-orange my-3 d-block text-decoration-none"
+                      >More Details ></a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module" src="./src/scripts/importer.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        window.displayManager.displayMyMovies();
+        window.displayManager.displayMyGenre();
+        window.startBgSlideShow();
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        window.searchMovie.openSearchForm();
+        window.searchMovie.demoDune("Naruto The Movie");
+      });
+    </script>
+  </body>
+</html>
