@@ -190,30 +190,13 @@ export class SearchMovie {
             <div
               class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2"
             >
-              <img
-                src="./src/assets/images/rating-stars/100-star.png"
-                alt=""
-                class="rating-star"
-              />
-              <img
-                src="./src/assets/images/rating-stars/80-star.png"
-                alt=""
-                class="rating-star"
-              />
-              <img
-                src="./src/assets/images/rating-stars/50-star.png"
-                alt=""
-                class="rating-star"
-              />
-              <img
-                src="./src/assets/images/rating-stars/40-star.png"
-                alt=""
-                class="rating-star"
-              />
+              ${this.constructStarRating(movie.rating)}
             </div>
 
             <div class="movie-date-time mt-1 d-flex flex-row">
-              <p class="date small">${movie.release_date}</p>
+              <p class="date small">${movie.release_date
+                .reverse()
+                .join(" ")}</p>
             </div>
           </div>
 
@@ -230,6 +213,47 @@ export class SearchMovie {
       </div>
     `;
   }
+
+  constructStarRating(rating) {
+    // This method is used to construct html of rating stars
+    // console.log("Original rating: ", rating);
+    const fourStarRating = (rating / 10) * 4;
+    const stars = [];
+
+    for (let i = 0; i < 4; i++) {
+      const remainingValue = fourStarRating - i;
+      let starImage;
+
+      if (remainingValue >= 1) {
+        starImage = "/src/assets/images/rating-stars/100-star.png";
+      } else if (remainingValue >= 0.75) {
+        starImage = "/src/assets/images/rating-stars/80-star.png";
+      } else if (remainingValue >= 0.5) {
+        starImage = "/src/assets/images/rating-stars/50-star.png";
+      } else if (remainingValue >= 0.25) {
+        starImage = "/src/assets/images/rating-stars/40-star.png";
+      } else if (remainingValue < 0.25 && remainingValue > 0.1) {
+        starImage = "/src/assets/images/rating-stars/10-star.png";
+      } else {
+        starImage = "/src/assets/images/rating-stars/0-star.png";
+      }
+      stars.push(starImage);
+    }
+
+    let starHTML = "";
+
+    stars.forEach((starLink) => {
+      starHTML += `
+      <img
+        src="${starLink}"
+        alt="☆"
+        class="rating-star"
+      />`;
+    });
+
+    return starHTML;
+  }
+
   demoDune() {
     this.displaySearchResults([
       {
