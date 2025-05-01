@@ -27,13 +27,20 @@ class TMDB {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        stateUpdater((prevState) => ({
-          ...prevState,
-          results: [...prevState.results, ...data.results],
-          total_pages: data.total_pages,
-          search_term: searchTerm,
-          page: page,
-        }));
+        if (data.page == 1) {
+          stateUpdater({
+            ...data,
+            search_term: searchTerm,
+          });
+        } else {
+          stateUpdater((prevState) => ({
+            ...data,
+            results: [...prevState.results, ...data.results],
+            total_pages: data.total_pages,
+            search_term: searchTerm,
+            page: page,
+          }));
+        }
       })
       .catch((error) => console.log(error));
   };
