@@ -9,7 +9,7 @@ export default function NavBar() {
       <Navbar.Collapse id="nav-bar">
         <Nav className="ms-auto">
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/watch-list">Watch List</Nav.Link>
+          <Nav.Link href="/watch-history">Watch List</Nav.Link>
           <Nav.Link href="/wish-list">Wish List</Nav.Link>
           <Nav.Link href="/search">Search for Movies</Nav.Link>
         </Nav>
