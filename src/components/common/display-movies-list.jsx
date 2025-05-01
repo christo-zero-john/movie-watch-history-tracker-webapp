@@ -16,7 +16,7 @@ export default function DisplayMoviesList({ movies }) {
                 Details
               </button>
               <div className="action-buttons  float-end">
-                <ActionButtons movieId={movie} />
+                <ActionButtons movie={movie} />
               </div>
             </div>
           </div>
