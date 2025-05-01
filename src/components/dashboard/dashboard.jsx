@@ -23,12 +23,13 @@ export default function Dashboard() {
         }
       >
         <input
+          className="border-1 rounded p-2 col-9 col-md-6 border-warning"
           name="search-term"
           type="text"
           required
           placeholder="Search for movies"
         />
-        <button>Search</button>
+        <button className="btn btn-primary">Search</button>
       </form>
       {
         // Display search results if they exist
@@ -38,10 +39,10 @@ export default function Dashboard() {
           </div>
         ) : (
           <div>
-            <h2>
+            <p className="alert alert-success text-uppercase p-0 text-center">
               Showing {searchResults.results.length} of{" "}
               {searchResults.total_results} Results Found
-            </h2>
+            </p>
             <DisplayMoviesList movies={searchResults.results} />
             <div className="pagination"></div>
             {searchResults.page < searchResults.total_pages ? (
