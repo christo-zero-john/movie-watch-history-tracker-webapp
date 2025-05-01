@@ -3,6 +3,7 @@ import TMDB from "../../modules/TMDB";
 import Helpers from "../../modules/helpers";
 import DisplayMoviesList from "../common/display-movies-list";
 import { useEffect } from "react";
+import NavBar from "../common/nav-bar";
 
 export default function Dashboard() {
   const [searchResults, setSearchResults] = useState(null);
@@ -15,6 +16,7 @@ export default function Dashboard() {
 
   return (
     <div className="pb-3">
+      <NavBar />
       <form
         className="text-center sticky-top p-2  shadow bg-light"
         onSubmit={(event) => {
@@ -46,8 +48,10 @@ export default function Dashboard() {
           <p className="">Searching...</p>
         ) : // Display search results if they exist
         !searchResults ? (
-          <div>
-            <h2>Search for movies</h2>
+          <div className="w-100 bg-warning">
+            <p className="alert alert-warning text-center">
+              Search for something to appear here...
+            </p>
           </div>
         ) : // If search results length is 0, Then display message. Else display results.
         searchResults.results.length == 0 ? (
