@@ -1,3 +1,5 @@
+import Helpers from "./helpers";
+
 class TMDB {
   constructor() {
     if (!TMDB.instance) {
@@ -6,8 +8,8 @@ class TMDB {
     return TMDB.instance;
   }
 
-  searchMovie = async (searchTerm, stateUpdater) => {
-    event.preventDefault();
+  searchMovie = async (event, stateUpdater) => {
+    const searchTerm = Helpers.extractFormData(event, "search-term","busy");
     console.log(searchTerm);
 
     const searchURL = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}`;
