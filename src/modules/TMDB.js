@@ -8,11 +8,10 @@ class TMDB {
     return TMDB.instance;
   }
 
-  searchMovie = async (event, stateUpdater) => {
-    const searchTerm = Helpers.extractFormData(event, "search-term","busy");
+  searchMovie = async (searchTerm, page, stateUpdater) => {
     console.log(searchTerm);
 
-    const searchURL = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}`;
+    const searchURL = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}&page=${page}`;
 
     const request = {
       method: "GET",
