@@ -1,4 +1,5 @@
 import CoreActions from "../../modules/CoreActions";
+import ActionButtons from "./action-buttons";
 
 export default function DisplayMoviesList({ movies }) {
   return (
@@ -15,12 +16,7 @@ export default function DisplayMoviesList({ movies }) {
                 Details
               </button>
               <div className="action-buttons  float-end">
-                <button
-                  className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small"
-                  onClick={() => CoreActions.removeFromWishList(movie)}
-                >
-                  -
-                </button>
+                <ActionButtons movieId={movie.id} />
               </div>
             </div>
           </div>
