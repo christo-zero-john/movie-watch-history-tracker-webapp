@@ -23,7 +23,13 @@ class searchMovie {
         "Content-Type": "application/json",
       },
     };
-    console.log(request);
+
+    fetch(searchURL, request)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
   };
 }
 export default new searchMovie();
