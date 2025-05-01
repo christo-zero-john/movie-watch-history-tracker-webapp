@@ -1,10 +1,12 @@
+import { useState } from "react";
 import CoreActions from "../../modules/CoreActions";
 import LocalDatabase from "../../modules/LocalDatabase";
 
 export default function ActionButtons({ movie }) {
   const watcHistory = LocalDatabase.getWatchHistory();
   const wishList = LocalDatabase.getWishList();
-//   console.log(watcHistory, wishList);
+  const [reRender, setRerender] = useState(false);
+  //   console.log(watcHistory, wishList);
 
   return (
     <>
@@ -13,7 +15,9 @@ export default function ActionButtons({ movie }) {
         watcHistory.includes(movie.id) ? (
           <button
             className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small"
-            onClick={() => CoreActions.removeFromWatchHistory(movie)}
+            onClick={() => {
+              CoreActions.removeFromWatchHistory(movie);
+            }}
           >
             -
           </button>
