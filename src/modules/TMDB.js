@@ -42,7 +42,14 @@ class TMDB {
           }));
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        if (error.message.includes("Failed to fetch")) {
+          window.confirm(
+            "No network connection. Check your network connection and try again later"
+          );
+        }
+        console.log(error);
+      });
   };
 }
 export default new TMDB();
