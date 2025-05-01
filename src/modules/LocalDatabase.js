@@ -31,14 +31,14 @@ class LocalDatabase {
 
   putWatchHistory(data) {
     console.log("Saving new watch history");
-    return JSON.parse(
+    return JSON.stringify(
       localStorage.setItem("watch-history", JSON.stringify(data))
     );
   }
 
   putWishList(data) {
     console.log("Saving new wish list");
-    return JSON.parse(localStorage.setItem("wish-list", JSON.stringify(data)));
+    return JSON.stringify(localStorage.setItem("wish-list", JSON.stringify(data)));
   }
 }
 export default new LocalDatabase();
