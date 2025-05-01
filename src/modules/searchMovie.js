@@ -6,7 +6,7 @@ class searchMovie {
     return searchMovie.instance;
   }
 
-  searchForMovie = async (event) => {
+  searchForMovie = async (event, stateUpdater) => {
     event.preventDefault();
     const form = event.target;
     const formData = new FormData(form);
@@ -15,7 +15,6 @@ class searchMovie {
 
     const searchURL = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}`;
 
-    // ... existing code ...
     const request = {
       method: "GET",
       headers: {
@@ -24,6 +23,8 @@ class searchMovie {
       },
     };
 
+    console.log(request.headers.Authorization.split(" "));
+    console.log("Sending request to fetch movies related to: ", searchTerm);
     fetch(searchURL, request)
       .then((res) => res.json())
       .then((data) => {
