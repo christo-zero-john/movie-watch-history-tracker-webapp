@@ -17,7 +17,7 @@ export default function DisplayMoviesList({ movies }) {
               <div className="action-buttons  float-end">
                 <button
                   className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small"
-                  onClick={() => CoreActions.removeFromWatchList(movie)}
+                  onClick={() => CoreActions.removeFromWishList(movie)}
                 >
                   -
                 </button>
