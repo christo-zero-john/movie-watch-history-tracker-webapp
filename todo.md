@@ -12,7 +12,7 @@
 - Implement pagination for the search results. ✅
 - Implement functionality for user to navigate through different pages of the search results. ✅
 - When user clicks on a movie in the search results, add that movie to the watch history. ✅
-- When user clicks on a movie in the search results, add that movie to the wishlist.
+- When user clicks on a movie in the search results, add that movie to the wishlist. ✅
 
 ## 02 05 2025
 
