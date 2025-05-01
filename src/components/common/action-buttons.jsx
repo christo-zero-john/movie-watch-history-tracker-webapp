@@ -17,6 +17,7 @@ export default function ActionButtons({ movie }) {
             className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small"
             onClick={() => {
               CoreActions.removeFromWatchHistory(movie);
+              setRerender((prevState) => -prevState);
             }}
           >
             -
@@ -24,7 +25,10 @@ export default function ActionButtons({ movie }) {
         ) : (
           <button
             className="btn btn-outline-success rounded-0 p-0 px-1 fs-6 small"
-            onClick={() => CoreActions.addToWatchHistory(movie)}
+            onClick={() => {
+              CoreActions.addToWatchHistory(movie);
+              setRerender((prevState) => -prevState);
+            }}
           >
             +
           </button>
@@ -35,14 +39,20 @@ export default function ActionButtons({ movie }) {
         wishList.includes(movie.id) ? (
           <button
             className="btn btn-outline-warning rounded-0 p-0 px-1 fs-6 small"
-            onClick={() => CoreActions.removeFromWishList(movie)}
+            onClick={() => {
+              CoreActions.removeFromWishList(movie);
+              setRerender((prevState) => -prevState);
+            }}
           >
             ★
           </button>
         ) : (
           <button
             className="btn btn-outline-primary rounded-0 p-0 px-1 fs-6 small"
-            onClick={() => CoreActions.addToWishList(movie)}
+            onClick={() => {
+              CoreActions.addToWishList(movie);
+              setRerender((prevState) => -prevState);
+            }}
           >
             ☆
           </button>
