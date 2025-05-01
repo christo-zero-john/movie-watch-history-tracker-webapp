@@ -57,13 +57,13 @@ export default function Dashboard() {
           <div>
             <p className="alert alert-success text-uppercase p-0 text-center">
               Showing {searchResults.results.length} of{" "}
-              {searchResults.total_results} Results Found
+              {searchResults.total_results} Results
             </p>
             <DisplayMoviesList movies={searchResults.results} />
             <div className="pagination"></div>
             {searchResults.page < searchResults.total_pages ? (
               <div className="alert alert-warning p-0 w-100 text-center rounded-0">
-                <p className=" d-inline-block m-0">
+                <p className="d-inline-block m-0">
                   Page {searchResults.page} of {searchResults.total_pages}
                   <button
                     className="btn btn-outline-success text-uppercase d-inline-block mx-2 px-5 rounded-0 shadow"
