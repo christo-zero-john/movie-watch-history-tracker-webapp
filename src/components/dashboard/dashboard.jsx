@@ -2,7 +2,6 @@ import { useState } from "react";
 import TMDB from "../../modules/TMDB";
 import Helpers from "../../modules/helpers";
 import DisplayMoviesList from "../common/display-movies-list";
-import { Pagination } from "react-bootstrap";
 import { useEffect } from "react";
 
 export default function Dashboard() {
@@ -45,18 +44,24 @@ export default function Dashboard() {
             </h2>
             <DisplayMoviesList movies={searchResults.results} />
             <div className="pagination"></div>
-            <button
-              className=""
-              onClick={() =>
-                TMDB.searchMovie(
-                  searchResults.search_term,
-                  searchResults.page + 1,
-                  setSearchResults
-                )
-              }
-            >
-              Load More...
-            </button>
+            {searchResults.page < searchResults.total_pages ? (
+              <button
+                className=""
+                onClick={() =>
+                  TMDB.searchMovie(
+                    searchResults.search_term,
+                    searchResults.page + 1,
+                    setSearchResults
+                  )
+                }
+              >
+                Load More...
+              </button>
+            ) : (
+              <p className="alert alert-warning p-0 text-center rounded-0">
+                End of Results
+              </p>
+            )}
           </div>
         )
       }
