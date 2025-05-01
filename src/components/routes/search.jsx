@@ -5,7 +5,7 @@ import DisplayMoviesList from "../common/display-movies-list";
 import { useEffect } from "react";
 import NavBar from "../common/nav-bar";
 
-export default function Dashboard() {
+export default function SearchMovie() {
   const [searchResults, setSearchResults] = useState(null);
   const [isSearching, setIsSearching] = useState(false);
 
