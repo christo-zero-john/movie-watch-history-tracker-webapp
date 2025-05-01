@@ -1,9 +1,9 @@
 class TMDB {
   constructor() {
-    if (!searchMovie.instance) {
-      searchMovie.instance = this;
+    if (!TMDB.instance) {
+      TMDB.instance = this;
     }
-    return searchMovie.instance;
+    return TMDB.instance;
   }
 
   searchMovie = async (event, stateUpdater) => {
