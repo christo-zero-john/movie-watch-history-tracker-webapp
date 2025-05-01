@@ -1,4 +1,3 @@
-import CoreActions from "../../modules/CoreActions";
 import ActionButtons from "./action-buttons";
 
 export default function DisplayMoviesList({ movies }) {
