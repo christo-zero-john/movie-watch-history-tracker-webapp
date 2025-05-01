@@ -14,6 +14,7 @@ export default function Dashboard() {
   return (
     <div>
       <form
+      className="w-fit mx-auto"
         onSubmit={(event) =>
           TMDB.searchMovie(
             Helpers.extractFormData(event, "search-term")["search-term"],
