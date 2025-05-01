@@ -3,10 +3,18 @@ export default function DisplayMoviesList({ movies }) {
     <div className="search-results d-flex flex-row gap-2 justify-content-center flex-wrap">
       {movies.map((movie) => {
         return (
-          <div key={movie.id} className="card m-2 p-3 shadow-sm col-12 col-md-4">
+          <div
+            key={movie.id}
+            className="card m-2 p-3 shadow-sm col-12 col-md-4"
+          >
             <h4>{movie.title}</h4>
             <div className="buttons">
-              <button className="btn btn-outline-primary rounded-0 p-0 px-3 fs-6 small">Details</button>
+              <button className="btn btn-outline-primary rounded-0 p-0 px-3 fs-6 small">
+                Details
+              </button>
+              <button className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small">
+                +
+              </button>
             </div>
           </div>
         );
