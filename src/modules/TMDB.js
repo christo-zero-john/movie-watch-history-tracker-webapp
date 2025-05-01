@@ -6,11 +6,8 @@ class TMDB {
     return TMDB.instance;
   }
 
-  searchMovie = async (event, stateUpdater) => {
+  searchMovie = async (searchTerm, stateUpdater) => {
     event.preventDefault();
-    const form = event.target;
-    const formData = new FormData(form);
-    const searchTerm = formData.get("search-term");
     console.log(searchTerm);
 
     const searchURL = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}`;
