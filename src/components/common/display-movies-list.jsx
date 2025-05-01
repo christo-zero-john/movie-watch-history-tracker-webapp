@@ -12,9 +12,11 @@ export default function DisplayMoviesList({ movies }) {
               <button className="btn btn-outline-primary rounded-0 p-0 px-3 fs-6 small">
                 Details
               </button>
-              <button className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small">
-                +
-              </button>
+              <div className="action-buttons  float-end">
+                <button className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small" onClick={}>
+                  +
+                </button>
+              </div>
             </div>
           </div>
         );
