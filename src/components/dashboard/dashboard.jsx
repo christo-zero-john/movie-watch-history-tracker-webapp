@@ -6,15 +6,17 @@ import { useEffect } from "react";
 
 export default function Dashboard() {
   const [searchResults, setSearchResults] = useState(null);
+  const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
     console.log("search results: ", searchResults);
+    setIsSearching(false);
   }, [searchResults]);
 
   return (
     <div>
       <form
-      className="w-fit mx-auto"
+        className="text-center"
         onSubmit={(event) =>
           TMDB.searchMovie(
             Helpers.extractFormData(event, "search-term")["search-term"],
@@ -24,13 +26,15 @@ export default function Dashboard() {
         }
       >
         <input
-          className="border-1 rounded p-2 col-9 col-md-6 border-warning"
+          className="border-1 rounded p-2 col-9 col-md-6 border-warning text-primary"
           name="search-term"
           type="text"
           required
           placeholder="Search for movies"
         />
-        <button className="btn btn-primary">Search</button>
+        <button className="btn btn-primary" disabled={isSearching}>
+          Search
+        </button>
       </form>
       {
         // Display search results if they exist
