@@ -27,7 +27,13 @@ class TMDB {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        stateUpdater(data);
+        stateUpdater((prevState) => ({
+          ...prevState,
+          results: [...prevState.results, ...data.results],
+          total_pages: data.total_pages,
+          search_term: searchTerm,
+          page: page,
+        }));
       })
       .catch((error) => console.log(error));
   };
