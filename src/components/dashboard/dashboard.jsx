@@ -21,7 +21,10 @@ export default function Dashboard() {
         </div>
       ) : (
         <div>
-          <h2>{searchResults.total_results} Results Found</h2>
+          <h2>
+            Showing {searchResults.results.length} of{" "}
+            {searchResults.total_results} Results Found
+          </h2>
           <div className="search-results">
             {searchResults.results.map((movie) => {
               return (
@@ -32,9 +35,7 @@ export default function Dashboard() {
               );
             })}
           </div>
-          <div className="pagination">
-            
-          </div>
+          <div className="pagination"></div>
         </div>
       )}
     </div>
