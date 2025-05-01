@@ -1,12 +1,22 @@
 import { useState } from "react";
 import TMDB from "../../modules/TMDB";
+import Helpers from "../../modules/helpers";
+import DisplayMoviesList from "../common/display-movies-list";
 
 export default function Dashboard() {
   const [searchResults, setSearchResults] = useState(null);
 
   return (
     <div>
-      <form onSubmit={(event) => TMDB.searchMovie(event, setSearchResults)}>
+      <form
+        onSubmit={(event) =>
+          TMDB.searchMovie(
+            Helpers.extractFormData(event, "search-term")["search-term"],
+            1,
+            setSearchResults
+          )
+        }
+      >
         <input
           name="search-term"
           type="text"
@@ -25,16 +35,7 @@ export default function Dashboard() {
             Showing {searchResults.results.length} of{" "}
             {searchResults.total_results} Results Found
           </h2>
-          <div className="search-results">
-            {searchResults.results.map((movie) => {
-              return (
-                <div key={movie.id}>
-                  <h3>{movie.title}</h3>
-                  <p>{movie.overview}</p>
-                </div>
-              );
-            })}
-          </div>
+          <DisplayMoviesList movies={searchResults.results} />
           <div className="pagination"></div>
         </div>
       )}
