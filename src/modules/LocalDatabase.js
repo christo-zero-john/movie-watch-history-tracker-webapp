@@ -1,16 +1,20 @@
-class CoreActions {
-    constructor() {
-      if (!CoreActions.instance) {
-        CoreActions.instance = this;
-      }
-      return CoreActions.instance;
+class LocalDatabase {
+  constructor() {
+    if (!LocalDatabase.instance) {
+      LocalDatabase.instance = this;
     }
-  
-    addToWatchList(movieId) {
-      window.confirm("Are you sure you want to add this movie to your watchlist?")
-        ? console.log(`Movie with ID ${movieId} added to watchlist`)
-        : console.log("Action cancelled");
-    }
+    return LocalDatabase.instance;
   }
-  export default new CoreActions();
-  
+
+  initialzeDatabase() {
+    console.log("Initializing local database");
+    if (!localStorage.getItem("watch-history")) {
+      localStorage.setItem("watch-history", JSON.stringify([]));
+    }
+    if (!localStorage.getItem("wish-list")) {
+      localStorage.setItem("wish-list", JSON.stringify([]));
+    }
+    console.log("Local database initialized successfully.");
+  }
+}
+export default new LocalDatabase();
