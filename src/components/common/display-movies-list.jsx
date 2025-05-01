@@ -1,3 +1,5 @@
+import CoreActions from "../../modules/CoreActions";
+
 export default function DisplayMoviesList({ movies }) {
   return (
     <div className="search-results d-flex flex-row gap-2 justify-content-center flex-wrap">
@@ -13,7 +15,10 @@ export default function DisplayMoviesList({ movies }) {
                 Details
               </button>
               <div className="action-buttons  float-end">
-                <button className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small" onClick={}>
+                <button
+                  className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small"
+                  onClick={() => CoreActions.addToWatchList(movie.id)}
+                >
                   +
                 </button>
               </div>
