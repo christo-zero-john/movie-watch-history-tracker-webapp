@@ -17,13 +17,14 @@ export default function Dashboard() {
     <div>
       <form
         className="text-center"
-        onSubmit={(event) =>
+        onSubmit={(event) => {
           TMDB.searchMovie(
             Helpers.extractFormData(event, "search-term")["search-term"],
             1,
             setSearchResults
-          )
-        }
+          );
+          setIsSearching(true);
+        }}
       >
         <input
           className="border-1 rounded p-2 col-9 col-md-6 border-warning text-primary"
@@ -37,12 +38,19 @@ export default function Dashboard() {
         </button>
       </form>
       {
-        // Display search results if they exist
+        // If searching then display message. Else display search results
+        isSearching ? (
+          <p className="">Searching...</p>
+        ) : // Display search results if they exist
         !searchResults ? (
           <div>
             <h2>Search for movies</h2>
           </div>
+        ) : // If search results length is 0, Then display message. Else display results.
+        searchResults.results.length == 0 ? (
+          <p className="">Nothing Found. Search for something else...</p>
         ) : (
+          // Display results
           <div>
             <p className="alert alert-success text-uppercase p-0 text-center">
               Showing {searchResults.results.length} of{" "}
@@ -52,7 +60,7 @@ export default function Dashboard() {
             <div className="pagination"></div>
             {searchResults.page < searchResults.total_pages ? (
               <button
-                className=""
+                className="btn btn-primary px-5 mx-auto"
                 onClick={() =>
                   TMDB.searchMovie(
                     searchResults.search_term,
