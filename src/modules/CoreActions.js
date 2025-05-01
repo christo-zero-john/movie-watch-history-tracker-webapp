@@ -9,6 +9,7 @@ class CoreActions {
   }
 
   addToWatchHistory(movie) {
+    console.log(movie);
     const action = window.confirm(
       `Are you sure you want to add the movie ${movie.title} to your watch history?`
     );
