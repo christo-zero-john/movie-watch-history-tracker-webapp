@@ -51,5 +51,33 @@ class TMDB {
         console.log(error);
       });
   };
+
+  getMovieById = async (movieID) => {
+    const movieURL = `https://api.themoviedb.org/3/movie/${movieID}`;
+
+    const request = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    };
+
+    console.log("Sending request to fetch movie with ID: ", movieID);
+    return fetch(movieURL, request)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        return data;
+      })
+      .catch((error) => {
+        if (error.message.includes("Failed to fetch")) {
+          window.confirm(
+            "No network connection. Check your network connection and try again later"
+          );
+        }
+        console.log(error);
+      });
+  };
 }
 export default new TMDB();
