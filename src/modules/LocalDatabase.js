@@ -69,6 +69,11 @@ class LocalDatabase {
     return this.movieDB.movies.add(movieDetails);
   }
 
+  /**
+   * @description Used to 
+   * @param {number} movieID A valid TMDB movie ID.
+   * @returns
+   */
   async getMovieFromDB(movieID) {
     // console.log("Fetching movie from local database");
     const movieDetails = await this.movieDB.movies.get(movieID);
