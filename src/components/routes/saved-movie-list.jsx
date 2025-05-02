@@ -26,9 +26,9 @@ export default function WatchHistory__WishList() {
      * The movieList only has an array of movie ID's. The movies are stored in the IndexDB using Dexie js.
      * So fetch movie details of each movie ID in the movieList and store them as an array of objects in the movies state.
      */
-    console.log(movieList);
 
     const fetchMovies = async () => {
+      console.log("Fetching movie details from local database");
       const tempMovies = [];
       for (const movieID of movieList) {
         const movie = await LocalDatabase.getMovieFromDB(movieID);
@@ -42,7 +42,6 @@ export default function WatchHistory__WishList() {
     fetchMovies();
   }, []);
 
-  console.log(movies.length);
   return (
     <>
       <NavBar />
