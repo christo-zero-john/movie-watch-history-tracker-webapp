@@ -51,13 +51,14 @@ export default function Dashboard() {
         ) : (
           // If the lists are ready to be displayed, then first display the watch history.
           <>
-            <section className="watched-movies col-11 col-md-11 ms-3 mx-md-auto">
+            <section className="watched-movies col-11 mx-auto my-5 mb-4">
               <h2 className="section-title fs-6">Watched Movies</h2>
               <div
-                className="movie-list p-3 p-md-4 pb-2 pb-md-3 rounded d-flex flex-row justify-content-start align-items-center flex-nowrap overflow-auto no-scrollbar"
+                className="movie-list p-3 p-md-4 rounded d-flex flex-row justify-content-start align-items-center flex-nowrap overflow-auto no-scrollbar"
                 id="my-movies"
               >
-                {
+                {yarn dev
+                  
                   // Check whether the first list is empty or not. If empty means nothing in watch history
                   savedLists.length == 0 ? (
                     <p className="text-center text-warning w-100">
