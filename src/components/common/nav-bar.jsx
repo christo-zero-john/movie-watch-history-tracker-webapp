@@ -1,7 +1,7 @@
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-export default function NavBar() {
+export default function NavBar({ active = null }) {
   return (
     <nav class="navbar navbar-expand-md navbar-dark p-0">
       <div class="container-fluid">
@@ -22,13 +22,17 @@ export default function NavBar() {
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">
+              <a
+                class={`nav-link ${active == "watch-history" && "active"}`}
+                aria-current="page"
+                href="/"
+              >
                 Watch History
               </a>
             </li>
             <li class="nav-item">
               <a
-                class="nav-link"
+                class={`nav-link ${active == "explore" && "active"}`}
                 href="#"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#movieSearchFormOffcanvas"
@@ -38,12 +42,18 @@ export default function NavBar() {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/wishlist">
+              <a
+                class={`nav-link ${active == "wishlist" && "active"}`}
+                href="/wishlist"
+              >
                 Wishlist
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/recommended">
+              <a
+                class={`nav-link ${active == "recommended" && "active"}`}
+                href="/recommended"
+              >
                 Recommended
               </a>
             </li>
