@@ -1,3 +1,7 @@
+*{
+    transition: all 0.4s;
+}
+
 .search-result__details * {
   font-size: 12px;
 }
