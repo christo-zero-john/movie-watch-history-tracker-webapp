@@ -23,7 +23,7 @@ export default function NavBar({ active = null }) {
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a
-                class={`nav-link ${active == "watch-history" && "active"}`}
+                class={`nav-link ${active == "dashboard" && "active"}`}
                 aria-current="page"
                 href="/"
               >
