@@ -36,7 +36,7 @@
   - user statistics section ✅
   - Add movie button ✅
   - watched movies section ✅
-  - My genres section
+  - My genres section ✅
 
 ### 03 05 2025
 
