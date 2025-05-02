@@ -1,12 +1,15 @@
+import { useState } from "react";
 import LocalDatabase from "../../modules/LocalDatabase";
 import DisplayMoviesList from "../common/display-movies-list";
 import NavBar from "../common/nav-bar";
 
 export default function WatchHistory() {
   const watchHistory = LocalDatabase.getWatchHistory();
-  const movies = [];
-  watchHistory.forEach((movieID) => {
-    const movie = LocalDatabase.getMovieFromDB(movieID);
+  const [movies, setMovies] = useState([]);
+
+  // getMovieFromDB is async, so we need to use async await.
+  watchHistory.forEach(async (movieID) => {
+    const movie = await LocalDatabase.getMovieFromDB(movieID);
     console.log(movie);
     if (movie) {
       movies.push(movie);
@@ -16,7 +19,7 @@ export default function WatchHistory() {
   return (
     <>
       <NavBar />
-      <DisplayMoviesList movies={watchHistory} />
+      <DisplayMoviesList movies={movies} />
     </>
   );
 }
