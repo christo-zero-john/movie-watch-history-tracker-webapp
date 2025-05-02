@@ -20,12 +20,13 @@ export default function Dashboard() {
       );
       let wishListMovies = await LocalDatabase.constructMoviesList(wishList);
       console.log(watchHistoryMovies, wishListMovies);
+      setSavedLists([watchHistoryMovies, wishListMovies]);
     })();
   }, []);
 
-  return !savedLists ? (
-    <p className="alert alert-warning text-center">Fetching user data</p>
-  ) : (
-    ""
+  return (
+    <>
+      <h1 className="text-center my-2 Dashboard">Dashboard</h1>
+    </>
   );
 }
