@@ -14,8 +14,8 @@ export default function WatchHistory__WishList({ context }) {
     "watch-history": LocalDatabase.getWatchHistory,
     "wish-list": LocalDatabase.getWishList,
   };
-  
-  const movieList = LocalDatabase.getWishList();
+
+  const movieList = context_actions[context];
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
