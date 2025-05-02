@@ -27,8 +27,8 @@
 
 ## UI/UX
 
-- Start oring on main UI
+- Start oring on main UI. Implement the original design on the webapp.
 
 ### 02 05 2025
 
-- Workon the dashboard UI. Implement the original design for the dashboard
+- Work on the Navbar. Implement the navbar design.
