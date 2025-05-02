@@ -16,7 +16,7 @@ export default function DisplayMoviesList({ movies }) {
               loading="lazy"
             />
             <div className="result-content">
-              <p className="movie-name fw-500">The Last: Naruto the movie</p>
+              <p className="movie-name fw-500">{movie.title}</p>
               <div className="mid-section d-flex flex-row">
                 <div className="movie-date-time mt-1 d-flex flex-row">
                   <p className="time me-2 small">1h 52m</p>
