@@ -15,10 +15,10 @@ export default function SearchMovie() {
   }, [searchResults]);
 
   return (
-    <div className="pb-3">
-      <NavBar />
+    <div className="pb-3 bg-dark text-light hd-100 overflow-auto no-scrollbar">
+      <NavBar active="explore" />
       <form
-        className="text-center sticky-top p-2  shadow bg-light"
+        className="text-center sticky-top p-2 shadow-light bg-dark"
         onSubmit={(event) => {
           TMDB.searchMovie(
             Helpers.extractFormData(event, "search-term")["search-term"],
