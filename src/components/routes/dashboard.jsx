@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import LocalDatabase from "../../modules/LocalDatabase";
+import NavBar from "../common/nav-bar";
 
 export default function Dashboard() {
   const [savedLists, setSavedLists] = useState(null);
@@ -25,7 +26,8 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <>
+    <div className="bg-dark text-light">
+      <NavBar />
       <h1 className="text-center my-2 Dashboard">Dashboard</h1>
       {
         // Check if the lists are ready to be displayed. If not, then display a message
@@ -61,6 +63,6 @@ export default function Dashboard() {
           </>
         )
       }
-    </>
+    </div>
   );
 }
