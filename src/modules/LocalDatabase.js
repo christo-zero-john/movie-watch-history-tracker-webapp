@@ -1,4 +1,5 @@
 import Dexie from "dexie";
+import TMDB from "./TMDB";
 
 class LocalDatabase {
   constructor() {
@@ -70,7 +71,19 @@ class LocalDatabase {
 
   async getMovieFromDB(movieID) {
     // console.log("Fetching movie from local database");
-    return await this.movieDB.movies.get(movieID);
+    const movieDetails = await this.movieDB.movies.get(movieID);
+    console.log(movieDetails);
+    if (!movieDetails) {
+      TMDB.getMovieById(movieID).then((data) => {
+        console.log(
+          "Movie not found in local database, fetching from TMDB API"
+        );
+        this.putMovieToDB(data);
+        return data;
+      });
+    } else {
+      return movieDetails;
+    }
   }
 }
 export default new LocalDatabase();
