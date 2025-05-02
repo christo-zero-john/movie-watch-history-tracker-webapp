@@ -57,8 +57,7 @@ export default function Dashboard() {
                 className="movie-list p-3 p-md-4 rounded d-flex flex-row justify-content-start align-items-center flex-nowrap overflow-auto no-scrollbar"
                 id="my-movies"
               >
-                {yarn dev
-                  
+                {
                   // Check whether the first list is empty or not. If empty means nothing in watch history
                   savedLists.length == 0 ? (
                     <p className="text-center text-warning w-100">
