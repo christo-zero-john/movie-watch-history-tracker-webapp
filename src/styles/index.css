@@ -2,8 +2,8 @@
   transition: all 0.4s;
 }
 
-.shadow-lightt {
-  box-shadow: 3px 3px 5px #ffffff4e, -3px -3px 5px #ffffff4e;
+.shadow-light {
+  box-shadow: 0 0.5rem 1rem #ffffff45 !important;
 }
 
 .search-result__details * {
