@@ -4,7 +4,15 @@ import NavBar from "../common/nav-bar";
 
 export default function WatchHistory() {
   const watchHistory = LocalDatabase.getWatchHistory();
-  const movies = LocalDatabase.getMoviesFromDB();
+  const movies = [];
+  watchHistory.forEach((movieID) => {
+    const movie = LocalDatabase.getMovieFromDB(movieID);
+    console.log(movie);
+    if (movie) {
+      movies.push(movie);
+    }
+  });
+
   return (
     <>
       <NavBar />
