@@ -1,3 +1,5 @@
+import Dexie from "dexie";
+
 class LocalDatabase {
   constructor() {
     if (!LocalDatabase.instance) {
@@ -16,6 +18,21 @@ class LocalDatabase {
       // console.log("No wish list found, creating an empty one.");
       localStorage.setItem("wish-list", JSON.stringify([]));
     }
+
+    this.movieDB = new Dexie("movieDB");
+    this.movieDB.version(1).stores({
+      movies: `
+        id,
+        title,
+        release_date,
+        popularity,
+        vote_average,
+        genres,
+        production_companies,
+        original_language
+      `,
+    });
+
     // console.log("Local database initialized successfully.");
   }
 
@@ -41,6 +58,14 @@ class LocalDatabase {
     return JSON.stringify(
       localStorage.setItem("wish-list", JSON.stringify(data))
     );
+  }
+
+  /**
+   * Recieves movie details fetched from the tmdb api and saves it to the local database (indexDB here).
+   */
+  putMovieToDB(movieDetails) {
+    // console.log("Saving new movie to local database");
+    return this.movieDB.movies.add(movieDetails);
   }
 }
 export default new LocalDatabase();
