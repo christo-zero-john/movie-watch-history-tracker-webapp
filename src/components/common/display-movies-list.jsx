@@ -1,5 +1,20 @@
 import ActionButtons from "./action-buttons";
 
+const monthInWords = {
+  1: "January",
+  2: "February",
+  3: "March",
+  4: "April",
+  5: "May",
+  6: "June",
+  7: "July",
+  8: "August",
+  9: "September",
+  10: "October",
+  11: "November",
+  12: "December",
+};
+
 export default function DisplayMoviesList({ movies }) {
   function getRandomColor() {
     const colors = ["light", "warning", "primary", "danger", "success", "info"];
@@ -10,10 +25,15 @@ export default function DisplayMoviesList({ movies }) {
   return (
     <div className="search-results d-flex flex-row gap-2 justify-content-center flex-wrap col-12">
       {movies.map((movie) => {
+        const releaseDate = movie.release_date.split("-");
+        console.log(releaseDate[1]);
+        releaseDate[1] = monthInWords[+releaseDate[1]];
+        movie.release_date = releaseDate.reverse().join(" ");
+        console.log(movie);
         return (
           <div
             key={movie.id}
-            className={`card border border-${getRandomColor()} result-item col-2 m-2 rounded`}
+            className={`card border border-${getRandomColor()} result-item col-5  col-md-2 m-2 rounded`}
           >
             <img
               src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
@@ -23,7 +43,7 @@ export default function DisplayMoviesList({ movies }) {
             />
             <div className="text-start result-content p-2 small">
               <p className="movie-name fw-500">{movie.title}</p>
-              <p className="date small">Dec 06 2014</p>
+              <p className="date small pt-2">{movie.release_date}</p>
             </div>
           </div>
         );
