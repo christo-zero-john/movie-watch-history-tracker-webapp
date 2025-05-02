@@ -28,14 +28,18 @@ export default function WatchHistory__WishList() {
      */
     console.log(movieList);
 
-    movieList.forEach(async (movieID) => {
-      // Fetch and store db in the state
-      const movie = await LocalDatabase.getMovieFromDB(movieID);
-      // console.log(movie);
-      if (movie) {
-        setMovies((prevState) => [...prevState, movie]);
+    const fetchMovies = async () => {
+      const tempMovies = [];
+      for (const movieID of movieList) {
+        const movie = await LocalDatabase.getMovieFromDB(movieID);
+        if (movie) {
+          tempMovies.push(movie);
+        }
       }
-    });
+      setMovies(tempMovies);
+    };
+
+    fetchMovies();
   }, []);
 
   console.log(movies.length);
