@@ -19,7 +19,13 @@ export default function WatchHistory() {
   return (
     <>
       <NavBar />
-      <DisplayMoviesList movies={movies} />
+      {watchHistory.length == 0 ? (
+        <p className="">
+          No movies found. Add some movies to the list to display here.
+        </p>
+      ) : (
+        <DisplayMoviesList movies={movies} />
+      )}
     </>
   );
 }
