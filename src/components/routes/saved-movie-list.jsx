@@ -35,7 +35,7 @@ export default function WatchHistory__WishList() {
   }, []);
 
   return (
-    <div>
+    <div className="bg-dark text-light hd-100 overflow-auto no-scrollbar">
       <NavBar active={context} />
       {
         // If movie list has some elements but movies does not have, then display a message.
