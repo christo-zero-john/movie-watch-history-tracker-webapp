@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import LocalDatabase from "../../modules/LocalDatabase";
 import NavBar from "../common/nav-bar";
 import UserStatistics from "../dashboard/user-statistics";
+import { Link, redirect } from "react-router";
 
 export default function Dashboard() {
   const [savedLists, setSavedLists] = useState(null);
@@ -31,6 +32,19 @@ export default function Dashboard() {
       <NavBar active="dashboard" />
       <UserStatistics />
       <h1 className="text-center my-2 Dashboard">Dashboard</h1>
+      <Link
+        class="p-0 ps-2 add-movie-btn rounded-end float-end sticky-bottom border-0 my-2"
+        type="button"
+        to="/search"
+      >
+        Add Movie
+        <img
+          src="./src/assets/images/icons/add-movie-btn.png"
+          alt=""
+          class="h-100"
+          loading="lazy"
+        />
+      </Link>
       {
         // Check if the lists are ready to be displayed. If not, then display a message
 
