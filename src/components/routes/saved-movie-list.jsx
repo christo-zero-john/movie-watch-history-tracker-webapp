@@ -35,8 +35,8 @@ export default function WatchHistory__WishList() {
   }, []);
 
   return (
-    <>
-      <NavBar />
+    <div>
+      <NavBar active={context} />
       {
         // If movie list has some elements but movies does not have, then display a message.
         movieList.length > 0 ? (
@@ -53,6 +53,6 @@ export default function WatchHistory__WishList() {
           </p>
         )
       }
-    </>
+    </div>
   );
 }
