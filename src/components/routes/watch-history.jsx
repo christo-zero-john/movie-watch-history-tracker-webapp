@@ -9,8 +9,12 @@ export default function WatchHistory() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    // getMovieFromDB is async, so we need to use async await.
+    /**
+     * The watchHistory only has an array of movie ID's. The movies are stored in the IndexDB using Dexie js.
+     * So fetch movie details of each movie ID in the watchHistory and store them as an array of objects in the movies state.
+     */
     watchHistory.forEach(async (movieID) => {
+      // Fetch and store db in the state
       const movie = await LocalDatabase.getMovieFromDB(movieID);
       console.log(movie);
       if (movie) {
