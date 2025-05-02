@@ -1,7 +1,11 @@
 import ActionButtons from "./action-buttons";
 
 export default function DisplayMoviesList({ movies }) {
-  return (
+  return movies.length == 0 ? (
+    <p className="">
+      No movies found. Search or add some movies to display here
+    </p>
+  ) : (
     <div className="search-results d-flex flex-row gap-2 justify-content-center flex-wrap">
       {movies.map((movie) => {
         return (
