@@ -1,5 +1,11 @@
 export default function UserStatistics() {
+  // This component is used to display the user statistics in the dashboard. It is a horizontal scrollable container with some stats inside it.
+
+  /**
+   * Renders a styled statistic item with a value and a label.
+   */
   function oneLineValue(right, left) {
+    //
     return (
       <div class="stat-item small d-flex flex-row align-items-center w-fit mx-4">
         <p class="stat-value text-nowrap fw-bold mx-2 fs-5">{left}</p>
