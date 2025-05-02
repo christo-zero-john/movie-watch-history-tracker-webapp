@@ -4,16 +4,26 @@ import DisplayMoviesList from "../common/display-movies-list";
 import NavBar from "../common/nav-bar";
 import { useEffect } from "react";
 
-export default function WatchHistory() {
-  const watchHistory = LocalDatabase.getWatchHistory();
+/**
+ * This component can be used to diplay both wihlist and atch history
+ * @param {props} The props.context isa used to determine whether to display, wish lost or watch history
+ * @returns
+ */
+export default function WatchHistory__WishList({ context }) {
+  const context_actions = {
+    "watch-history": LocalDatabase.getWatchHistory,
+    "wish-list": LocalDatabase.getWishList,
+  };
+  
+  const movieList = LocalDatabase.getWishList();
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     /**
-     * The watchHistory only has an array of movie ID's. The movies are stored in the IndexDB using Dexie js.
-     * So fetch movie details of each movie ID in the watchHistory and store them as an array of objects in the movies state.
+     * The movieList only has an array of movie ID's. The movies are stored in the IndexDB using Dexie js.
+     * So fetch movie details of each movie ID in the movieList and store them as an array of objects in the movies state.
      */
-    watchHistory.forEach(async (movieID) => {
+    movieList.forEach(async (movieID) => {
       // Fetch and store db in the state
       const movie = await LocalDatabase.getMovieFromDB(movieID);
       // console.log(movie);
@@ -27,8 +37,8 @@ export default function WatchHistory() {
     <>
       <NavBar />
       {
-        // If watch history has some elements but movies does not have, then display a message.
-        watchHistory.length > 0 ? (
+        // If movie list has some elements but movies does not have, then display a message.
+        movieList.length > 0 ? (
           movies.length == 0 ? (
             <p className="alert alert-warning text-center">
               Fetching movies from database
