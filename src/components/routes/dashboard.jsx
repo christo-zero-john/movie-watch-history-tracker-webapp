@@ -21,7 +21,7 @@ export default function Dashboard() {
         watchHistory
       );
       let wishListMovies = await LocalDatabase.constructMoviesList(wishList);
-      console.log(watchHistoryMovies, wishListMovies);
+      // console.log(watchHistoryMovies, wishListMovies);
       setSavedLists([watchHistoryMovies, wishListMovies]);
     })();
   }, []);
