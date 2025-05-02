@@ -53,3 +53,18 @@ p {
   color: #fff;
   transition: all 0.3s ease;
 }
+
+.genre-section .genre-item:hover,
+.add-movie-btn:hover,
+.search-options button:hover,
+.so-btn.selected {
+  background-color: #fff;
+  color: #000;
+}
+
+.add-movie-btn {
+  height: 50px;
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+}
