@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import LocalDatabase from "../../modules/LocalDatabase";
 import NavBar from "../common/nav-bar";
 import UserStatistics from "../dashboard/user-statistics";
-import { Link, redirect } from "react-router";
+import { Link } from "react-router";
 
 export default function Dashboard() {
   const [savedLists, setSavedLists] = useState(null);
@@ -33,7 +33,7 @@ export default function Dashboard() {
       <UserStatistics />
       <h1 className="text-center my-2 Dashboard">Dashboard</h1>
       <Link
-        class="p-0 ps-2 add-movie-btn rounded-0 float-end sticky-bottom border-0 my-2 nav-link"
+        className="p-0 ps-2 add-movie-btn rounded-0 float-end sticky-bottom border-0 my-2 nav-link"
         type="button"
         to="/search"
       >
@@ -41,7 +41,7 @@ export default function Dashboard() {
         <img
           src="/src/assets/images/icons/add-movie-btn.png"
           alt=""
-          class="ms-2 h-100"
+          className="ms-2 h-100"
           loading="lazy"
         />
       </Link>
@@ -53,17 +53,24 @@ export default function Dashboard() {
         ) : (
           // If the lists are ready to be displayed, then first display the watch history.
           <>
-            <h5 className="">Watch History</h5>
-            {
-              // Check whether the first list is empty or not. If empty means nothing in watch history
-              savedLists[0].length == 0 ? (
-                <p className="alert alert-warning text-center">
-                  Add some movies to your watch history to appear here
-                </p>
-              ) : (
-                savedLists[0].map((movie) => <p>{movie.title}</p>)
-              )
-            }
+            <section className="watched-movies col-12 col-md-11 ms-3 mx-md-auto">
+              <h2 className="section-title fs-6">Watched Movies</h2>
+              <div
+                className="movie-list p-3 p-md-4 pb-2 pb-md-3 rounded d-flex flex-row justify-content-start align-items-center flex-nowrap overflow-auto no-scrollbar"
+                id="my-movies"
+              >
+                {
+                  // Check whether the first list is empty or not. If empty means nothing in watch history
+                  savedLists[0].length == 0 ? (
+                    <p className="alert alert-warning text-center">
+                      Add some movies to your watch history to appear here
+                    </p>
+                  ) : (
+                    savedLists[0].map((movie) => <p>{movie.title}</p>)
+                  )
+                }
+              </div>
+            </section>
 
             <h5 className="">Wish List</h5>
             {
