@@ -8,8 +8,4 @@ import LocalDatabase from "./modules/LocalDatabase";
 
 LocalDatabase.initialzeDatabase();
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <AppRoutes />
-  </StrictMode>
-);
+createRoot(document.getElementById("root")).render(<AppRoutes />);
