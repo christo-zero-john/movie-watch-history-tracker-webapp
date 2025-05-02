@@ -3,13 +3,15 @@ import LocalDatabase from "../../modules/LocalDatabase";
 import DisplayMoviesList from "../common/display-movies-list";
 import NavBar from "../common/nav-bar";
 import { useEffect } from "react";
+import { useParams } from "react-router";
 
 /**
  * This component can be used to diplay both wihlist and atch history
  * @param {props} The props.context is used to determine whether to display, wish lost or watch history
  * @returns
  */
-export default function WatchHistory__WishList({ context }) {
+export default function WatchHistory__WishList() {
+  const { context } = useParams();
   const context_actions = {
     "watch-history": LocalDatabase.getWatchHistory,
     "wish-list": LocalDatabase.getWishList,
@@ -24,6 +26,8 @@ export default function WatchHistory__WishList({ context }) {
      * The movieList only has an array of movie ID's. The movies are stored in the IndexDB using Dexie js.
      * So fetch movie details of each movie ID in the movieList and store them as an array of objects in the movies state.
      */
+    console.log(movieList);
+
     movieList.forEach(async (movieID) => {
       // Fetch and store db in the state
       const movie = await LocalDatabase.getMovieFromDB(movieID);
@@ -34,6 +38,7 @@ export default function WatchHistory__WishList({ context }) {
     });
   }, []);
 
+  console.log(movies.length);
   return (
     <>
       <NavBar />
