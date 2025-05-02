@@ -3,17 +3,53 @@ import Navbar from "react-bootstrap/Navbar";
 
 export default function NavBar() {
   return (
-    <Navbar expand="md" className="px-2 shadow border-bottom border-3 border-warning">
-      <Navbar.Brand href="/">MWHT</Navbar.Brand>
-      <Navbar.Toggle aria-controls="nav-bar" />
-      <Navbar.Collapse id="nav-bar" className="alert alert-light rounded-0 border-0 shadow p-0 m-0 ps-2">
-        <Nav className="ms-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/movie-list/watch-history">Watch List</Nav.Link>
-          <Nav.Link href="/movie-list/wish-list">Wish List</Nav.Link>
-          <Nav.Link href="/search">Search for Movies</Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+    <nav class="navbar navbar-expand-md navbar-dark p-0">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-3 text-light fw-bolder en-iceberg" href="#">
+          MWHT
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">
+                Watch History
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#movieSearchFormOffcanvas"
+                aria-controls="movieSearchFormOffcanvas"
+              >
+                Explore
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/wishlist">
+                Wishlist
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/recommended">
+                Recommended
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
