@@ -27,6 +27,40 @@ export default function Dashboard() {
   return (
     <>
       <h1 className="text-center my-2 Dashboard">Dashboard</h1>
+      {
+        // Check if the lists are ready to be displayed. If not, then display a message
+
+        !savedLists ? (
+          <p className="alert alert-warning text-center">Fetching user data</p>
+        ) : (
+          // If the lists are ready to be displayed, then first display the watch history.
+          <>
+            <h5 className="">Watch History</h5>
+            {
+              // Check whether the first list is empty or not. If empty means nothing in watch history
+              savedLists[0].length == 0 ? (
+                <p className="alert alert-warning text-center">
+                  Add some movies to your watch history to appear here
+                </p>
+              ) : (
+                savedLists[0].map((movie) => <p>{movie.title}</p>)
+              )
+            }
+
+            <h5 className="">Wish List</h5>
+            {
+              // Check whether the second list is empty or not. If empty means nothing in wish list
+              savedLists[1].length == 0 ? (
+                <p className="alert alert-warning text-center">
+                  Add some movies to your wish list to appear here
+                </p>
+              ) : (
+                savedLists[1].map((movie) => <p>{movie.title}</p>)
+              )
+            }
+          </>
+        )
+      }
     </>
   );
 }
