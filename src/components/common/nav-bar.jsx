@@ -5,7 +5,7 @@ export default function NavBar({ active = null }) {
   return (
     <nav class="navbar navbar-expand-md navbar-dark p-0">
       <div class="container-fluid">
-        <a class="navbar-brand fs-3 text-light fw-bolder en-iceberg" href="#">
+        <a class="navbar-brand fs-3 text-light fw-bolder en-iceberg" href="/">
           MWHT
         </a>
         <button
@@ -21,6 +21,15 @@ export default function NavBar({ active = null }) {
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a
+                class={`nav-link ${active == "watch-history" && "active"}`}
+                aria-current="page"
+                href="/"
+              >
+                Dashboard
+              </a>
+            </li>{" "}
             <li class="nav-item">
               <a
                 class={`nav-link ${active == "watch-history" && "active"}`}
