@@ -11,6 +11,9 @@ importers:
       bootstrap:
         specifier: ^5.3.5
         version: 5.3.5(@popperjs/core@2.11.8)
+      dexie:
+        specifier: ^4.0.11
+        version: 4.0.11
       dotenv:
         specifier: ^16.5.0
         version: 16.5.0
@@ -630,6 +633,9 @@ packages:
   dequal@2.0.3:
     resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
     engines: {node: '>=6'}
+
+  dexie@4.0.11:
+    resolution: {integrity: sha512-SOKO002EqlvBYYKQSew3iymBoN2EQ4BDw/3yprjh7kAfFzjBYkaMNa/pZvcA7HSWlcKSQb9XhPe3wKyQ0x4A8A==}
 
   dom-helpers@5.2.1:
     resolution: {integrity: sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==}
@@ -1584,6 +1590,8 @@ snapshots:
   deep-is@0.1.4: {}
 
   dequal@2.0.3: {}
+
+  dexie@4.0.11: {}
 
   dom-helpers@5.2.1:
     dependencies:
