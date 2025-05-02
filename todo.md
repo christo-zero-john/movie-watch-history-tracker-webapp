@@ -34,7 +34,7 @@
 - Work on the Navbar. Implement the navbar design. ✅
 - Work on the dashboard and implement
   - user statistics section ✅
-  - Add movie button
+  - Add movie button ✅
   - watched movies section
   - My genres section
 
