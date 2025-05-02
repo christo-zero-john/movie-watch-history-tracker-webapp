@@ -2,19 +2,22 @@ import { useState } from "react";
 import LocalDatabase from "../../modules/LocalDatabase";
 import DisplayMoviesList from "../common/display-movies-list";
 import NavBar from "../common/nav-bar";
+import { useEffect } from "react";
 
 export default function WatchHistory() {
   const watchHistory = LocalDatabase.getWatchHistory();
   const [movies, setMovies] = useState([]);
 
-  // getMovieFromDB is async, so we need to use async await.
-  watchHistory.forEach(async (movieID) => {
-    const movie = await LocalDatabase.getMovieFromDB(movieID);
-    console.log(movie);
-    if (movie) {
-      movies.push(movie);
-    }
-  });
+  useEffect(() => {
+    // getMovieFromDB is async, so we need to use async await.
+    watchHistory.forEach(async (movieID) => {
+      const movie = await LocalDatabase.getMovieFromDB(movieID);
+      console.log(movie);
+      if (movie) {
+        setMovies((prevState) => [...prevState, movie]);
+      }
+    });
+  }, []);
 
   return (
     <>
