@@ -32,7 +32,7 @@
 ### 02 05 2025
 
 - Work on the Navbar. Implement the navbar design. ✅
-- Work on the dashboard and implement
+- Work on the dashboard and implement ✅
   - user statistics section ✅
   - Add movie button ✅
   - watched movies section ✅
@@ -43,4 +43,8 @@
 - Continue: Work on the dashboard and implement
   - Movie item card
     - Basic item card ✅
-    - Action butons of item card
+    - Action buttons of item card
+
+### 04 05 2025
+
+- Implement user data and user stats management
