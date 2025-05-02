@@ -18,4 +18,7 @@
 
 - Implement functionality for displaying movies in wish list and watch history. ✅
 
-- Implement functinality to save movie in indexDB, so that movie data an be reused when needed.
+- Implement functinality to save movie in indexDB, so that movie data an be reused when needed. ✅
+- Implement the user dashboard. In the user dashboard, show
+  1. Movies in watch history
+  2. Movies in wish list
