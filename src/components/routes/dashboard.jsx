@@ -26,7 +26,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="bg-dark text-light">
+    <div className="bg-dark text-light hd-100 overflow-auto no-scrollbar">
       <NavBar />
       <h1 className="text-center my-2 Dashboard">Dashboard</h1>
       {
