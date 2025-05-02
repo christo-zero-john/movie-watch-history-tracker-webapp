@@ -68,9 +68,9 @@ class LocalDatabase {
     return this.movieDB.movies.add(movieDetails);
   }
 
-  getMovieFromDB(movieID) {
+  async getMovieFromDB(movieID) {
     // console.log("Fetching movie from local database");
-    return this.movieDB.movies.get(movieID);
+    return await this.movieDB.movies.get(movieID);
   }
 }
 export default new LocalDatabase();
