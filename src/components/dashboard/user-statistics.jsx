@@ -1,49 +1,42 @@
 export default function UserStatistics() {
-  return (
-    <section class="stats-container rounded md-w-fit mx-3 mx-md-auto my-4 p-3 px-0 pb-0 pb-md-3 d-flex flex-row align-items-center flex-nowrap overflow-auto no-scrollbar">
-      <div class="stat-item small d-flex flex-row w-fit mx-4">
-        <p class="stat-value text-nowrap fw-bold mx-2">
-          120HRS
-          <br />
-          42MINS
-        </p>
-        <p class="stat-label text-nowrap">
-          TOTAL
-          <br />
-          WATCH TIME
-        </p>
-      </div>
-
+  function oneLineValue(right, left) {
+    return (
       <div class="stat-item small d-flex flex-row align-items-center w-fit mx-4">
-        <p class="stat-value text-nowrap fw-bold mx-2 fs-5">22</p>
+        <p class="stat-value text-nowrap fw-bold mx-2 fs-5">{left}</p>
         <p class="stat-label text-nowrap">
-          MOVIES
+          {right[0]}
           <br />
-          WATCHED
+          {right[1]}
         </p>
       </div>
+    );
+  }
 
+  function twoLineValues(right, left) {
+    return (
       <div class="stat-item small d-flex flex-row w-fit mx-4">
         <p class="stat-value text-nowrap fw-bold mx-2 text-end">
-          15
+          {left[0]}
           <br />
-          DAYS
+          {left[1]}
         </p>
         <p class="stat-label text-nowrap">
-          CURRENT
+          {right[0]}
           <br />
-          STREAK
+          {right[1]}
         </p>
       </div>
+    );
+  }
 
-      <div class="stat-item small d-flex flex-row align-items-center w-fit mx-4">
-        <p class="stat-value text-nowrap fw-bold mx-2 fs-5">37</p>
-        <p class="stat-label text-nowrap">
-          GENRES
-          <br />
-          WATCHED
-        </p>
-      </div>
+  return (
+    <section class="stats-container rounded md-w-fit mx-3 mx-md-auto my-4 p-3 px-0 pb-0 pb-md-3 d-flex flex-row align-items-center flex-nowrap overflow-auto no-scrollbar">
+      {twoLineValues(["TOTAL", "WATCH TIME"], ["120HRS", "42MINS"])}
+      {oneLineValue(["MOVIES", "WATCHED"], 22)}
+
+      {twoLineValues(["CURRENT", "STREAK"], ["15", "DAYS"])}
+
+      {oneLineValue(["GENRES", "WATCHED"], 37)}
     </section>
   );
 }
