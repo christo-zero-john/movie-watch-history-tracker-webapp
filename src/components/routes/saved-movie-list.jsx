@@ -23,23 +23,15 @@ export default function WatchHistory__WishList() {
 
   useEffect(() => {
     /**
-     * The movieList only has an array of movie ID's. The movies are stored in the IndexDB using Dexie js.
+     * The movieList only has an array of movie ID's. The movies are stored in the IndexDB using Dexie js. This can be done using the constructMoviesList of localDatabase class.
      * So fetch movie details of each movie ID in the movieList and store them as an array of objects in the movies state.
      */
 
-    const fetchMovies = async () => {
-      console.log("Fetching movie details from local database");
-      const tempMovies = [];
-      for (const movieID of movieList) {
-        const movie = await LocalDatabase.getMovieFromDB(movieID);
-        if (movie) {
-          tempMovies.push(movie);
-        }
-      }
-      setMovies(tempMovies);
-    };
-
-    fetchMovies();
+    (async () => {
+      let list = await LocalDatabase.constructMoviesList(movieList);
+      console.log(list);
+      setMovies(list);
+    })();
   }, []);
 
   return (
