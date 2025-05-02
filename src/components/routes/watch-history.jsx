@@ -16,7 +16,7 @@ export default function WatchHistory() {
     watchHistory.forEach(async (movieID) => {
       // Fetch and store db in the state
       const movie = await LocalDatabase.getMovieFromDB(movieID);
-      console.log(movie);
+      // console.log(movie);
       if (movie) {
         setMovies((prevState) => [...prevState, movie]);
       }
