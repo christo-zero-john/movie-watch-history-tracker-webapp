@@ -4,6 +4,7 @@ import LocalDatabase from "../../modules/LocalDatabase";
 import NavBar from "../common/nav-bar";
 import UserStatistics from "../dashboard/user-statistics";
 import { Link } from "react-router";
+import MyGenre from "../dashboard/my-genre";
 
 export default function Dashboard() {
   const [savedLists, setSavedLists] = useState(null);
@@ -50,7 +51,7 @@ export default function Dashboard() {
         ) : (
           // If the lists are ready to be displayed, then first display the watch history.
           <>
-            <section className="watched-movies col-12 col-md-11 ms-3 mx-md-auto">
+            <section className="watched-movies col-11 col-md-11 ms-3 mx-md-auto">
               <h2 className="section-title fs-6">Watched Movies</h2>
               <div
                 className="movie-list p-3 p-md-4 pb-2 pb-md-3 rounded d-flex flex-row justify-content-start align-items-center flex-nowrap overflow-auto no-scrollbar"
@@ -68,11 +69,8 @@ export default function Dashboard() {
                 }
               </div>
 
-
-
+              <MyGenre />
             </section>
-
-            
           </>
         )
       }
