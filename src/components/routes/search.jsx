@@ -36,7 +36,7 @@ export default function SearchMovie() {
           placeholder="Search for movies"
         />
         <button
-          className="btn btn-primary rounded-0 px-4 mb-1 shadow"
+          className="btn btn-primary rounded-0 px-4 mb-1 shadow-light"
           disabled={isSearching}
         >
           Search
@@ -70,7 +70,7 @@ export default function SearchMovie() {
                 <p className="d-inline-block m-0">
                   Page {searchResults.page} of {searchResults.total_pages}
                   <button
-                    className="btn btn-outline-success text-uppercase d-inline-block mx-2 px-5 rounded-0 shadow"
+                    className="btn btn-outline-success text-uppercase d-inline-block mx-2 px-5 rounded-0 shadow-light"
                     onClick={() =>
                       TMDB.searchMovie(
                         searchResults.search_term,
