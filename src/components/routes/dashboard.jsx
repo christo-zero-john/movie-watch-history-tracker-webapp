@@ -10,7 +10,6 @@ export default function Dashboard() {
 
   useEffect(() => {
     const watchHistory = LocalDatabase.getWatchHistory();
-    const wishList = LocalDatabase.getWishList();
 
     /**
      * The movieList only has an array of movie ID's. The movies are stored in the IndexDB using Dexie js. This can be done using the constructMoviesList of localDatabase class.
@@ -21,9 +20,8 @@ export default function Dashboard() {
       let watchHistoryMovies = await LocalDatabase.constructMoviesList(
         watchHistory
       );
-      let wishListMovies = await LocalDatabase.constructMoviesList(wishList);
       // console.log(watchHistoryMovies, wishListMovies);
-      setSavedLists([watchHistoryMovies, wishListMovies]);
+      setSavedLists(watchHistoryMovies);
     })();
   }, []);
 
@@ -60,28 +58,21 @@ export default function Dashboard() {
               >
                 {
                   // Check whether the first list is empty or not. If empty means nothing in watch history
-                  savedLists[0].length == 0 ? (
+                  savedLists.length == 0 ? (
                     <p className="text-center text-warning w-100">
                       Add some movies to your watch history to appear here
                     </p>
                   ) : (
-                    savedLists[0].map((movie) => <p>{movie.title}</p>)
+                    savedLists.map((movie) => <p>{movie.title}</p>)
                   )
                 }
               </div>
+
+
+
             </section>
 
-            <h5 className="">Wish List</h5>
-            {
-              // Check whether the second list is empty or not. If empty means nothing in wish list
-              savedLists[1].length == 0 ? (
-                <p className="alert alert-warning text-center">
-                  Add some movies to your wish list to appear here
-                </p>
-              ) : (
-                savedLists[1].map((movie) => <p>{movie.title}</p>)
-              )
-            }
+            
           </>
         )
       }
