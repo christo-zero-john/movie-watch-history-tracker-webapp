@@ -17,12 +17,7 @@ export default function DisplayMoviesList({ movies }) {
             />
             <div className="result-content">
               <p className="movie-name fw-500">{movie.title}</p>
-              <div className="mid-section d-flex flex-row">
-                <div className="movie-date-time mt-1 d-flex flex-row">
-                  <p className="time me-2 small">1h 52m</p>
-                  <p className="date small">Dec 06 2014</p>
-                </div>
-              </div>
+              <p className="date small">Dec 06 2014</p>
 
               <div className="genre d-flex flex-row justify-content-center align-items-center float-end mt-3 me-md-2">
                 <p className="mx-1 small text-orange">Action</p>
