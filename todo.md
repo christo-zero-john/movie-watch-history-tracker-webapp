@@ -42,3 +42,5 @@
 
 - Continue: Work on the dashboard and implement
   - Movie item card
+    - Basic item card ✅
+    - Action butons of item card
