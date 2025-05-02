@@ -41,19 +41,19 @@ export default function NavBar({ active = null }) {
             </li>
             <li class="nav-item">
               <a
-                class={`nav-link ${active == "explore" && "active"}`}
-                aria-current="page"
-                href="/movie-list/search"
+                class={`nav-link ${active == "wish-list" && "active"}`}
+                href="/movie-list/wish-list"
               >
-                Explore
+                Wishlist
               </a>
             </li>
             <li class="nav-item">
               <a
-                class={`nav-link ${active == "wishlist" && "active"}`}
-                href="/movie-list/wish-list"
+                class={`nav-link ${active == "explore" && "active"}`}
+                aria-current="page"
+                href="/search"
               >
-                Wishlist
+                Explore
               </a>
             </li>
           </ul>
