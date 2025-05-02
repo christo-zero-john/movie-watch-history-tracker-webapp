@@ -34,7 +34,7 @@ export default function NavBar({ active = null }) {
               <a
                 class={`nav-link ${active == "watch-history" && "active"}`}
                 aria-current="page"
-                href="/"
+                href="/movie-list/watch-history"
               >
                 Watch History
               </a>
@@ -42,10 +42,8 @@ export default function NavBar({ active = null }) {
             <li class="nav-item">
               <a
                 class={`nav-link ${active == "explore" && "active"}`}
-                href="#"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#movieSearchFormOffcanvas"
-                aria-controls="movieSearchFormOffcanvas"
+                aria-current="page"
+                href="/movie-list/search"
               >
                 Explore
               </a>
@@ -53,17 +51,9 @@ export default function NavBar({ active = null }) {
             <li class="nav-item">
               <a
                 class={`nav-link ${active == "wishlist" && "active"}`}
-                href="/wishlist"
+                href="/movie-list/wish-list"
               >
                 Wishlist
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                class={`nav-link ${active == "recommended" && "active"}`}
-                href="/recommended"
-              >
-                Recommended
               </a>
             </li>
           </ul>
