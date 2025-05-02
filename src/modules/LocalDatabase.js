@@ -90,5 +90,18 @@ class LocalDatabase {
       return movieDetails;
     }
   }
+
+  async constructMoviesList(movieIDs) {
+    console.log("Fetching movie details from local database");
+    const tempMovies = [];
+    // We should use for loop as only then we can execute mutiple awaits inisde the for loop without reloving a promise or using a promise chain
+    for (const movieID of movieIDs) {
+      const movie = await this.getMovieFromDB(movieID);
+      if (movie) {
+        tempMovies.push(movie);
+      }
+    }
+    return tempMovies;
+  }
 }
 export default new LocalDatabase();
