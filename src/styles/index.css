@@ -1,5 +1,5 @@
-*{
-    transition: all 0.4s;
+* {
+  transition: all 0.4s;
 }
 
 .search-result__details * {
@@ -33,4 +33,19 @@ p {
 .nav-item .nav-link:hover,
 .stat-label {
   color: #ffb64d;
+}
+
+.stats-container,
+.movie-list,
+.my-genre,
+.genre-item,
+.add-movie-btn,
+.search-options,
+.search-options button,
+.search-results .result-item,
+.recommended-movie-items {
+  background: none;
+  box-shadow: inset 0 0 20px #ffffff4e;
+  color: #fff;
+  transition: all 0.3s ease;
 }
