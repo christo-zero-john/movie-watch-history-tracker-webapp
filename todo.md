@@ -32,3 +32,12 @@
 ### 02 05 2025
 
 - Work on the Navbar. Implement the navbar design.
+- Work on the dashboard and implement
+  - user statistics section
+  - watched movies section
+  - My genres section
+
+### 03 05 2025
+
+- Continue: Work on the dashboard and implement
+  - Movie item card
