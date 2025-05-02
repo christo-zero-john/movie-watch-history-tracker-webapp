@@ -19,13 +19,20 @@ export default function WatchHistory() {
   return (
     <>
       <NavBar />
-      {watchHistory.length == 0 ? (
-        <p className="">
-          No movies found. Add some movies to the list to display here.
-        </p>
-      ) : (
-        <DisplayMoviesList movies={movies} />
-      )}
+      {
+        // If watch history has some elements but movies does not have, then display a message.
+        watchHistory.length > 0 ? (
+          movies.length == 0 ? (
+            <p className="">Fetching movies from database</p>
+          ) : (
+            <DisplayMoviesList movies={movies} />
+          )
+        ) : (
+          <p className="">
+            No movies found. Add some movies to the list to display here.
+          </p>
+        )
+      }
     </>
   );
 }
