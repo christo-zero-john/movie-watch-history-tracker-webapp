@@ -18,7 +18,7 @@ export default function DisplayMoviesList({ movies }) {
 
             <div className="search-result__details col-9 ms-2 col-md-8">
               <p className="fw-600">{movie.title}</p>
-              <button className="btn btn-outline-primary rounded-0 p-0 px-3 small-2">
+              <button className="btn btn-outline-primary rounded-0 p-0 px-3">
                 Details
               </button>
               <div className="action-buttons float-end">
