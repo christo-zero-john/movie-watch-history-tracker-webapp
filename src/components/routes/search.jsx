@@ -49,7 +49,7 @@ export default function SearchMovie() {
         ) : // Display search results if they exist
         !searchResults ? (
           <div className="w-100 bg-warning">
-            <p className="alert alert-warning text-center">
+            <p className="alert alert-warning text-center rounded-0">
               Search for something to appear here...
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function SearchMovie() {
         ) : (
           // Display results
           <div>
-            <p className="alert alert-success text-uppercase p-0 text-center">
+            <p className="alert alert-success text-uppercase p-0 text-center rounded-0">
               Showing {searchResults.results.length} of{" "}
               {searchResults.total_results} Results
             </p>
