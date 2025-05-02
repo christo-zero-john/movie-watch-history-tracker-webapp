@@ -1,5 +1,9 @@
 export default function Dashboard() {
-  return <div>
-    
-  </div>;
+  const [savedLists, setSavedLists] = null;
+
+  return !savedLists ? (
+    <p className="alert alert-warning text-center">Fetching user data</p>
+  ) : (
+    ""
+  );
 }
