@@ -31,7 +31,6 @@ export default function Dashboard() {
     <div className="bg-dark text-light hd-100 overflow-auto no-scrollbar">
       <NavBar active="dashboard" />
       <UserStatistics />
-      <h1 className="text-center my-2 Dashboard">Dashboard</h1>
       <Link
         className="p-0 ps-2 add-movie-btn rounded-0 float-end sticky-bottom border-0 my-2 nav-link"
         type="button"
@@ -62,7 +61,7 @@ export default function Dashboard() {
                 {
                   // Check whether the first list is empty or not. If empty means nothing in watch history
                   savedLists[0].length == 0 ? (
-                    <p className="alert alert-warning text-center">
+                    <p className="text-center text-warning w-100">
                       Add some movies to your watch history to appear here
                     </p>
                   ) : (
