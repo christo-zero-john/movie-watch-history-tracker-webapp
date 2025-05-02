@@ -70,14 +70,14 @@ class LocalDatabase {
   }
 
   /**
-   * @description Used to 
+   * @description Used to fetch movie from IndexDB. If movie is not present in the INdexDB, fetch movie from TMDB and save it to the IndexDB
    * @param {number} movieID A valid TMDB movie ID.
    * @returns
    */
   async getMovieFromDB(movieID) {
     // console.log("Fetching movie from local database");
     const movieDetails = await this.movieDB.movies.get(movieID);
-    console.log(movieDetails);
+    // console.log(movieDetails);
     if (!movieDetails) {
       TMDB.getMovieById(movieID).then((data) => {
         console.log(
