@@ -33,15 +33,15 @@ export default function Dashboard() {
       <UserStatistics />
       <h1 className="text-center my-2 Dashboard">Dashboard</h1>
       <Link
-        class="p-0 ps-2 add-movie-btn rounded-end float-end sticky-bottom border-0 my-2 nav-link"
+        class="p-0 ps-2 add-movie-btn rounded-0 float-end sticky-bottom border-0 my-2 nav-link"
         type="button"
         to="/search"
       >
         Add Movie
         <img
-          src="./src/assets/images/icons/add-movie-btn.png"
+          src="/src/assets/images/icons/add-movie-btn.png"
           alt=""
-          class="h-100"
+          class="ms-2 h-100"
           loading="lazy"
         />
       </Link>
