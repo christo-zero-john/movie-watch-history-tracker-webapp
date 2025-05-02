@@ -1,5 +1,3 @@
-
-
 export default function NavBar({ active = null }) {
   return (
     <nav class="navbar navbar-expand-md navbar-dark p-0">
