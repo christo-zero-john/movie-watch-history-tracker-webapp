@@ -7,22 +7,27 @@ export default function DisplayMoviesList({ movies }) {
         return (
           <div
             key={movie.id}
-            className="card rounded-0 p-2 shadow-sm col-12 col-md-3 d-flex flex-row gap-0"
+            className="result-item col-4 m-2 pe-2 rounded d-flex flex-row justify-content-start align-items-center"
           >
             <img
               src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
               alt=""
-              className="col-2 col-md-3"
-              lazy="true"
+              className="result-cover me-2"
+              loading="lazy"
             />
+            <div className="result-content">
+              <p className="movie-name fw-500">The Last: Naruto the movie</p>
+              <div className="mid-section d-flex flex-row">
+                <div className="movie-date-time mt-1 d-flex flex-row">
+                  <p className="time me-2 small">1h 52m</p>
+                  <p className="date small">Dec 06 2014</p>
+                </div>
+              </div>
 
-            <div className="search-result__details col-9 ms-2 col-md-8">
-              <p className="fw-600">{movie.title}</p>
-              <button className="btn btn-outline-primary rounded-0 p-0 px-3">
-                Details
-              </button>
-              <div className="action-buttons float-end">
-                <ActionButtons movie={movie} />
+              <div className="genre d-flex flex-row justify-content-center align-items-center float-end mt-3 me-md-2">
+                <p className="mx-1 small text-orange">Action</p>
+                <p className="mx-1 small text-orange">Adventure</p>
+                <p className="mx-1 small text-orange">Romance</p>
               </div>
             </div>
           </div>
