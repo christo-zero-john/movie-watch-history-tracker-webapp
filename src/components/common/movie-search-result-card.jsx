@@ -50,12 +50,7 @@ export default function MovieSearchResultCard({ movie }) {
           className="img-fluid search-result-poster rounded-top"
           loading="lazy"
         />
-        <img
-          src="/src/assets/images/icons/more-actions-btn.png"
-          alt=""
-          className="more-actions-btn"
-          onClick={() => setShowActionButtons((prevState) => !prevState)}
-        />
+        <ActionButtons movie={movie} />
       </div>
       <div className="text-start result-content p-2 small">
         <p className="movie-name fw-500 pt-2">{movie.title}</p>
