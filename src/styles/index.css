@@ -163,7 +163,7 @@ p {
 }
 
 .small-icon {
-  width: 20px;
+  height: 30px;
 }
 
 .movie-details-genre button {
@@ -213,4 +213,25 @@ p {
 
 .movie-item .hover-varient .top-side {
   height: 35%;
+}
+
+.movie-item .hover-varient .genre p {
+  font-size: 11px;
+  color: #ff824d;
+}
+
+.movie-item .hover-varient .icon {
+  height: 30px;
+}
+
+.movie-item:hover .hover-varient {
+  opacity: 1;
+}
+
+.movie-item:hover img {
+  transform: rotateY(360deg);
+}
+
+.movie-item:hover {
+  scale: 1.1;
 }
