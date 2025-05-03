@@ -33,7 +33,7 @@ export default function ActionButtons({ movie }) {
       </button>;
     }
 
-    if()
+    if(wishList.includes(movie.id)){}
   }
   return (
     <>
