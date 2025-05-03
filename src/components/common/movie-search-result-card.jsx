@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ActionButtons from "./action-buttons";
+import { Link } from "react-router";
 
 const monthInWords = {
   1: "January",
@@ -51,9 +52,20 @@ export default function MovieSearchResultCard({ movie }) {
           loading="lazy"
         />
         <ActionButtons movie={movie} />
+        <img
+          src="/src/assets/images/icons/more-details.png"
+          alt="info"
+          className="more-details-icon"
+          loading="lazy"
+        />
       </div>
       <div className="text-start result-content p-2 small">
-        <p className="movie-name fw-500 pt-2">{movie.title}</p>
+        <Link
+          href={`/details/${movie.id}`}
+          className="nav-link movie-name fw-500 pt-2"
+        >
+          {movie.title}
+        </Link>
         <p className="date small op-07">{movie.release_date}</p>
       </div>
     </div>
