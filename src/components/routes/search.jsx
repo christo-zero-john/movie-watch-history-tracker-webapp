@@ -44,7 +44,7 @@ export default function SearchMovie() {
       </form>
       {
         // If searching then display message. Else display search results
-        isSearching ? (
+        isSearching && !searchResults ? (
           <p className="">Searching...</p>
         ) : // Display search results if they exist
         !searchResults ? (
@@ -71,13 +71,15 @@ export default function SearchMovie() {
                   Page {searchResults.page} of {searchResults.total_pages}
                   <button
                     className="btn btn-outline-success text-uppercase d-inline-block mx-2 px-5 rounded-0 shadow-light"
-                    onClick={() =>
+                    onClick={() => {
+                      setIsSearching(true);
                       TMDB.searchMovie(
                         searchResults.search_term,
                         searchResults.page + 1,
                         setSearchResults
-                      )
-                    }
+                      );
+                    }}
+                    disabled={isSearching}
                   >
                     Load More...
                   </button>
