@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Modal, Button, Image } from "react-bootstrap";
 
 export default function ResultItemDetails({
@@ -31,29 +30,6 @@ export default function ResultItemDetails({
             </h3>
 
             <div className="d-flex flex-row rating-date-time">
-              <div className="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2">
-                <Image
-                  src="./src/assets/images/rating-stars/100-star.png"
-                  alt=""
-                  className="rating-star"
-                />
-                <Image
-                  src="./src/assets/images/rating-stars/80-star.png"
-                  alt=""
-                  className="rating-star"
-                />
-                <Image
-                  src="./src/assets/images/rating-stars/50-star.png"
-                  alt=""
-                  className="rating-star"
-                />
-                <Image
-                  src="./src/assets/images/rating-stars/40-star.png"
-                  alt=""
-                  className="rating-star"
-                />
-              </div>
-
               <div className="movie-date-time mt-1 d-flex flex-row fs-5">
                 <p className="time me-2">1h 52m</p>
                 <p className="date">Dec 06 2014</p>
