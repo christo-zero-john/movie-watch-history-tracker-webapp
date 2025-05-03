@@ -96,6 +96,15 @@ p {
   gap: 0.5rem;
 }
 
+.more-details-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  z-index: 100;
+  width: 30px;
+}
+
 /* Movie search result item expand (summary) */
 
 .movie-summary {
