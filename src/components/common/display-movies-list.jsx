@@ -19,10 +19,7 @@ const monthInWords = {
 
 export default function DisplayMoviesList({ movies }) {
   const [showDetails, setShowDetails] = useState(false);
-  function toggleShowDetailsOffcanvas() {
-    // Assign the opposite of current value
-    setShowDetails((prevState) => -prevState);
-  }
+
 
   return (
     <div className="search-results d-flex flex-row gap-2 justify-content-center flex-wrap col-12">
@@ -32,7 +29,13 @@ export default function DisplayMoviesList({ movies }) {
         releaseDate[1] = monthInWords[+releaseDate[1]];
         movie.release_date = releaseDate.reverse().join(" ");
         console.log(movie);
-        return <MovieSearchResultCard movie={movie} key={movie.id} />;
+        return (
+          <MovieSearchResultCard
+            setShow={setShowDetails}
+            movie={movie}
+            key={movie.id}
+          />
+        );
       })}
     </div>
   );
