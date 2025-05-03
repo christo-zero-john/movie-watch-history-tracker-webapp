@@ -19,5 +19,20 @@ export default function MovieSearchResultCard({ movie }) {
   releaseDate[1] = monthInWords[+releaseDate[1]];
   movie.release_date = releaseDate.reverse().join(" ");
   console.log(movie);
-  return <div>MovieSearchResultCard</div>;
+  return (
+    <div
+      className={`card border border-${getRandomColor()} result-item col-5  col-md-2 m-2 rounded`}
+    >
+      <img
+        src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+        alt={`poster-${movie.title}`}
+        className="img-fluid"
+        loading="lazy"
+      />
+      <div className="text-start result-content p-2 small">
+        <p className="movie-name fw-500">{movie.title}</p>
+        <p className="date small pt-2">{movie.release_date}</p>
+      </div>
+    </div>
+  );
 }
