@@ -35,8 +35,8 @@ export default function MovieSearchResultCard({ movie }) {
         loading="lazy"
       />
       <div className="text-start result-content p-2 small">
-        <p className="movie-name fw-500">{movie.title}</p>
-        <p className="date small pt-2">{movie.release_date}</p>
+        <p className="movie-name fw-500 pt-2">{movie.title}</p>
+        <p className="date small op-07">{movie.release_date}</p>
       </div>
     </div>
   );
