@@ -89,7 +89,7 @@ export default function ActionButtons({ movie }) {
         }}
       />
       {show && (
-        <div className="action-buttons">
+        <div className={`action-buttons border `}>
           <Link
             to={`/details/${movie.id}`}
             className="nav-link link-info rounded-0 p-0 px-1 fs-6 small"
