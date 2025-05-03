@@ -9,6 +9,7 @@ export default function AppRoutes() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/search" element={<SearchMovie />} />
+        <Route path="/details/:id" element={<SearchMovie />} />
         <Route
           path="/movie-list/:context"
           element={<WatchHistory__WishList />}
