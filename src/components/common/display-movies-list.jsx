@@ -1,4 +1,5 @@
 import ActionButtons from "./action-buttons";
+import MovieSearchResultCard from "./movie-search-result-card";
 
 const monthInWords = {
   1: "January",
@@ -16,11 +17,7 @@ const monthInWords = {
 };
 
 export default function DisplayMoviesList({ movies }) {
-  function getRandomColor() {
-    const colors = ["light", "warning", "primary", "danger", "success", "info"];
-
-    return colors[Math.floor(Math.random() * 5)];
-  }
+  
 
   return (
     <div className="search-results d-flex flex-row gap-2 justify-content-center flex-wrap col-12">
@@ -30,22 +27,7 @@ export default function DisplayMoviesList({ movies }) {
         releaseDate[1] = monthInWords[+releaseDate[1]];
         movie.release_date = releaseDate.reverse().join(" ");
         console.log(movie);
-        return (
-          <div
-            className={`card border border-${getRandomColor()} result-item col-5  col-md-2 m-2 rounded`}
-          >
-            <img
-              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-              alt={`poster-${movie.title}`}
-              className="img-fluid"
-              loading="lazy"
-            />
-            <div className="text-start result-content p-2 small">
-              <p className="movie-name fw-500">{movie.title}</p>
-              <p className="date small pt-2">{movie.release_date}</p>
-            </div>
-          </div>
-        );
+        return <MovieSearchResultCard movie={movie} key={movie.id} />;
       })}
     </div>
   );
