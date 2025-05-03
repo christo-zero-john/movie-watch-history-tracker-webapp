@@ -1,8 +1,5 @@
 import { useState } from "react";
-import ActionButtons from "./action-buttons";
 import MovieSearchResultCard from "./movie-search-result-card";
-import { Modal, Button, Image } from "react-bootstrap";
-import ResultItemDetails from "../search/result-item-details";
 
 const monthInWords = {
   1: "January",
@@ -20,14 +17,8 @@ const monthInWords = {
 };
 
 export default function DisplayMoviesList({ movies }) {
-  const [showDetails, setShowDetails] = useState(true);
-
   return (
     <>
-      <ResultItemDetails
-        show={showDetails}
-        handleClose={() => setShowDetails(true)}
-      />
       <div className="search-results d-flex flex-row gap-2 justify-content-center flex-wrap col-12">
         {movies.map((movie) => {
           const releaseDate = movie.release_date.split("-");
@@ -35,13 +26,7 @@ export default function DisplayMoviesList({ movies }) {
           releaseDate[1] = monthInWords[+releaseDate[1]];
           movie.release_date = releaseDate.reverse().join(" ");
           // console.log(movie);
-          return (
-            <MovieSearchResultCard
-              setShow={setShowDetails}
-              movie={movie}
-              key={movie.id}
-            />
-          );
+          return <MovieSearchResultCard movie={movie} key={movie.id} />;
         })}
       </div>
     </>
