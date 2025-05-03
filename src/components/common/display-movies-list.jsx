@@ -32,7 +32,6 @@ export default function DisplayMoviesList({ movies }) {
         console.log(movie);
         return (
           <div
-            key={movie.id}
             className={`card border border-${getRandomColor()} result-item col-5  col-md-2 m-2 rounded`}
           >
             <img
