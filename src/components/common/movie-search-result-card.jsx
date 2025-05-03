@@ -21,6 +21,17 @@ function getRandomColor() {
 }
 
 export default function MovieSearchResultCard({ movie, setShow }) {
+  if (!movie.poster_path) {
+    movie.poster_path = "/src/assets/images/icons/image-placeholder.png";
+  } else {
+    if (
+      !movie.poster_path.includes("http") &&
+      !movie.poster_path.includes("image-placeholder")
+    ) {
+      movie.poster_path = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+    }
+  }
+
   const releaseDate = movie.release_date.split("-");
   releaseDate[1] = monthInWords[+releaseDate[1]];
   movie.release_date = releaseDate.reverse().join(" ");
@@ -31,7 +42,7 @@ export default function MovieSearchResultCard({ movie, setShow }) {
     >
       <div className="search-result-item-top">
         <img
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          src={movie.poster_path}
           alt={`poster-${movie.title}`}
           className="img-fluid search-result-poster rounded-top"
           loading="lazy"
