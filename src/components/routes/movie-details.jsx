@@ -5,6 +5,7 @@ import ActionButtons from "../common/action-buttons";
 
 export default function MovieDetails() {
   const { id } = useParams();
+
   const [movie, setMovie] = useState(null);
   return (
     <div className="bg-dark text-light">
@@ -94,7 +95,7 @@ export default function MovieDetails() {
                     <p class="time me-2 small">1h 52m</p>
                     <p class="date small">Dec 06 2014</p>
                   </div>
-                  
+
                   <div class="genre d-flex flex-row justify-content-center align-items-center float-end mt-3 me-md-2">
                     <p class="mx-1 small text-orange">Action</p>
                     <p class="mx-1 small text-orange">Adventure</p>
