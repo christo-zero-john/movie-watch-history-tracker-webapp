@@ -11,9 +11,13 @@ export default function ActionButtons({ movie }) {
   const [show, setShow] = useState(false);
 
   function setupButtons() {
-    const JSX = [];
+    const buttonsJSX = [];
+    console.log("Setting up buttons for movie:", movie);
+    console.log("Watch history:", watcHistory);
+    console.log("Wish list:", wishList);
+
     if (watcHistory.includes(movie.id)) {
-      JSX.push(
+      buttonsJSX.push(
         <button
           className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small"
           onClick={() => {
@@ -25,7 +29,7 @@ export default function ActionButtons({ movie }) {
         </button>
       );
     } else {
-      JSX.push(
+      buttonsJSX.push(
         <button
           className="btn btn-outline-success rounded-0 p-0 px-1 fs-6 small"
           onClick={() => {
@@ -39,7 +43,7 @@ export default function ActionButtons({ movie }) {
     }
 
     if (wishList.includes(movie.id)) {
-      JSX.push(
+      buttonsJSX.push(
         <button
           className="btn btn-outline-warning rounded-0 p-0 px-1 fs-6 small"
           onClick={() => {
@@ -51,73 +55,58 @@ export default function ActionButtons({ movie }) {
         </button>
       );
     } else {
-      JSX.push(<button
-        className="btn btn-outline-primary rounded-0 p-0 px-1 fs-6 small"
-        onClick={() => {
-          CoreActions.addToWishList(movie);
-          setRerender((prevState) => !prevState);
-        }}
-      >
-        ☆
-      </button>);
+      buttonsJSX.push(
+        <button
+          className="btn btn-outline-primary rounded-0 p-0 px-1 fs-6 small"
+          onClick={() => {
+            CoreActions.addToWishList(movie);
+            setRerender((prevState) => !prevState);
+          }}
+        >
+          ☆
+        </button>
+      );
     }
+
+    console.log("Buttons created:", buttonsJSX);
+    return (
+      <>
+        {buttonsJSX[0]}
+        {buttonsJSX[1]}
+      </>
+    );
   }
   return (
-    <>
+    <div>
       <img
-        src="/src/assets/images/icons/more-actions-btn.png"
+        src="/src/assets/images/icons/more-actions-btn.svg"
         alt=""
         className="more-actions-btn"
-        onClick={() => setShow((prevState) => !prevState)}
+        onClick={() => {
+          console.log("Current show state:", show);
+          setShow((prevState) => !prevState);
+        }}
       />
-      {
-        // If movie is in watch history, return 'remove' button else 'add' button.
-        watcHistory.includes(movie.id) ? (
-          <button
-            className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small"
-            onClick={() => {
-              CoreActions.removeFromWatchHistory(movie);
-              setRerender((prevState) => -prevState);
-            }}
-          >
-            -
-          </button>
-        ) : (
-          <button
-            className="btn btn-outline-success rounded-0 p-0 px-1 fs-6 small"
-            onClick={() => {
-              CoreActions.addToWatchHistory(movie);
-              setRerender((prevState) => -prevState);
-            }}
-          >
-            +
-          </button>
-        )
-      }
-      {
-        // If movie is in wish list, return 'remove' button else return 'add' button.
-        wishList.includes(movie.id) ? (
-          <button
-            className="btn btn-outline-warning rounded-0 p-0 px-1 fs-6 small"
-            onClick={() => {
-              CoreActions.removeFromWishList(movie);
-              setRerender((prevState) => -prevState);
-            }}
-          >
-            ★
-          </button>
-        ) : (
-          <button
-            className="btn btn-outline-primary rounded-0 p-0 px-1 fs-6 small"
-            onClick={() => {
-              CoreActions.addToWishList(movie);
-              setRerender((prevState) => -prevState);
-            }}
-          >
-            ☆
-          </button>
-        )
-      }
-    </>
+      {console.log(show)}
+      {show && (
+        <div
+          style={{
+            position: "absolute",
+            top: "100%",
+            right: 0,
+            zIndex: 1000,
+            minWidth: "100px",
+            display: "flex",
+            gap: "0.5rem",
+            backgroundColor: "#212529",
+            padding: "0.5rem",
+            borderRadius: "0.25rem",
+            boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+          }}
+        >
+          {setupButtons()}
+        </div>
+      )}
+    </div>
   );
 }
