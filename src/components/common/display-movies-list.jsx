@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ActionButtons from "./action-buttons";
 import MovieSearchResultCard from "./movie-search-result-card";
 
@@ -17,6 +18,12 @@ const monthInWords = {
 };
 
 export default function DisplayMoviesList({ movies }) {
+  const [showDetails, setShowDetails] = useState(false);
+  function toggleShowDetailsOffcanvas() {
+    // Assign the opposite of current value
+    setShowDetails((prevState) => -prevState);
+  }
+
   return (
     <div className="search-results d-flex flex-row gap-2 justify-content-center flex-wrap col-12">
       {movies.map((movie) => {
