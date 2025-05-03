@@ -47,4 +47,5 @@
 
 ### 04 05 2025
 
+- Setup movie details page
 - Implement user data and user stats management
