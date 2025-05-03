@@ -24,5 +24,11 @@ class Helpers {
     console.log("Successfully extracted form data");
     return extractedData;
   }
+
+  getRandomColor() {
+    const colors = ["light", "warning", "primary", "danger", "success", "info"];
+
+    return colors[Math.floor(Math.random() * 5)];
+  }
 }
 export default new Helpers();
