@@ -20,7 +20,6 @@ const monthInWords = {
 export default function DisplayMoviesList({ movies }) {
   const [showDetails, setShowDetails] = useState(false);
 
-
   return (
     <div className="search-results d-flex flex-row gap-2 justify-content-center flex-wrap col-12">
       {movies.map((movie) => {
