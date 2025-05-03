@@ -10,13 +10,14 @@
   font-size: 12px;
 }
 
-.search-result-item-top {
+.search-result-item-top{
   height: 300px;
+
 }
 
 .search-result-poster {
   width: 500px;
-  height: 300px;
+  height: 100%;
 }
 
 p {
@@ -79,8 +80,6 @@ p {
 }
 
 .more-actions-btn {
-  position: absolute;
-  bottom: 0;
   width: 30px;
   transform: translateY(-15px);
   cursor: pointer;
