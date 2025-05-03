@@ -2,6 +2,7 @@ import { useState } from "react";
 import CoreActions from "../../modules/CoreActions";
 import LocalDatabase from "../../modules/LocalDatabase";
 import { Link } from "react-router";
+import Helpers from "../../modules/Helpers";
 
 export default function ActionButtons({ movie }) {
   const watcHistory = LocalDatabase.getWatchHistory();
@@ -13,9 +14,6 @@ export default function ActionButtons({ movie }) {
 
   function setupButtons() {
     const buttonsJSX = [];
-    console.log("Setting up buttons for movie:", movie);
-    console.log("Watch history:", watcHistory);
-    console.log("Wish list:", wishList);
 
     if (watcHistory.includes(movie.id)) {
       buttonsJSX.push(
@@ -69,7 +67,6 @@ export default function ActionButtons({ movie }) {
       );
     }
 
-    console.log("Buttons created:", buttonsJSX);
     return (
       <>
         {buttonsJSX[0]}
@@ -84,12 +81,13 @@ export default function ActionButtons({ movie }) {
         alt=""
         className="more-actions-btn"
         onClick={() => {
-          console.log("Current show state:", show);
           setShow((prevState) => !prevState);
         }}
       />
       {show && (
-        <div className={`action-buttons border `}>
+        <div
+          className={`action-buttons border border-${Helpers.getRandomColor()} `}
+        >
           <Link
             to={`/details/${movie.id}`}
             className="nav-link link-info rounded-0 p-0 px-1 fs-6 small"
