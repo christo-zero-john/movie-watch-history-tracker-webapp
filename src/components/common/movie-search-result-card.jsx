@@ -26,12 +26,12 @@ export default function MovieSearchResultCard({ movie }) {
   console.log(movie);
   return (
     <div
-      className={`card border border-${getRandomColor()} result-item col-5  col-md-2 m-2 rounded`}
+      className={`card border border-${getRandomColor()} result-item col-5  col-md-3 col-lg-2 m-2 rounded column justify-content-between`}
     >
       <img
         src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
         alt={`poster-${movie.title}`}
-        className="img-fluid"
+        className="img-fluid rounded-top rounded-1"
         loading="lazy"
       />
       <div className="text-start result-content p-2 small">
