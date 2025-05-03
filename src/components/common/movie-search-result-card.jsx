@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ActionButtons from "./action-buttons";
 
 const monthInWords = {
@@ -20,7 +21,9 @@ function getRandomColor() {
   return colors[Math.floor(Math.random() * 5)];
 }
 
-export default function MovieSearchResultCard({ movie, setShow }) {
+export default function MovieSearchResultCard({ movie }) {
+  const [showActionButtons, setShowActionButtons] = useState(false);
+
   if (!movie.poster_path) {
     movie.poster_path = "/src/assets/images/icons/image-placeholder.png";
   } else {
@@ -51,7 +54,7 @@ export default function MovieSearchResultCard({ movie, setShow }) {
           src="/src/assets/images/icons/more-actions-btn.png"
           alt=""
           className="more-actions-btn"
-          onClick={() => setShow(true)}
+          onClick={() => setShowActionButtons((prevState) => !prevState)}
         />
       </div>
       <div className="text-start result-content p-2 small">
