@@ -25,10 +25,10 @@ export default function DisplayMoviesList({ movies }) {
     <div className="search-results d-flex flex-row gap-2 justify-content-center flex-wrap col-12">
       {movies.map((movie) => {
         const releaseDate = movie.release_date.split("-");
-        console.log(releaseDate[1]);
+        // console.log(releaseDate[1]);
         releaseDate[1] = monthInWords[+releaseDate[1]];
         movie.release_date = releaseDate.reverse().join(" ");
-        console.log(movie);
+        // console.log(movie);
         return (
           <MovieSearchResultCard
             setShow={setShowDetails}
