@@ -10,7 +10,7 @@
   font-size: 12px;
 }
 
-.search-result-poster{
+.search-result-poster {
   width: 500px;
   height: 300px;
 }
@@ -74,7 +74,7 @@ p {
   right: 20px;
 }
 
-
-.more-actions-btn{
+.more-actions-btn {
   width: 30px;
+  transform: translateY(-15px);
 }
