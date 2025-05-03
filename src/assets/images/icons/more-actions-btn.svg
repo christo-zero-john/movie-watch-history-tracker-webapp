@@ -1,7 +1,7 @@
-<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="22" y="0.786804" width="30" height="30" transform="rotate(45 22 0.786804)" fill="#1F1F1F"/>
-<rect x="22" y="1.49391" width="9" height="9" transform="rotate(45 22 1.49391)" stroke="#FFB64D"/>
-<rect x="36.1421" y="15.6361" width="9" height="9" transform="rotate(45 36.1421 15.6361)" stroke="#FF4D4D"/>
-<rect x="7.85791" y="15.6361" width="9" height="9" transform="rotate(45 7.85791 15.6361)" stroke="#4DFFBB"/>
-<rect x="22" y="29.7782" width="9" height="9" transform="rotate(45 22 29.7782)" stroke="#624DFF"/>
+<svg width="50" height="51" viewBox="0 0 50 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="25" y="0.786804" width="34.799" height="34.799" transform="rotate(45 25 0.786804)" fill="#1F1F1F"/>
+<rect x="25" y="2.20102" width="13" height="13" transform="rotate(45 25 2.20102)" stroke="#FFB64D" stroke-width="2"/>
+<rect x="39.1421" y="16.3432" width="13" height="13" transform="rotate(45 39.1421 16.3432)" stroke="#FF4D4D" stroke-width="2"/>
+<rect x="10.8579" y="16.3432" width="13" height="13" transform="rotate(45 10.8579 16.3432)" stroke="#4DFFBB" stroke-width="2"/>
+<rect x="25" y="30.4853" width="13" height="13" transform="rotate(45 25 30.4853)" stroke="#624DFF" stroke-width="2"/>
 </svg>
