@@ -8,8 +8,41 @@ export default function ActionButtons({ movie }) {
   const [reRender, setRerender] = useState(false);
   //   console.log(watcHistory, wishList);
 
+  const [show, setShow] = useState(false);
+
+  function setupButtons() {
+    if (watcHistory.includes(movie.id)) {
+      <button
+        className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small"
+        onClick={() => {
+          CoreActions.removeFromWatchHistory(movie);
+          setRerender((prevState) => -prevState);
+        }}
+      >
+        -
+      </button>;
+    } else {
+      <button
+        className="btn btn-outline-success rounded-0 p-0 px-1 fs-6 small"
+        onClick={() => {
+          CoreActions.addToWatchHistory(movie);
+          setRerender((prevState) => -prevState);
+        }}
+      >
+        +
+      </button>;
+    }
+
+    if()
+  }
   return (
     <>
+      <img
+        src="/src/assets/images/icons/more-actions-btn.png"
+        alt=""
+        className="more-actions-btn"
+        onClick={() => setShow((prevState) => !prevState)}
+      />
       {
         // If movie is in watch history, return 'remove' button else 'add' button.
         watcHistory.includes(movie.id) ? (
