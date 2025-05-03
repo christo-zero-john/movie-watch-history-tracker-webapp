@@ -48,6 +48,7 @@ export default function MovieSearchResultCard({ movie }) {
           loading="lazy"
         />
         <ActionButtons movie={movie} />
+        
         <img
           src="/src/assets/images/icons/more-details.png"
           alt="info"
