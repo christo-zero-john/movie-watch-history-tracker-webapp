@@ -17,8 +17,6 @@ const monthInWords = {
 };
 
 export default function DisplayMoviesList({ movies }) {
-  
-
   return (
     <div className="search-results d-flex flex-row gap-2 justify-content-center flex-wrap col-12">
       {movies.map((movie) => {
