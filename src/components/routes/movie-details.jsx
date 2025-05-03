@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router";
 import NavBar from "../common/nav-bar";
+import ActionButtons from "../common/action-buttons";
 
 export default function MovieDetails() {
   const { id } = useParams();
@@ -28,29 +29,6 @@ export default function MovieDetails() {
             <h3 class="name text-nowrap px-2">The Last: Naruto the movie</h3>
 
             <div class="d-flex flex-row rating-date-time">
-              <div class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2">
-                <img
-                  src="/src/assets/images/rating-stars/100-star.png"
-                  alt=""
-                  class="rating-star"
-                />
-                <img
-                  src="/src/assets/images/rating-stars/80-star.png"
-                  alt=""
-                  class="rating-star"
-                />
-                <img
-                  src="/src/assets/images/rating-stars/50-star.png"
-                  alt=""
-                  class="rating-star"
-                />
-                <img
-                  src="/src/assets/images/rating-stars/40-star.png"
-                  alt=""
-                  class="rating-star"
-                />
-              </div>
-
               <div class="movie-date-time mt-1 d-flex flex-row fs-5">
                 <p class="time me-2">1h 52m</p>
                 <p class="date">Dec 06 2014</p>
@@ -69,36 +47,7 @@ export default function MovieDetails() {
               battle to decide the fate of everything.
             </p>
 
-            <div class="action-buttons">
-              <button class="w-fit">
-                <img
-                  src="/src/assets/images/icons/check-mark-icon.png"
-                  alt=""
-                  class="d-inline"
-                />
-                <p class="">Add to Watch History</p>
-              </button>
-              <button class="">
-                <img
-                  src="/src/assets/images/icons/star-icon.png"
-                  alt=""
-                  class="d-inline"
-                />
-                <p class="">Add to Wishlist</p>
-              </button>
-              <button class="">
-                <img
-                  src="/src/assets/images/icons/play-icon.png"
-                  alt=""
-                  class="d-inline"
-                />
-                <p class="">Play Trailer</p>
-              </button>
-
-              <a href="" class="link-orange my-3 d-block text-decoration-none">
-                Everything About this movie >
-              </a>
-            </div>
+            <ActionButtons movie={movie} />
 
             <div class="movie-details-genre rounded d-flex flex-row justify-content-start flex-nowrap overflow-auto no-scrollbar">
               <button class="text-orange border-0 m-2 px-3 py-2 rounded text-nowrap">
