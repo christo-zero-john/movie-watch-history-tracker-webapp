@@ -33,7 +33,17 @@ export default function ActionButtons({ movie }) {
       </button>;
     }
 
-    if(wishList.includes(movie.id)){}
+    if(wishList.includes(movie.id)){
+      <button
+            className="btn btn-outline-warning rounded-0 p-0 px-1 fs-6 small"
+            onClick={() => {
+              CoreActions.removeFromWishList(movie);
+              setRerender((prevState) => -prevState);
+            }}
+          >
+            ★
+          </button>
+    }
   }
   return (
     <>
