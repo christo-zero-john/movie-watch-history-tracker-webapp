@@ -23,29 +23,6 @@ export default function ResultItemDetails({
             <h3 class="name text-nowrap px-2">The Last: Naruto the movie</h3>
 
             <div class="d-flex flex-row rating-date-time">
-              <div class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2">
-                <img
-                  src="./src/assets/images/rating-stars/100-star.png"
-                  alt=""
-                  class="rating-star"
-                />
-                <img
-                  src="./src/assets/images/rating-stars/80-star.png"
-                  alt=""
-                  class="rating-star"
-                />
-                <img
-                  src="./src/assets/images/rating-stars/50-star.png"
-                  alt=""
-                  class="rating-star"
-                />
-                <img
-                  src="./src/assets/images/rating-stars/40-star.png"
-                  alt=""
-                  class="rating-star"
-                />
-              </div>
-
               <div class="movie-date-time mt-1 d-flex flex-row fs-5">
                 <p class="time me-2">1h 52m</p>
                 <p class="date">Dec 06 2014</p>
