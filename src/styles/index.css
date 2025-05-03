@@ -10,6 +10,11 @@
   font-size: 12px;
 }
 
+.search-result-poster{
+  width: 500px;
+  height: 300px;
+}
+
 p {
   margin: 0;
 }
@@ -68,4 +73,5 @@ p {
   bottom: 10px;
   right: 20px;
 }
+
 
