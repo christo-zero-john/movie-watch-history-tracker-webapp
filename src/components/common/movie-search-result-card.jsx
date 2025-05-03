@@ -22,10 +22,9 @@ function getRandomColor() {
 
 export default function MovieSearchResultCard({ movie }) {
   const releaseDate = movie.release_date.split("-");
-  console.log(releaseDate[1]);
   releaseDate[1] = monthInWords[+releaseDate[1]];
   movie.release_date = releaseDate.reverse().join(" ");
-  console.log(movie);
+//   console.log(movie);
   return (
     <div
       className={`card border border-${getRandomColor()} result-item col-5  col-md-3 col-lg-2 m-2 rounded column justify-content-between`}
@@ -37,7 +36,7 @@ export default function MovieSearchResultCard({ movie }) {
           className="img-fluid search-result-poster rounded-top"
           loading="lazy"
         />
-        <img src="/src/assets/images/icons/more-actions-btn.png" alt="" className="more-actions-btn" />
+        <img src="/src/assets/images/icons/more-actions-btn.png" alt="" className="btn more-actions-btn" />
       </div>
       <div className="text-start result-content p-2 small">
         <p className="movie-name fw-500 pt-2">{movie.title}</p>
