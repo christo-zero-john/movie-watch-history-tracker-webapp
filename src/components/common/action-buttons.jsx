@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CoreActions from "../../modules/CoreActions";
 import LocalDatabase from "../../modules/LocalDatabase";
+import { Link } from "react-router";
 
 export default function ActionButtons({ movie }) {
   const watcHistory = LocalDatabase.getWatchHistory();
@@ -87,7 +88,17 @@ export default function ActionButtons({ movie }) {
           setShow((prevState) => !prevState);
         }}
       />
-      {show && <div className="action-buttons">{setupButtons()}</div>}
+      {show && (
+        <div className="action-buttons">
+          <Link
+            to={`/details/${movie.id}`}
+            className="nav-link link-info rounded-0 p-0 px-1 fs-6 small"
+          >
+            Details
+          </Link>
+          {setupButtons()}
+        </div>
+      )}
     </div>
   );
 }
