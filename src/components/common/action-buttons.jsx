@@ -20,25 +20,25 @@ export default function ActionButtons({ movie }) {
     if (watcHistory.includes(movie.id)) {
       buttonsJSX.push(
         <button
-          className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small"
+          className="nav-link link-danger rounded-0 p-0 px-1 fs-6 small"
           onClick={() => {
             CoreActions.removeFromWatchHistory(movie);
             setRerender((prevState) => -prevState);
           }}
         >
-          -
+          Mark unwatched
         </button>
       );
     } else {
       buttonsJSX.push(
         <button
-          className="btn btn-outline-success rounded-0 p-0 px-1 fs-6 small"
+          className="nav-link link-success rounded-0 p-0 px-1 fs-6 small"
           onClick={() => {
             CoreActions.addToWatchHistory(movie);
             setRerender((prevState) => -prevState);
           }}
         >
-          +
+          Mark watched
         </button>
       );
     }
@@ -46,25 +46,25 @@ export default function ActionButtons({ movie }) {
     if (wishList.includes(movie.id)) {
       buttonsJSX.push(
         <button
-          className="btn btn-outline-warning rounded-0 p-0 px-1 fs-6 small"
+          className="nav-link link-warning rounded-0 p-0 px-1 fs-6 small"
           onClick={() => {
             CoreActions.removeFromWishList(movie);
             setRerender((prevState) => !prevState);
           }}
         >
-          ★
+          Wishlisted
         </button>
       );
     } else {
       buttonsJSX.push(
         <button
-          className="btn btn-outline-primary rounded-0 p-0 px-1 fs-6 small"
+          className="nav-link link-primary rounded-0 p-0 px-1 fs-6 small"
           onClick={() => {
             CoreActions.addToWishList(movie);
             setRerender((prevState) => !prevState);
           }}
         >
-          ☆
+          Wishlist
         </button>
       );
     }
