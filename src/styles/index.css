@@ -143,3 +143,40 @@ p {
   object-fit: cover;
   object-position: center;
 }
+
+/* Movie details page */
+.movie-details-bg-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.go-back-icon {
+  width: 60px;
+  height: 30px;
+}
+
+.movie-details-genre button {
+  background-color: #3d3d3d7a;
+}
+
+.movie-details-genre button:hover {
+  background-color: #f86b2e7a;
+}
+
+@media (min-width: 768px) {
+  .movie-item .hover-varient .top-side {
+    height: 50%;
+  }
+}
+
+.movie-item {
+  min-width: 100px;
+  min-height: 200px;
+}
