@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ActionButtons from "./action-buttons";
 import MovieSearchResultCard from "./movie-search-result-card";
+import { Modal, Button, Image } from "react-bootstrap";
 
 const monthInWords = {
   1: "January",
