@@ -1,3 +1,5 @@
+import ActionButtons from "./action-buttons";
+
 const monthInWords = {
   1: "January",
   2: "February",
@@ -28,12 +30,15 @@ export default function MovieSearchResultCard({ movie }) {
     <div
       className={`card border border-${getRandomColor()} result-item col-5  col-md-3 col-lg-2 m-2 rounded column justify-content-between`}
     >
-      <img
-        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-        alt={`poster-${movie.title}`}
-        className="img-fluid search-result-poster rounded-top rounded-1"
-        loading="lazy"
-      />
+      <div className="">
+        <img
+          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          alt={`poster-${movie.title}`}
+          className="img-fluid search-result-poster rounded-top"
+          loading="lazy"
+        />
+        <img src="/src/assets/images/icons/more-actions-btn.png" alt="" className="more-actions-btn" />
+      </div>
       <div className="text-start result-content p-2 small">
         <p className="movie-name fw-500 pt-2">{movie.title}</p>
         <p className="date small op-07">{movie.release_date}</p>
