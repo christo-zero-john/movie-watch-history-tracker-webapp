@@ -1,7 +1,6 @@
 import { useState } from "react";
 import CoreActions from "../../modules/CoreActions";
 import LocalDatabase from "../../modules/LocalDatabase";
-import moreActionBtn from "/src/assets/images/icons/more-actions-btn.svg";
 
 export default function ActionButtons({ movie }) {
   const watcHistory = LocalDatabase.getWatchHistory();
@@ -80,7 +79,7 @@ export default function ActionButtons({ movie }) {
   return (
     <div style={{ position: "relative" }}>
       <img
-        src={moreActionBtn}
+        src="/src/assets/images/icons/more-actions-btn.png"
         alt=""
         className="more-actions-btn"
         onClick={() => {
