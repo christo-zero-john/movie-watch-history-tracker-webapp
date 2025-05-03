@@ -51,7 +51,7 @@ export default function ActionButtons({ movie }) {
         </button>
       );
     } else {
-      <button
+      JSX.push(<button
         className="btn btn-outline-primary rounded-0 p-0 px-1 fs-6 small"
         onClick={() => {
           CoreActions.addToWishList(movie);
@@ -59,7 +59,7 @@ export default function ActionButtons({ movie }) {
         }}
       >
         ☆
-      </button>;
+      </button>);
     }
   }
   return (
