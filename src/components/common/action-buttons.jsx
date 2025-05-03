@@ -11,48 +11,55 @@ export default function ActionButtons({ movie }) {
   const [show, setShow] = useState(false);
 
   function setupButtons() {
+    const JSX = [];
     if (watcHistory.includes(movie.id)) {
-      <button
-        className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small"
-        onClick={() => {
-          CoreActions.removeFromWatchHistory(movie);
-          setRerender((prevState) => -prevState);
-        }}
-      >
-        -
-      </button>;
+      JSX.push(
+        <button
+          className="btn btn-outline-danger rounded-0 p-0 px-1 fs-6 small"
+          onClick={() => {
+            CoreActions.removeFromWatchHistory(movie);
+            setRerender((prevState) => -prevState);
+          }}
+        >
+          -
+        </button>
+      );
     } else {
-      <button
-        className="btn btn-outline-success rounded-0 p-0 px-1 fs-6 small"
-        onClick={() => {
-          CoreActions.addToWatchHistory(movie);
-          setRerender((prevState) => -prevState);
-        }}
-      >
-        +
-      </button>;
+      JSX.push(
+        <button
+          className="btn btn-outline-success rounded-0 p-0 px-1 fs-6 small"
+          onClick={() => {
+            CoreActions.addToWatchHistory(movie);
+            setRerender((prevState) => -prevState);
+          }}
+        >
+          +
+        </button>
+      );
     }
 
     if (wishList.includes(movie.id)) {
+      JSX.push(
+        <button
+          className="btn btn-outline-warning rounded-0 p-0 px-1 fs-6 small"
+          onClick={() => {
+            CoreActions.removeFromWishList(movie);
+            setRerender((prevState) => !prevState);
+          }}
+        >
+          ★
+        </button>
+      );
+    } else {
       <button
-        className="btn btn-outline-warning rounded-0 p-0 px-1 fs-6 small"
+        className="btn btn-outline-primary rounded-0 p-0 px-1 fs-6 small"
         onClick={() => {
-          CoreActions.removeFromWishList(movie);
-          setRerender((prevState) => -prevState);
+          CoreActions.addToWishList(movie);
+          setRerender((prevState) => !prevState);
         }}
       >
-        ★
+        ☆
       </button>;
-    }else{
-      <button
-            className="btn btn-outline-primary rounded-0 p-0 px-1 fs-6 small"
-            onClick={() => {
-              CoreActions.addToWishList(movie);
-              setRerender((prevState) => -prevState);
-            }}
-          >
-            ☆
-          </button>
     }
   }
   return (
