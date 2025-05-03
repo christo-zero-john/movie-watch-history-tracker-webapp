@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ActionButtons from "./action-buttons";
 import { Link } from "react-router";
-import Helpers from "../../modules/Helpers";
+import Helpers from "../../modules/helpers";
 
 const monthInWords = {
   1: "January",
