@@ -184,3 +184,33 @@ p {
   min-width: 100px;
   min-height: 200px;
 }
+
+.movie-item {
+  position: relative;
+}
+
+.movie-item .hover-varient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#00000064 40%, #000000ff);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.movie-item .hover-variant .movie-name {
+  font-size: 13px;
+}
+.movie-item .hover-variant .original-name {
+  font-size: 10px;
+}
+
+.movie-item .hover-variant .movie-date-time p {
+  font-size: 2px;
+}
+
+.movie-item .hover-varient .top-side {
+  height: 35%;
+}
