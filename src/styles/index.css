@@ -86,9 +86,8 @@ p {
 
 /* Movie search result item expand (summary) */
 
-.modal-body {
+.movie-summary {
   box-shadow: 2px 2px 20px #ffffff77;
-  width: 90vw;
 }
 
 .movie-summary-bg-img {
