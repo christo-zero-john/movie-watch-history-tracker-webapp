@@ -6,7 +6,7 @@ export default function ResultItemDetails({
 }) {
   return (
     <div className="">
-      <div class="modal-body p-0 m-0">
+      <div class="movie-summary p-0 m-0">
         <img
           src="./src/assets/images/bg-slideshow/img 3.jpg"
           alt=""
