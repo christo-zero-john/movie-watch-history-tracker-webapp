@@ -5,44 +5,60 @@ export default function ResultItemDetails({
   handleClose = () => "",
 }) {
   return (
-    <Modal
-      show={show}
-      onHide={handleClose}
-      centered
-      dialogClassName="custom-modal-width"
-      contentClassName="bg-transparent"
-    >
-      <Modal.Body className="p-0 m-0">
-        <Image
+    <div className="">
+      <div class="modal-body p-0 m-0">
+        <img
           src="./src/assets/images/bg-slideshow/img 3.jpg"
           alt=""
-          className="movie-summary-bg-img rounded w-100"
+          class="movie-summary-bg-img rounded"
         />
-        <div className="movie-summary-content d-flex flex-row p-3 h-fit">
-          <Image
+
+        <div class="movie-summary-content d-flex flex-row p-3 h-fit">
+          <img
             src="./src/assets/images/temp/cover-image.jpg"
             alt=""
-            className="movie-summary-cover-img rounded"
+            class="movie-summary-cover-img rounded"
           />
-          <div className="movie-details-summary ms-3">
-            <h3 className="name text-nowrap px-2">
-              The Last: Naruto the movie
-            </h3>
+          <div class="movie-details-summary ms-3">
+            <h3 class="name text-nowrap px-2">The Last: Naruto the movie</h3>
 
-            <div className="d-flex flex-row rating-date-time">
-              <div className="movie-date-time mt-1 d-flex flex-row fs-5">
-                <p className="time me-2">1h 52m</p>
-                <p className="date">Dec 06 2014</p>
+            <div class="d-flex flex-row rating-date-time">
+              <div class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit me-2">
+                <img
+                  src="./src/assets/images/rating-stars/100-star.png"
+                  alt=""
+                  class="rating-star"
+                />
+                <img
+                  src="./src/assets/images/rating-stars/80-star.png"
+                  alt=""
+                  class="rating-star"
+                />
+                <img
+                  src="./src/assets/images/rating-stars/50-star.png"
+                  alt=""
+                  class="rating-star"
+                />
+                <img
+                  src="./src/assets/images/rating-stars/40-star.png"
+                  alt=""
+                  class="rating-star"
+                />
+              </div>
+
+              <div class="movie-date-time mt-1 d-flex flex-row fs-5">
+                <p class="time me-2">1h 52m</p>
+                <p class="date">Dec 06 2014</p>
               </div>
             </div>
 
-            <div className="genre mt-2">
-              <p className="me-2 text-orange d-inline-block fs-5">Action</p>
-              <p className="me-2 text-orange d-inline-block fs-5">Adventure</p>
-              <p className="me-2 text-orange d-inline-block fs-5">Romance</p>
+            <div class="genre mt-2">
+              <p class="me-2 text-orange d-inline-block fs-5">Action</p>
+              <p class="me-2 text-orange d-inline-block fs-5">Adventure</p>
+              <p class="me-2 text-orange d-inline-block fs-5">Romance</p>
             </div>
 
-            <p className="small movie-summary-description">
+            <p class="small movie-summary-description">
               Two years after the events of the Fourth Great Ninja War, the moon
               that Hagoromo Otsutsuki created long ago to seal away the Gedo
               Statue begins to descend towards the world, threatening to become
@@ -54,42 +70,42 @@ export default function ResultItemDetails({
               battle to decide the fate of everything.
             </p>
 
-            <div className="action-buttons">
-              <Button className="w-fit me-2">
-                <Image
+            <div class="action-buttons">
+              <button class="w-fit">
+                <img
                   src="./src/assets/images/icons/check-mark-icon.png"
                   alt=""
-                  className="d-inline"
+                  class="d-inline"
                 />
-                <span>Add to Watch History</span>
-              </Button>
-              <Button className="me-2">
-                <Image
+                <p class="">Add to Watch History</p>
+              </button>
+              <button class="">
+                <img
                   src="./src/assets/images/icons/star-icon.png"
                   alt=""
-                  className="d-inline"
+                  class="d-inline"
                 />
-                <span>Add to Wishlist</span>
-              </Button>
-              <Button>
-                <Image
+                <p class="">Add to Wishlist</p>
+              </button>
+              <button class="">
+                <img
                   src="./src/assets/images/icons/play-icon.png"
                   alt=""
-                  className="d-inline"
+                  class="d-inline"
                 />
-                <span>Play Trailer</span>
-              </Button>
+                <p class="">Play Trailer</p>
+              </button>
 
               <a
                 href="./details.html"
-                className="link-orange my-3 d-block text-decoration-none"
+                class="link-orange my-3 d-block text-decoration-none"
               >
                 More Details &gt;
               </a>
             </div>
           </div>
         </div>
-      </Modal.Body>
-    </Modal>
+      </div>
+    </div>
   );
 }
