@@ -43,7 +43,7 @@
 - Continue: Work on the dashboard and implement
   - Movie item card
     - Basic item card ✅
-    - Action buttons of item card
+    - Action buttons of item card ✅
 
 ### 04 05 2025
 
