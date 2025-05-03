@@ -78,7 +78,7 @@ export default function ActionButtons({ movie }) {
     );
   }
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <img
         src={moreActionBtn}
         alt=""
@@ -88,26 +88,7 @@ export default function ActionButtons({ movie }) {
           setShow((prevState) => !prevState);
         }}
       />
-      {console.log(show)}
-      {show && (
-        <div
-          style={{
-            position: "absolute",
-            top: "100%",
-            right: 0,
-            zIndex: 1000,
-            minWidth: "100px",
-            display: "flex",
-            gap: "0.5rem",
-            backgroundColor: "#212529",
-            padding: "0.5rem",
-            borderRadius: "0.25rem",
-            boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
-          }}
-        >
-          {setupButtons()}
-        </div>
-      )}
+      {show && <div className="action-buttons">{setupButtons()}</div>}
     </div>
   );
 }
