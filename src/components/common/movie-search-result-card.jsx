@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ActionButtons from "./action-buttons";
 import { Link } from "react-router";
+import Helpers from "../../modules/Helpers";
 
 const monthInWords = {
   1: "January",
@@ -16,11 +17,6 @@ const monthInWords = {
   11: "November",
   12: "December",
 };
-function getRandomColor() {
-  const colors = ["light", "warning", "primary", "danger", "success", "info"];
-
-  return colors[Math.floor(Math.random() * 5)];
-}
 
 export default function MovieSearchResultCard({ movie }) {
   const [showActionButtons, setShowActionButtons] = useState(false);
@@ -42,7 +38,7 @@ export default function MovieSearchResultCard({ movie }) {
   //   console.log(movie);
   return (
     <div
-      className={`card border border-${getRandomColor()} result-item col-5  col-md-3 col-lg-2 m-2 rounded column justify-content-between`}
+      className={`card border border-${Helpers.getRandomColor()} result-item col-5  col-md-3 col-lg-2 m-2 rounded column justify-content-between`}
     >
       <div className="search-result-item-top">
         <img
