@@ -12,6 +12,11 @@ const monthInWords = {
   11: "November",
   12: "December",
 };
+function getRandomColor() {
+  const colors = ["light", "warning", "primary", "danger", "success", "info"];
+
+  return colors[Math.floor(Math.random() * 5)];
+}
 
 export default function MovieSearchResultCard({ movie }) {
   const releaseDate = movie.release_date.split("-");
