@@ -80,12 +80,12 @@ export default function MovieDetails() {
                     <img
                       src="/src/assets/images/icons/add-to-watch-history.png"
                       alt=""
-                      class="icon my-1"
+                      class="small-icon my-1"
                     />
                     <img
                       src="/src/assets/images/icons/add-to-wishlist.png"
                       alt=""
-                      class="icon my-1"
+                      class="small-icon my-1"
                     />
                   </div>
 
@@ -94,28 +94,7 @@ export default function MovieDetails() {
                     <p class="time me-2 small">1h 52m</p>
                     <p class="date small">Dec 06 2014</p>
                   </div>
-                  <div class="rating mt-1 d-flex flex-row align-items-center justify-content-center w-fit">
-                    <img
-                      src="/src/assets/images/rating-stars/100-star.png"
-                      alt=""
-                      class="rating-star"
-                    />
-                    <img
-                      src="/src/assets/images/rating-stars/80-star.png"
-                      alt=""
-                      class="rating-star"
-                    />
-                    <img
-                      src="/src/assets/images/rating-stars/50-star.png"
-                      alt=""
-                      class="rating-star"
-                    />
-                    <img
-                      src="/src/assets/images/rating-stars/40-star.png"
-                      alt=""
-                      class="rating-star"
-                    />
-                  </div>
+                  
                   <div class="genre d-flex flex-row justify-content-center align-items-center float-end mt-3 me-md-2">
                     <p class="mx-1 small text-orange">Action</p>
                     <p class="mx-1 small text-orange">Adventure</p>
