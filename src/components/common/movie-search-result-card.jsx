@@ -20,23 +20,28 @@ function getRandomColor() {
   return colors[Math.floor(Math.random() * 5)];
 }
 
-export default function MovieSearchResultCard({ movie }) {
+export default function MovieSearchResultCard({ movie, setShow }) {
   const releaseDate = movie.release_date.split("-");
   releaseDate[1] = monthInWords[+releaseDate[1]];
   movie.release_date = releaseDate.reverse().join(" ");
-//   console.log(movie);
+  //   console.log(movie);
   return (
     <div
       className={`card border border-${getRandomColor()} result-item col-5  col-md-3 col-lg-2 m-2 rounded column justify-content-between`}
     >
-      <div className="">
+      <div className="search-result-item-top">
         <img
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
           alt={`poster-${movie.title}`}
           className="img-fluid search-result-poster rounded-top"
           loading="lazy"
         />
-        <img src="/src/assets/images/icons/more-actions-btn.png" alt="" className="more-actions-btn" />
+        <img
+          src="/src/assets/images/icons/more-actions-btn.png"
+          alt=""
+          className="more-actions-btn"
+          onClick={() => setShow(true)}
+        />
       </div>
       <div className="text-start result-content p-2 small">
         <p className="movie-name fw-500 pt-2">{movie.title}</p>
