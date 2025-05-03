@@ -162,6 +162,10 @@ p {
   height: 30px;
 }
 
+.small-icon {
+  width: 20px;
+}
+
 .movie-details-genre button {
   background-color: #3d3d3d7a;
 }
