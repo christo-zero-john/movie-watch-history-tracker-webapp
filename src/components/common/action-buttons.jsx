@@ -116,15 +116,16 @@ export default function ActionButtons({ movie, expand = false }) {
             >
               Details
             </Link>
-            <button type="button" class="btn btn-primary btn-block">
-              <div class="button-container">
-                <span>Like</span>
-                <img
-                  src="/src/assets/images/icons/movie-in-watch-history.png"
-                  alt=""
-                  className="action-buttons-icon"
-                />
-              </div>
+            <button
+              type="button"
+              class="col-3 btn btn-primary btn-block rounded-0 p-0"
+            >
+              <span className="">Mark Watched</span>
+              <img
+                src="/src/assets/images/icons/movie-in-watch-history.png"
+                alt=""
+                className="action-buttons-icon bg-light float-end border border-2 border-dark"
+              />
             </button>
             {setupButtons()}
           </div>
