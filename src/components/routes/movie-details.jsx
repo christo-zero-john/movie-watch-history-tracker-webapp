@@ -2,11 +2,22 @@ import { useState } from "react";
 import { useParams } from "react-router";
 import NavBar from "../common/nav-bar";
 import ActionButtons from "../common/action-buttons";
+import { useEffect } from "react";
+import LocalDatabase from "../../modules/LocalDatabase";
 
 export default function MovieDetails() {
-  const { id } = useParams();
-
+  let { id } = useParams();
+  id = +id;
   const [movie, setMovie] = useState(null);
+
+  useEffect(() => {
+    async function fetchMovie() {
+      const temp = await LocalDatabase.getMovieFromDB(id);
+      console.log(temp);
+    }
+    fetchMovie();
+  }, []);
+
   return (
     <div className="">
       <NavBar active="explore" />
@@ -50,7 +61,7 @@ export default function MovieDetails() {
               battle to decide the fate of everything.
             </p>
 
-            <ActionButtons movie={{id:""}} expand />
+            <ActionButtons movie={{movie} expand />
 
             <div className="movie-details-genre rounded d-flex flex-row justify-content-start flex-nowrap overflow-auto no-scrollbar">
               <button className="text-orange border-0 m-2 px-3 py-2 rounded text-nowrap">
