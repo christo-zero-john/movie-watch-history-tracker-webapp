@@ -33,9 +33,14 @@ class Helpers {
 
   constructImagePath(tmdbPath) {
     if (!tmdbPath) {
-      return "/src/assets/images/icons/image-placeholder.png";
-    }else{
-      if(tmdbPath.includes)
+      tmdbPath = "/src/assets/images/icons/image-placeholder.png";
+    } else {
+      if (
+        !tmdbPath.includes("http") &&
+        !tmdbPath.includes("image-placeholder")
+      ) {
+        tmdbPath = `https://image.tmdb.org/t/p/w500/${tmdbPath}`;
+      }
     }
   }
 }
