@@ -5,7 +5,6 @@ import ActionButtons from "../common/action-buttons";
 
 export default function MovieDetails() {
   const { id } = useParams();
-  
 
   const [movie, setMovie] = useState(null);
   return (
