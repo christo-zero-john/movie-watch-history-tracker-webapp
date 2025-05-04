@@ -8,7 +8,7 @@ export default function MovieDetails() {
 
   const [movie, setMovie] = useState(null);
   return (
-    <div className="bg-dark text-light">
+    <div className="text-light">
       <NavBar active="explore" />
       <div class="content p-0 m-0">
         <img
