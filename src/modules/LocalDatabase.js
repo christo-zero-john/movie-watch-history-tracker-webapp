@@ -9,7 +9,7 @@ class LocalDatabase {
     return LocalDatabase.instance;
   }
 
-  initialzeDatabase() {
+  initializeDatabase() {
     // console.log("Initializing local database");
     if (!localStorage.getItem("watch-history")) {
       // console.log("No watch history found, creating an empty one.");
@@ -34,7 +34,7 @@ class LocalDatabase {
       `,
     });
 
-    // console.log("Local database initialized successfully.");
+    console.log("Local database initialized successfully.");
   }
 
   getWatchHistory() {
