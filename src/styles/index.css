@@ -93,10 +93,7 @@ p {
 }
 
 .more-actions-btn {
-  width: 20px;
-  margin: 0 5px;
-  transform: translateY(-15px);
-  cursor: pointer;
+  
 }
 
 .action-buttons {
