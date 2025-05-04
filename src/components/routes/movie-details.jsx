@@ -61,7 +61,7 @@ export default function MovieDetails() {
               battle to decide the fate of everything.
             </p>
 
-            <ActionButtons movie={{movie} expand />
+            <ActionButtons movie={movie} expand />
 
             <div className="movie-details-genre rounded d-flex flex-row justify-content-start flex-nowrap overflow-auto no-scrollbar">
               <button className="text-orange border-0 m-2 px-3 py-2 rounded text-nowrap">
