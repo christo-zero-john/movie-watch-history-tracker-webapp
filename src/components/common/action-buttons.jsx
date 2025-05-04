@@ -42,13 +42,19 @@ export default function ActionButtons({ movie, expand = false }) {
     } else {
       buttonsJSX.push(
         <button
-          className="nav-link link-success rounded-0 p-0 px-1 fs-6 small"
+          type="button"
+          class="col-3 btn btn-primary btn-block rounded-0 p-0"
           onClick={() => {
             CoreActions.addToWatchHistory(movie);
             setRerender((prevState) => -prevState);
           }}
         >
-          Mark watched
+          <span className="">Mark Watched</span>
+          <img
+            src="/src/assets/images/icons/movie-in-watch-history.png"
+            alt=""
+            className="action-buttons-icon bg-light float-end p-1"
+          />
         </button>
       );
     }
@@ -108,7 +114,7 @@ export default function ActionButtons({ movie, expand = false }) {
           <div
             className={`${
               expand ? "expanded-action-buttons" : "action-buttons"
-            } border border-${Helpers.getRandomColor()} `}
+            }`}
           >
             <Link
               to={`/details/${movie.id}`}
@@ -124,7 +130,7 @@ export default function ActionButtons({ movie, expand = false }) {
               <img
                 src="/src/assets/images/icons/movie-in-watch-history.png"
                 alt=""
-                className="action-buttons-icon bg-light float-end border border-2 border-dark"
+                className="action-buttons-icon bg-light float-end p-1"
               />
             </button>
             {setupButtons()}
