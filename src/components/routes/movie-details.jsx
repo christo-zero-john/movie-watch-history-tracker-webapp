@@ -46,7 +46,7 @@ export default function MovieDetails() {
                   <img
                     src={helpers.constructImagePath(movie.poster_path)}
                     alt=""
-                    className="col-2"
+                    className="col-2 rounded shadow-light"
                   />
                   <div className="movie-details-content col-md-8 p-md-3 rounded">
                     <h3 className="name text-nowrap px-2">
