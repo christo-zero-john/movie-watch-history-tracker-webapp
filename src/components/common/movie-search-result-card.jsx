@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ActionButtons from "./action-buttons";
 import { Link } from "react-router";
 import Helpers from "../../modules/helpers";
@@ -19,7 +18,7 @@ const monthInWords = {
 };
 
 export default function MovieSearchResultCard({ movie }) {
-  
+  movie.poster_path = Helpers.constructImagePath(movie.poster_path);
 
   const releaseDate = movie.release_date.split("-");
   releaseDate[1] = monthInWords[+releaseDate[1]];
