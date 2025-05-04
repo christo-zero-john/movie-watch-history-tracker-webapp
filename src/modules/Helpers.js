@@ -30,5 +30,13 @@ class Helpers {
 
     return colors[Math.floor(Math.random() * 5)];
   }
+
+  constructImagePath(tmdbPath) {
+    if (!tmdbPath) {
+      return "/src/assets/images/icons/image-placeholder.png";
+    }else{
+      if(tmdbPath.includes)
+    }
+  }
 }
 export default new Helpers();
