@@ -87,7 +87,7 @@ export default function ActionButtons({ movie, expand = false }) {
       buttonsJSX.push(
         <button
           type="button"
-          className="more-actions-btn col-3 btn btn-primary btn-block rounded-0 p-0"
+          className="more-actions-btn col-3 btn btn-primary rounded-0 p-0"
           onClick={() => {
             CoreActions.addToWishList(movie);
             setRerender((prevState) => !prevState);
@@ -111,7 +111,7 @@ export default function ActionButtons({ movie, expand = false }) {
     );
   }
   return (
-    <div style={{ position: "relative" }}>
+    <div>
       {
         // This image lgo is acts as a button to show or hide action buttons. If displaying the 'expand' varient, then there is no need for this icon. So show the icon only if 'expand' == false
         !expand && (
