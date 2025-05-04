@@ -42,6 +42,7 @@ class Helpers {
         tmdbPath = `https://image.tmdb.org/t/p/w500/${tmdbPath}`;
       }
     }
+    return tmdbPath;
   }
 }
 export default new Helpers();
