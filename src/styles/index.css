@@ -110,6 +110,12 @@ p {
   gap: 0.5rem;
 }
 
+.expanded-action-buttons {
+  display: flex;
+  flex-direction: row;
+  
+}
+
 .more-details-icon {
   position: absolute;
   top: 0;
