@@ -30,20 +30,26 @@ export default function ActionButtons({ movie, expand = false }) {
     if (watcHistory.includes(movie.id)) {
       buttonsJSX.push(
         <button
-          className="nav-link link-danger rounded-0 p-0 px-1 fs-6 small"
+          type="button"
+          className="more-actions-btn col-3 btn btn-primary btn-block rounded-0 p-0"
           onClick={() => {
             CoreActions.removeFromWatchHistory(movie);
             setRerender((prevState) => -prevState);
           }}
         >
-          Mark unwatched
+          <span className="">Mark not watched</span>
+          <img
+            src="/src/assets/images/icons/movie-in-watch-history.png"
+            alt=""
+            className="action-buttons-icon bg-light float-end p-1"
+          />
         </button>
       );
     } else {
       buttonsJSX.push(
         <button
           type="button"
-          class="col-3 btn btn-primary btn-block rounded-0 p-0"
+          className="more-actions-btn col-3 btn btn-primary btn-block rounded-0 p-0"
           onClick={() => {
             CoreActions.addToWatchHistory(movie);
             setRerender((prevState) => -prevState);
@@ -51,7 +57,7 @@ export default function ActionButtons({ movie, expand = false }) {
         >
           <span className="">Mark Watched</span>
           <img
-            src="/src/assets/images/icons/movie-in-watch-history.png"
+            src="/src/assets/images/icons/add-to-watch-history.png"
             alt=""
             className="action-buttons-icon bg-light float-end p-1"
           />
@@ -62,25 +68,37 @@ export default function ActionButtons({ movie, expand = false }) {
     if (wishList.includes(movie.id)) {
       buttonsJSX.push(
         <button
-          className="nav-link link-warning rounded-0 p-0 px-1 fs-6 small"
+          type="button"
+          className="more-actions-btn col-3 btn btn-primary btn-block rounded-0 p-0"
           onClick={() => {
             CoreActions.removeFromWishList(movie);
             setRerender((prevState) => !prevState);
           }}
         >
-          Wishlisted
+          <span className="">Wishlisted</span>
+          <img
+            src="/src/assets/images/icons/movie-in-watch-history.png"
+            alt=""
+            className="action-buttons-icon bg-light float-end p-1"
+          />
         </button>
       );
     } else {
       buttonsJSX.push(
         <button
-          className="nav-link link-primary rounded-0 p-0 px-1 fs-6 small"
+          type="button"
+          className="more-actions-btn col-3 btn btn-primary btn-block rounded-0 p-0"
           onClick={() => {
             CoreActions.addToWishList(movie);
             setRerender((prevState) => !prevState);
           }}
         >
-          Wishlist
+          <span className="">Wishlist</span>
+          <img
+            src="/src/assets/images/icons/add-to-wish-list.png"
+            alt=""
+            className="action-buttons-icon bg-light float-end p-1"
+          />
         </button>
       );
     }
@@ -116,23 +134,29 @@ export default function ActionButtons({ movie, expand = false }) {
               expand ? "expanded-action-buttons" : "action-buttons"
             }`}
           >
-            <Link
-              to={`/details/${movie.id}`}
-              className="nav-link link-info rounded-0 p-0 px-1 fs-6 small"
-            >
-              Details
-            </Link>
-            <button
-              type="button"
-              class="col-3 btn btn-primary btn-block rounded-0 p-0"
-            >
-              <span className="">Mark Watched</span>
-              <img
-                src="/src/assets/images/icons/movie-in-watch-history.png"
-                alt=""
-                className="action-buttons-icon bg-light float-end p-1"
-              />
-            </button>
+            {
+              // If the expand varient, then it means already showing movie details. So hide go to details button
+
+              !expand && (
+                <Link
+                  to={`/details/${movie.id}`}
+                  className="nav-link link-info rounded-0 p-0 px-1 fs-6 small "
+                >
+                  <button
+                    type="button"
+                    className="more-actions-btn col-3 btn btn-primary btn-block rounded-0 p-0"
+                  >
+                    <span className="">Goto Details</span>
+                    <img
+                      src="/src/assets/images/icons/more-details.png"
+                      alt=""
+                      className="action-buttons-icon bg-light float-end p-1"
+                    />
+                  </button>
+                </Link>
+              )
+            }
+
             {setupButtons()}
           </div>
         )
