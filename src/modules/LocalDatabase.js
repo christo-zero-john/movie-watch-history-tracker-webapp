@@ -81,6 +81,7 @@ class LocalDatabase {
    */
   async getMovieFromDB(movieID) {
     // console.log("Fetching movie from local database");
+    console.log(movieID);
     const movieDetails = await this.movieDB.movies.get(movieID);
     // console.log(movieDetails);
     if (!movieDetails) {
