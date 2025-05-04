@@ -113,7 +113,6 @@ p {
 .expanded-action-buttons {
   display: flex;
   flex-direction: row;
-  
 }
 
 .more-details-icon {
@@ -150,6 +149,10 @@ p {
 .movie-summary-cover-img {
   width: 200px;
   height: fit-content;
+}
+
+.movie-summary-description {
+  text-align: justify;
 }
 
 /* Movie details page */
