@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ActionButtons from "./action-buttons";
 import { Link } from "react-router";
 import Helpers from "../../modules/helpers";
@@ -18,7 +19,20 @@ const monthInWords = {
 };
 
 export default function MovieSearchResultCard({ movie }) {
-  movie.poster_path = Helpers.constructImagePath(movie.poster_path);
+  const [showActionButtons, setShowActionButtons] = useState(false);
+
+  console.log(Helpers.constructImagePath(movie.poster_path))
+  
+  if (!movie.poster_path) {
+    movie.poster_path = "/src/assets/images/icons/image-placeholder.png";
+  } else {
+    if (
+      !movie.poster_path.includes("http") &&
+      !movie.poster_path.includes("image-placeholder")
+    ) {
+      movie.poster_path = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+    }
+  }
 
   const releaseDate = movie.release_date.split("-");
   releaseDate[1] = monthInWords[+releaseDate[1]];
