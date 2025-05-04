@@ -2,7 +2,6 @@ import { useState } from "react";
 import CoreActions from "../../modules/CoreActions";
 import LocalDatabase from "../../modules/LocalDatabase";
 import { Link } from "react-router";
-import Helpers from "../../modules/helpers";
 import { useEffect } from "react";
 
 /**
