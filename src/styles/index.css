@@ -115,6 +115,10 @@ p {
   flex-direction: row;
 }
 
+.action-buttons-icon {
+  height: 30px;
+}
+
 .more-details-icon {
   position: absolute;
   top: 0;
