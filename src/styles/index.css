@@ -2,7 +2,8 @@
   transition: all 0.4s;
 }
 
-.bg-slideshow-img {
+.bg-slideshow-img,
+.movie-details-bg-img {
   position: fixed;
   top: 0;
   z-index: -100;
@@ -11,7 +12,7 @@
   width: 100vw;
   object-fit: cover;
   object-position: center;
-  opacity: 0.3;
+  opacity: 0.2;
   transition: all 1s;
 }
 
@@ -145,30 +146,7 @@ p {
   height: fit-content;
 }
 
-.movie-details-bg-img {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -2;
-  inset: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
 /* Movie details page */
-.movie-details-bg-img {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -2;
-  inset: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-}
 
 .go-back-icon {
   width: 60px;
