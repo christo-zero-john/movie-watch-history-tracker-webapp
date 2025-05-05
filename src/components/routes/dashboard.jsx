@@ -82,7 +82,7 @@ export default function Dashboard() {
                 }
               </div>
 
-              <MyGenre />
+              <MyGenre genres={userdata.genres} />
             </section>
           </>
         )
