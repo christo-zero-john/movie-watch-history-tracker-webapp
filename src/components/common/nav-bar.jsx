@@ -1,61 +1,36 @@
+import { Navbar, Container, Nav } from "react-bootstrap";
+
 export default function NavBar({ active = null }) {
   return (
-    <nav class="navbar navbar-expand-md navbar-dark p-0">
-      <div class="container-fluid">
-        <a class="navbar-brand fs-3 text-light fw-bolder en-iceberg" href="/">
+    <Navbar expand="md" className="navbar-dark p-0">
+      <Container fluid>
+        <Navbar.Brand href="/" className="fs-3 text-light fw-bolder en-iceberg">
           MWHT
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a
-                class={`nav-link ${active == "dashboard" && "active"}`}
-                aria-current="page"
-                href="/"
-              >
-                Dashboard
-              </a>
-            </li>{" "}
-            <li class="nav-item">
-              <a
-                class={`nav-link ${active == "watch-history" && "active"}`}
-                aria-current="page"
-                href="/movie-list/watch-history"
-              >
-                Watch History
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                class={`nav-link ${active == "wish-list" && "active"}`}
-                href="/movie-list/wish-list"
-              >
-                Wishlist
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                class={`nav-link ${active == "explore" && "active"}`}
-                aria-current="page"
-                href="/search"
-              >
-                Explore
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarNav" />
+        <Navbar.Collapse id="navbarNav">
+          <Nav className="ms-auto">
+            <Nav.Link href="/" active={active === "dashboard"}>
+              Dashboard
+            </Nav.Link>
+            <Nav.Link
+              href="/movie-list/watch-history"
+              active={active === "watch-history"}
+            >
+              Watch History
+            </Nav.Link>
+            <Nav.Link
+              href="/movie-list/wish-list"
+              active={active === "wish-list"}
+            >
+              Wishlist
+            </Nav.Link>
+            <Nav.Link href="/search" active={active === "explore"}>
+              Explore
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
