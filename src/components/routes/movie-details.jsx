@@ -48,7 +48,7 @@ export default function MovieDetails() {
                     alt=""
                     className="col-md-2 col-3 rounded shadow-light"
                   />
-                  <div className="movie-details-content col-md-9 col-8 p-md-3 rounded">
+                  <div className="movie-details-content col-md-9 col-8 p-2 p-md-3 rounded">
                     <h3 className="name text-nowrap px-2">
                       {movie.title}{" "}
                       <span className="text-uppercase fs-6 small op-07">
