@@ -123,7 +123,7 @@ p {
 
 .expanded-action-buttons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 10px 0;
 }
 
