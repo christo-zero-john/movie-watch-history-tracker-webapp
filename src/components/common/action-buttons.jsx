@@ -3,6 +3,7 @@ import CoreActions from "../../modules/CoreActions";
 import LocalDatabase from "../../modules/LocalDatabase";
 import { Link } from "react-router";
 import { useEffect } from "react";
+import helpers from "../../modules/helpers";
 
 /**
  * This component is used to render action buttons of movie cards and movie details page. If the buttons need to be shown, then the expand prop will be true.
@@ -13,6 +14,10 @@ export default function ActionButtons({ movie, expand }) {
   const wishList = LocalDatabase.getWishList();
   const [reRender, setRerender] = useState(false);
   //   console.log(watcHistory, wishList);
+
+  movie.movie_runtime = helpers.constructRuntime(movie.runtime);
+  movie.release_date_in_words = helpers.
+
 
   const [show, setShow] = useState(false);
 
@@ -31,7 +36,7 @@ export default function ActionButtons({ movie, expand }) {
         <button
           type="button"
           className={`more-actions-btn ${
-            expand && "col-3"
+            expand && "col-md-3 col-9 mx-auto mx-md-2"
           } btn btn-primary rounded-0 p-0 my-1`}
           onClick={() => {
             CoreActions.removeFromWatchHistory(movie);
@@ -51,7 +56,7 @@ export default function ActionButtons({ movie, expand }) {
         <button
           type="button"
           className={`more-actions-btn ${
-            expand && "col-3"
+            expand && "col-md-3 col-9 mx-auto mx-md-2"
           } btn btn-primary rounded-0 p-0 my-1`}
           onClick={() => {
             CoreActions.addToWatchHistory(movie);
@@ -73,7 +78,7 @@ export default function ActionButtons({ movie, expand }) {
         <button
           type="button"
           className={`more-actions-btn ${
-            expand && "col-3"
+            expand && "col-md-3 col-9 mx-auto mx-md-2"
           } btn btn-primary rounded-0 p-0 my-1`}
           onClick={() => {
             CoreActions.removeFromWishList(movie);
@@ -93,7 +98,7 @@ export default function ActionButtons({ movie, expand }) {
         <button
           type="button"
           className={`more-actions-btn ${
-            expand && "col-3"
+            expand && "col-md-3 col-9 mx-auto mx-md-2"
           } btn btn-primary rounded-0 p-0 my-1`}
           onClick={() => {
             CoreActions.addToWishList(movie);
@@ -155,7 +160,7 @@ export default function ActionButtons({ movie, expand }) {
                   <button
                     type="button"
                     className={`more-actions-btn ${
-                      expand && "col-3"
+                      expand && "col-md-3 col-9 mx-auto mx-md-2"
                     } btn btn-primary rounded-0 p-0`}
                   >
                     <p className="d-inline-block pt-1">Goto Details</p>
