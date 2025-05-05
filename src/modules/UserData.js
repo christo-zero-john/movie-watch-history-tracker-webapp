@@ -52,7 +52,13 @@ class UserData {
          * Save all genres of user in userdata.data.genres. Loop through all genre of movie item and push it to userdata.data.genres if it is not already in it.
          */
         movie.genres.forEach((genre) => {
-          if (!this.data.genres.includes(genre)) {
+          let flag = 0;
+          this.data.genres.forEach((InGenre) => {
+            if (InGenre.name == genre.name) {
+              flag = 1;
+            }
+          });
+          if (flag == 0) {
             this.data.genres.push(genre);
           }
         });
