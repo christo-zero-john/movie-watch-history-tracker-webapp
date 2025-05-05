@@ -1,5 +1,5 @@
 import CoreActions from "./CoreActions";
-import helpers from "./helpers";
+import helpers from "./Helpers";
 import LocalDatabase from "./LocalDatabase";
 
 class UserData {
