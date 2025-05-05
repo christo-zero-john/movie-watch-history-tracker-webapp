@@ -10,6 +10,7 @@ class UserData {
 
     // Initialize local database
     LocalDatabase.initializeDatabase();
+    this.initializeUserData();
 
     this.data = {
       watchTime: [0, 0],
@@ -17,7 +18,6 @@ class UserData {
       currentStreak: 0,
       genres: [],
     };
-
 
     return UserData.instance;
   }
