@@ -49,3 +49,9 @@
 
 - Setup movie details page ✅ `overdue: 05 05 2025`
 - Implement user data and user stats management ✅ `overdue: 05 05 2025`
+
+# To Fix
+
+- Userdata in statistics
+  - Userdata in user stats is not initialized properly. It is set using a setTimeout method. FIx it.
+  - Userdata in user stats in user dashboard wont update or listen to changes that happens in UserData.data.
