@@ -115,8 +115,15 @@ class CoreActions {
    */
   async getMoviesInWatchHistory() {
     let watchHistory = LocalDatabase.getWatchHistory();
-    let list = await LocalDatabase.constructMoviesList(watchHistory);
-    console.log(list);
+    return await LocalDatabase.constructMoviesList(watchHistory);
+  }
+
+  /**
+   * This method fetches the movie IDs in wish list and returns an array of movie objects
+   */
+  async getMoviesInWishList() {
+    let wishList = LocalDatabase.getWishList();
+    return await LocalDatabase.constructMoviesList(wishList);
   }
 }
 export default new CoreActions();
