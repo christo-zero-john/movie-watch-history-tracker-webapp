@@ -10,7 +10,6 @@ class UserData {
 
     // Initialize local database
     LocalDatabase.initializeDatabase();
-    this.initializeUserData();
 
     this.data = {
       watchTime: [0, 0],
