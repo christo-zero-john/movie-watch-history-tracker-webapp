@@ -48,16 +48,16 @@ p {
   box-shadow: inset 0 0 30px #ffffff55;
 }
 
-.nav-item .nav-link {
-  color: #fff;
+.nav-link {
+  color: #ffffffc6;
 }
 
-.nav-item .nav-link.active,
-.nav-item .nav-link:focus {
-  color: #ff824d;
+.active,
+.nav-link:focus {
+  color: #ff824d !important;
 }
 
-.nav-item .nav-link:hover,
+.nav-link:hover,
 .stat-label {
   color: #ffb64d;
 }
@@ -187,7 +187,7 @@ p {
 }
 
 .genre-btn {
-  background-color: #2b017597;
+  background-color: #76240166;
 }
 
 .genre-btn:hover {
