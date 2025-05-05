@@ -186,11 +186,11 @@ p {
   height: 30px;
 }
 
-.movie-details-genre button {
+.genre-btn {
   background-color: #2e2e2e;
 }
 
-.movie-details-genre button:hover {
+.genre-btn:hover {
   background-color: #f86b2e7a;
 }
 
