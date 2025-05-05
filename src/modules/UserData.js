@@ -40,7 +40,9 @@ class UserData {
         this.data.watchTime[0] += calculatedRuntime[0];
         this.data.watchTime[1] += calculatedRuntime[1];
 
-        // Save all genres of user in userdata.data.genres. Loop through all genre of movie item and push it to userdata.data.genres if it is not already in it.
+        /** comment
+         * Save all genres of user in userdata.data.genres. Loop through all genre of movie item and push it to userdata.data.genres if it is not already in it.
+         */
         movie.genres.forEach((genre) => {
           if (!this.data.genres.includes(genre)) {
             this.data.genres.push(genre);
@@ -48,7 +50,8 @@ class UserData {
         });
       });
 
-      /** comment
+      /** 
+       * comment
        * After completeing the loop, watch time in minutes will be greater than 60 (Because we are just adding up minutes of all n movies into the watchTime[1], which stores total minutes). Hence, we should convert it to hours and minutes once again and save the new results as final watch time.
        */
       const calculatedRuntime = helpers.constructRuntime(
