@@ -4,7 +4,7 @@ import NavBar from "../common/nav-bar";
 import ActionButtons from "../common/action-buttons";
 import { useEffect } from "react";
 import LocalDatabase from "../../modules/LocalDatabase";
-import Helpers from "../../modules/helpers";
+import Helpers from "../../modules/Helpers";
 
 export default function MovieDetails() {
   let { id } = useParams();
@@ -68,7 +68,10 @@ export default function MovieDetails() {
                         >
                           |
                         </span>
-                        <p className="date d-inline-block"> {movie.release_date}</p>
+                        <p className="date d-inline-block">
+                          {" "}
+                          {movie.release_date}
+                        </p>
                       </div>
                     </div>
 
