@@ -48,7 +48,7 @@ export default function UserStatistics({ userdata }) {
         [`${userdata.currentStreak}`, "DAYS"]
       )}
 
-      {oneLineValue(["GENRES", "WATCHED"], userdata.genres.length)}
+      {oneLineValue(["MOVIE", "GENRES"], userdata.genres.length)}
     </section>
   );
 }
