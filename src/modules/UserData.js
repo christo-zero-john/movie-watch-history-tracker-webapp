@@ -1,3 +1,7 @@
+import CoreActions from "./CoreActions";
+import helpers from "./helpers";
+import LocalDatabase from "./LocalDatabase";
+
 class UserData {
   constructor() {
     if (!UserData.instance) {
@@ -17,14 +21,23 @@ class UserData {
   }
 
   initializeUserData() {
-    
-  }
+    console.log("Initializing user data");
 
-  calculate: {
-    watchTime: () => {},
-    totalMovies: () => {},
-    currentStreak: () => {},
-    genres: () => {},
-  };
+    // An async function that could fetch all movies in watch history and wishlist and save those in userdata
+    (async () => {
+      this.watchHistory = await CoreActions.getMoviesInWatchHistory();
+      this.wishList = await CoreActions.getMoviesInWishList();
+      this.watchTime = 0;
+      this.totalMovies = 0;
+      this.currentStreak = 0;
+      this.genres = 0;
+      this.watchHistory.forEach((movie) => {
+        console.log(movie.runtime, helpers.constructRuntime(movie.runtime));
+        // 3.35
+      });
+
+      console.log(this);
+    })();
+  }
 }
 export default new UserData();
