@@ -115,8 +115,13 @@ p {
   border-radius: 0.25rem;
 }
 
-.action-buttons * {
+.action-buttons button {
   width: 100%;
+}
+
+.action-buttons:nth-child(1) {
+  border: 2px solid #fff;
+  bor
 }
 
 .expanded-action-buttons {
