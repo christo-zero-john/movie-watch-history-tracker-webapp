@@ -44,5 +44,10 @@ class Helpers {
     }
     return tmdbPath;
   }
+
+  constructRuntime(minutes) {
+    let runtime = [Math.floor(minutes / 60), minutes % 60];
+    return runtime;
+  }
 }
 export default new Helpers();
