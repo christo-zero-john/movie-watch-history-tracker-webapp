@@ -59,16 +59,16 @@ export default function MovieDetails() {
                     </h3>
 
                     <div className="d-flex flex-row rating-date-time">
-                      <div className="movie-date-time mt-1 d-flex flex-row fs-6 small">
-                        <p className="time me-2">
+                      <div className="movie-date-time mt-1 fs-6 small text-warning py-2 w-fit mx-auto mx-md-0">
+                        <p className="time me-2 d-inline-block">
                           {movie.runtime[0]}h {movie.runtime[1]}m
                         </p>
                         <span
-                          className={`me-1 p-0 text-${Helpers.getRandomColor()}`}
+                          className={`me-1 p-0 text-${Helpers.getRandomColor()} d-inline-block`}
                         >
                           |
                         </span>
-                        <p className="date"> {movie.release_date}</p>
+                        <p className="date d-inline-block"> {movie.release_date}</p>
                       </div>
                     </div>
 
