@@ -29,9 +29,10 @@ class UserData {
       this.watchHistory = await CoreActions.getMoviesInWatchHistory();
       this.wishList = await CoreActions.getMoviesInWishList();
 
-      this.totalMovies = 0;
+      this.totalMovies = this.watchHistory.length;
       this.currentStreak = 0;
       this.genres = 0;
+      
       this.watchHistory.forEach((movie) => {
         // Calculate total watch time of the user and set userdata.data.watchTime
         const calculatedRuntime = helpers.constructRuntime(movie.runtime);
@@ -43,7 +44,6 @@ class UserData {
       const calculatedRuntime = helpers.constructRuntime(
         this.data.watchTime[1]
       );
-      console.log(calculatedRuntime);
 
       this.data.watchTime[0] += calculatedRuntime[0];
       this.data.watchTime[1] = calculatedRuntime[1];
