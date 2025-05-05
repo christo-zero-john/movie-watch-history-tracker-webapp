@@ -1,6 +1,10 @@
 
+import UserData from "../../modules/UserData";
+
 export default function UserStatistics() {
   // This component is used to display the user statistics in the dashboard. It is a horizontal scrollable container with some stats inside it.
+
+  const userdata = UserData.data;
 
 
   /**
