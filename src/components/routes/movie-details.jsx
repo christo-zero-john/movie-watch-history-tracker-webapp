@@ -4,8 +4,7 @@ import NavBar from "../common/nav-bar";
 import ActionButtons from "../common/action-buttons";
 import { useEffect } from "react";
 import LocalDatabase from "../../modules/LocalDatabase";
-import helpers from "../../modules/helpers";
-import MovieItemcardOriginal from "../common/movie-itemcard-original";
+import Helpers from "../../modules/helpers";
 
 export default function MovieDetails() {
   let { id } = useParams();
@@ -16,8 +15,8 @@ export default function MovieDetails() {
     async function fetchMovie() {
       const temp = await LocalDatabase.getMovieFromDB(id);
       console.log(temp);
-      temp.release_date = helpers.dateToInWords(temp.release_date);
-      temp.runtime = helpers.constructRuntime(temp.runtime);
+      temp.release_date = Helpers.dateToInWords(temp.release_date);
+      temp.runtime = Helpers.constructRuntime(temp.runtime);
       setMovie(temp);
     }
     fetchMovie();
@@ -28,7 +27,7 @@ export default function MovieDetails() {
       <NavBar active="explore" />
       <div className="content p-0 m-0">
         <img
-          src={helpers.constructImagePath(movie?.backdrop_path)}
+          src={Helpers.constructImagePath(movie?.backdrop_path)}
           alt=""
           className="rounded movie-details-bg-img"
         />
@@ -47,7 +46,7 @@ export default function MovieDetails() {
               <>
                 <div className="movie-details-top pt-3 w-100 md-hd-80 d-md-flex flex-row justify-content-center align-items-center">
                   <img
-                    src={helpers.constructImagePath(movie.poster_path)}
+                    src={Helpers.constructImagePath(movie.poster_path)}
                     alt=""
                     className="col-md-2 col-6 rounded d-block mx-auto"
                   />
@@ -65,7 +64,7 @@ export default function MovieDetails() {
                           {movie.runtime[0]}h {movie.runtime[1]}m
                         </p>
                         <span
-                          className={`me-1 p-0 text-${helpers.getRandomColor()}`}
+                          className={`me-1 p-0 text-${Helpers.getRandomColor()}`}
                         >
                           |
                         </span>
