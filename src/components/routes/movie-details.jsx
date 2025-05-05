@@ -44,16 +44,16 @@ export default function MovieDetails() {
             // Display movie if available
             movie ? (
               <>
-                <div className="movie-details-top pt-3 w-100 md-hd-80 d-md-flex flex-row justify-content-center align-items-center">
+                <div className="movie-details-top w-100 md-hd-80 d-md-flex flex-row justify-content-center align-items-center">
                   <img
                     src={Helpers.constructImagePath(movie.poster_path)}
                     alt=""
-                    className="col-md-2 col-6 rounded d-block mx-auto"
+                    className="col-md-2 col-6 rounded d-block mx-auto my-4"
                   />
-                  <div className="movie-details-content col-md-9 col-12 p-2 p-md-3 rounded">
-                    <h3 className="name px-2">
+                  <div className="movie-details-content col-md-9 col-12 p-3 p-md-3 rounded">
+                    <h3 className="name px-2 text-center text-md-start ">
                       {movie.title}{" "}
-                      <span className="text-uppercase fs-6 small op-07">
+                      <span className="text-uppercase text-md-start fs-6 small op-07">
                         [{movie.original_title}]
                       </span>{" "}
                     </h3>
