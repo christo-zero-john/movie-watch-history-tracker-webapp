@@ -119,11 +119,6 @@ p {
   width: 100%;
 }
 
-.action-buttons:nth-child(1) {
-  border: 2px solid #fff;
-  bor
-}
-
 .expanded-action-buttons {
   display: flex;
   flex-direction: row;
