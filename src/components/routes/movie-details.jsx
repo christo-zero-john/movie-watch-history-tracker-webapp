@@ -31,7 +31,7 @@ export default function MovieDetails() {
         />
 
         <div className="ms-3 p-3">
-          <button className="m-3 btn">
+          <button className="m-3 btn" onClick={() => window.history.back()}>
             <img
               src="/src/assets/images/icons/go-back-icon.png"
               alt=""
@@ -71,7 +71,7 @@ export default function MovieDetails() {
 
                     <div className="movie-details-genre rounded d-flex flex-row justify-content-start flex-nowrap overflow-auto no-scrollbar">
                       {movie.genres.map((genre) => (
-                        <button className="text-orange border-0 m-2 px-3 py-2 rounded text-nowrap">
+                        <button className="genre-btn text-orange border-0 m-2 px-3 py-2 rounded text-nowrap">
                           {genre.name}
                         </button>
                       ))}
