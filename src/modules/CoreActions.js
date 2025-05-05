@@ -110,6 +110,11 @@ class CoreActions {
     }
   }
 
-  getMoviesInWatchHistory() {}
+  /**
+   * This method fetches the movie IDs in watch history and returns an array of movie objects
+   */
+  async getMoviesInWatchHistory() {
+    let watchHistory = LocalDatabase.getWatchHistory();
+  }
 }
 export default new CoreActions();
