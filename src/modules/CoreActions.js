@@ -115,6 +115,8 @@ class CoreActions {
    */
   async getMoviesInWatchHistory() {
     let watchHistory = LocalDatabase.getWatchHistory();
+    let list = await LocalDatabase.constructMoviesList(watchHistory);
+    console.log(list);
   }
 }
 export default new CoreActions();
