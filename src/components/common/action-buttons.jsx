@@ -82,7 +82,7 @@ export default function ActionButtons({ movie, expand }) {
         >
           <p className="d-inline-block pt-1">Wishlisted</p>
           <img
-            src="/src/assets/images/icons/movie-in-watch-history.png"
+            src="/src/assets/images/icons/movie-in-wishlist.png"
             alt=""
             className="action-buttons-icon bg-light float-end p-1"
           />
@@ -102,7 +102,7 @@ export default function ActionButtons({ movie, expand }) {
         >
           <p className="d-inline-block pt-1">Wishlist</p>
           <img
-            src="/src/assets/images/icons/add-to-wish-list.png"
+            src="/src/assets/images/icons/add-to-wishlist.png"
             alt=""
             className="action-buttons-icon bg-light float-end p-1"
           />
@@ -118,7 +118,7 @@ export default function ActionButtons({ movie, expand }) {
     );
   }
 
-  console.log(show);
+  console.log(expand);
 
   return (
     <div>
@@ -150,7 +150,7 @@ export default function ActionButtons({ movie, expand }) {
               !expand && (
                 <Link
                   to={`/details/${movie.id}`}
-                  className="nav-link link-info rounded-0 p-0 px-1 fs-6 small "
+                  className="nav-link link-info rounded-0 p-0 fs-6 small"
                 >
                   <button
                     type="button"
