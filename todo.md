@@ -53,5 +53,5 @@
 # To Fix
 
 - Userdata in statistics
-  - Userdata in user stats is not initialized properly. It is set using a setTimeout method. FIx it.
+  - Userdata in user stats is not initialized properly. It is set using a setTimeout method. If userData.initializeUserData takes more than takes more than 500ms, then the data will be incorrect.
   - Userdata in user stats in user dashboard wont update or listen to changes that happens in UserData.data.
