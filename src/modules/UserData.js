@@ -8,6 +8,9 @@ class UserData {
       UserData.instance = this;
     }
 
+    // Initialize local database
+    LocalDatabase.initializeDatabase();
+
     this.data = {
       watchTime: [0, 0],
       totalMoviesWatched: 0,
