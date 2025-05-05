@@ -109,5 +109,7 @@ class CoreActions {
       );
     }
   }
+
+  getMoviesInWatchHistory() {}
 }
 export default new CoreActions();
