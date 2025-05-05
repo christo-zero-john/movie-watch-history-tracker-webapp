@@ -1,11 +1,20 @@
-
+import { useState } from "react";
 import UserData from "../../modules/UserData";
+import { useEffect } from "react";
 
 export default function UserStatistics() {
   // This component is used to display the user statistics in the dashboard. It is a horizontal scrollable container with some stats inside it.
 
-  const userdata = UserData.data;
+  const [userdata, setUserData] = useState({
+    watchTime: [0, 0],
+    totalMoviesWatched: 0,
+    currentStreak: 0,
+    genres: [],
+  });
 
+  useEffect(() => {
+    setUserData(UserData.data);
+  }, []);
 
   /**
    * Renders a styled statistic item with a value and a label.
