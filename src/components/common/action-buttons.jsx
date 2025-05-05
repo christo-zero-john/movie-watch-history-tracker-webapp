@@ -35,7 +35,7 @@ export default function ActionButtons({ movie, expand }) {
         <button
           type="button"
           className={`more-actions-btn ${
-            expand && "col-md-3 col-9 mx-auto mx-md-2"
+            expand && "col-md-3 col-6 mx-auto mx-md-2"
           } btn btn-primary rounded-0 p-0 my-1`}
           onClick={() => {
             CoreActions.removeFromWatchHistory(movie);
@@ -55,7 +55,7 @@ export default function ActionButtons({ movie, expand }) {
         <button
           type="button"
           className={`more-actions-btn ${
-            expand && "col-md-3 col-9 mx-auto mx-md-2"
+            expand && "col-md-3 col-5 mx-auto mx-md-2"
           } btn btn-primary rounded-0 p-0 my-1`}
           onClick={() => {
             CoreActions.addToWatchHistory(movie);
@@ -77,7 +77,7 @@ export default function ActionButtons({ movie, expand }) {
         <button
           type="button"
           className={`more-actions-btn ${
-            expand && "col-md-3 col-9 mx-auto mx-md-2"
+            expand && "col-md-3 col-5 mx-auto mx-md-2"
           } btn btn-primary rounded-0 p-0 my-1`}
           onClick={() => {
             CoreActions.removeFromWishList(movie);
@@ -97,7 +97,7 @@ export default function ActionButtons({ movie, expand }) {
         <button
           type="button"
           className={`more-actions-btn ${
-            expand && "col-md-3 col-9 mx-auto mx-md-2"
+            expand && "col-md-3 col-5 mx-auto mx-md-2"
           } btn btn-primary rounded-0 p-0 my-1`}
           onClick={() => {
             CoreActions.addToWishList(movie);
@@ -159,7 +159,7 @@ export default function ActionButtons({ movie, expand }) {
                   <button
                     type="button"
                     className={`more-actions-btn ${
-                      expand && "col-md-3 col-9 mx-auto mx-md-2"
+                      expand && "col-md-3 col-5 mx-auto mx-md-2"
                     } btn btn-primary rounded-0 p-0`}
                   >
                     <p className="d-inline-block pt-1">Goto Details</p>
