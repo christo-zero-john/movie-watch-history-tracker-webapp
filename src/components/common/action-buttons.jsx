@@ -32,7 +32,7 @@ export default function ActionButtons({ movie, expand }) {
           type="button"
           className={`more-actions-btn ${
             expand && "col-3"
-          } btn btn-primary rounded-0 p-0 action-buttons-bordered`}
+          } btn btn-primary rounded-0 p-0`}
           onClick={() => {
             CoreActions.removeFromWatchHistory(movie);
             setRerender((prevState) => -prevState);
@@ -52,7 +52,7 @@ export default function ActionButtons({ movie, expand }) {
           type="button"
           className={`more-actions-btn ${
             expand && "col-3"
-          } btn btn-primary rounded-0 p-0 border border-2 border-light border-start`}
+          } btn btn-primary rounded-0 p-0 my-1`}
           onClick={() => {
             CoreActions.addToWatchHistory(movie);
             setRerender((prevState) => -prevState);
@@ -74,7 +74,7 @@ export default function ActionButtons({ movie, expand }) {
           type="button"
           className={`more-actions-btn ${
             expand && "col-3"
-          } btn btn-primary rounded-0 p-0`}
+          } btn btn-primary rounded-0 p-0 my-1`}
           onClick={() => {
             CoreActions.removeFromWishList(movie);
             setRerender((prevState) => !prevState);
@@ -94,7 +94,7 @@ export default function ActionButtons({ movie, expand }) {
           type="button"
           className={`more-actions-btn ${
             expand && "col-3"
-          } btn btn-primary rounded-0 p-0`}
+          } btn btn-primary rounded-0 p-0 my-1`}
           onClick={() => {
             CoreActions.addToWishList(movie);
             setRerender((prevState) => !prevState);
