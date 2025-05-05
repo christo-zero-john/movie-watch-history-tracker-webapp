@@ -47,5 +47,5 @@
 
 ### 04 05 2025
 
-- Setup movie details page
+- Setup movie details page ✅ `overdue: 05 05 2025`
 - Implement user data and user stats management
