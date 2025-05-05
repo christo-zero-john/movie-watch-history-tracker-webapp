@@ -11,7 +11,14 @@ export default function MyGenre({ genres }) {
             Add some movies to your watch history to see your genre
           </p>
         ) : (
-          ""
+          genres.map((genre) => (
+            <button
+              key={genre.id}
+              className="genre-btn text-orange border-0 m-2 px-3 py-2 rounded text-nowrap"
+            >
+              {genre.name}
+            </button>
+          ))
         )}
       </div>
     </div>
