@@ -16,8 +16,7 @@ export default function ActionButtons({ movie, expand }) {
   //   console.log(watcHistory, wishList);
 
   movie.movie_runtime = helpers.constructRuntime(movie.runtime);
-  movie.release_date_in_words = helpers.
-
+  movie.release_date = helpers.dateToInWords(movie.release_date);
 
   const [show, setShow] = useState(false);
 
