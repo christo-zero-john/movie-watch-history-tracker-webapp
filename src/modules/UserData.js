@@ -10,8 +10,14 @@ class UserData {
       currentStreak: 0,
       genres: [],
     };
-this.watchHistory=
+
+    this.initializeUserData();
+
     return UserData.instance;
+  }
+
+  initializeUserData() {
+    
   }
 
   calculate: {
