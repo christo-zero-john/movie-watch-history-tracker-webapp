@@ -39,7 +39,7 @@ class Helpers {
         !tmdbPath.includes("http") &&
         !tmdbPath.includes("image-placeholder")
       ) {
-        tmdbPath = `https://image.tmdb.org/t/p/w500/${tmdbPath}`;
+        tmdbPath = `https://image.tmdb.org/t/p/w1280/${tmdbPath}`;
       }
     }
     return tmdbPath;
