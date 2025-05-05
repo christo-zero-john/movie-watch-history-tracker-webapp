@@ -13,7 +13,7 @@ export default function MovieSearchResultCard({ movie }) {
   //   console.log(movie);
   return (
     <div
-      className={`card border border-${Helpers.getRandomColor()} result-item col-5  col-md-3 col-lg-2 m-2 rounded column justify-content-between`}
+      className={`card border border-${Helpers.getRandomColor()} result-item col-8 col-md-3 col-lg-2 m-2 rounded column justify-content-between`}
     >
       <div className="search-result-item-top">
         <img
