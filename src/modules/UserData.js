@@ -18,7 +18,6 @@ class UserData {
       genres: [],
     };
 
-    this.initializeUserData();
 
     return UserData.instance;
   }
@@ -70,6 +69,8 @@ class UserData {
 
       this.data.watchTime[0] += calculatedRuntime[0];
       this.data.watchTime[1] = calculatedRuntime[1];
+
+      console.log(this.data);
     })();
   }
 }
