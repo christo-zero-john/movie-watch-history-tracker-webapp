@@ -109,7 +109,9 @@ p {
   display: flex;
   flex-direction: column;
   width: 90%;
-  top: 30%;
+  top: 48%;
+  left: 10px;
+  padding: 3px;
   z-index: 1000;
   background-color: #2b2b2b;
   border-radius: 0.25rem;
@@ -117,10 +119,6 @@ p {
 
 .action-buttons button {
   width: 100%;
-}
-
-.action-buttons-bordered {
-  border-top: 2px solid #f8f9fa;
 }
 
 .expanded-action-buttons {
