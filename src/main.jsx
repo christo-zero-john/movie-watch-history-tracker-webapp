@@ -4,8 +4,10 @@ import "./styles/defaults.css";
 import "./styles/index.css";
 import AppRoutes from "./app-routes";
 import LocalDatabase from "./modules/LocalDatabase";
+import UserData from "./modules/UserData";
 
 LocalDatabase.initializeDatabase();
+UserData.initializeUserData();
 
 // Set the bg color and text color of the entire document so that it matches the dark theme
 document.body.style.backgroundColor = "#212529";
