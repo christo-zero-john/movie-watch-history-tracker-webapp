@@ -1,4 +1,3 @@
-import { useState } from "react";
 import MovieSearchResultCard from "./movie-search-result-card";
 
 const monthInWords = {
