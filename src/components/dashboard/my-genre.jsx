@@ -1,4 +1,4 @@
-export default function MyGenre() {
+export default function MyGenre({ genres }) {
   return (
     <div class="genre-section col-11 mx-auto my-5 mb-4">
       <h2 class="fs-6">Your Movie Genre</h2>
@@ -6,9 +6,13 @@ export default function MyGenre() {
         class="my-genre p-3 p-md-4 rounded d-flex flex-row justify-content-start align-items-center flex-nowrap overflow-auto no-scrollbar"
         id="my-genre"
       >
-        <p className="text-center text-warning w-100">
-          Add some movies to your watch history to see your genre
-        </p>
+        {genres.length == 0 ? (
+          <p className="text-center text-warning w-100">
+            Add some movies to your watch history to see your genre
+          </p>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
