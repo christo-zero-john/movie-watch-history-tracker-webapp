@@ -6,6 +6,7 @@ import UserStatistics from "../dashboard/user-statistics";
 import { Link } from "react-router";
 import MyGenre from "../dashboard/my-genre";
 import DisplayMoviesList from "../common/display-movies-list";
+import UserData from "../../modules/UserData";
 
 export default function Dashboard() {
   const [savedLists, setSavedLists] = useState(null);
