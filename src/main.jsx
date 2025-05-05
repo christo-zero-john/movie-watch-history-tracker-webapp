@@ -3,9 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/defaults.css";
 import "./styles/index.css";
 import AppRoutes from "./app-routes";
-import LocalDatabase from "./modules/LocalDatabase";
 import UserData from "./modules/UserData";
 
+// Setup userData. LocalDatabase is also initialized inside this method.
 UserData.initializeUserData();
 
 // Set the bg color and text color of the entire document so that it matches the dark theme
