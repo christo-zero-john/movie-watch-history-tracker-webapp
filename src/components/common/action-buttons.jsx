@@ -52,7 +52,7 @@ export default function ActionButtons({ movie, expand }) {
           type="button"
           className={`more-actions-btn ${
             expand && "col-3"
-          } btn btn-primary rounded-0 p-0`}
+          } btn btn-primary rounded-0 p-0 border border-2 border-light border-start`}
           onClick={() => {
             CoreActions.addToWatchHistory(movie);
             setRerender((prevState) => -prevState);
