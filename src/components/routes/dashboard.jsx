@@ -5,6 +5,7 @@ import NavBar from "../common/nav-bar";
 import UserStatistics from "../dashboard/user-statistics";
 import { Link } from "react-router";
 import MyGenre from "../dashboard/my-genre";
+import DisplayMoviesList from "../common/display-movies-list";
 
 export default function Dashboard() {
   const [savedLists, setSavedLists] = useState(null);
@@ -64,7 +65,10 @@ export default function Dashboard() {
                       Add some movies to your watch history to appear here
                     </p>
                   ) : (
-                    savedLists.map((movie) => <p>{movie.title}</p>)
+                    <DisplayMoviesList
+                      movies={savedLists}
+                      className="flex-nowrap overflow-auto no-scrollbar justify-content-start"
+                    />
                   )
                 }
               </div>
