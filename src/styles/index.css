@@ -124,6 +124,11 @@ p {
 .expanded-action-buttons {
   display: flex;
   flex-direction: row;
+  margin: 10px 0;
+}
+
+.expanded-action-buttons button {
+  margin: 0 5px;
 }
 
 .action-buttons-icon {
@@ -182,11 +187,15 @@ p {
 }
 
 .movie-details-genre button {
-  background-color: #3d3d3d7a;
+  background-color: #2e2e2e;
 }
 
 .movie-details-genre button:hover {
   background-color: #f86b2e7a;
+}
+
+.movie-details-top {
+  background-color: #21252959;
 }
 
 @media (min-width: 768px) {
