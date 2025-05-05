@@ -10,24 +10,10 @@ export default function NavBar({ active = null }) {
         <Navbar.Toggle aria-controls="navbarNav" />
         <Navbar.Collapse id="navbarNav">
           <Nav className="ms-auto">
-            <Nav.Link href="/" active={active === "dashboard"}>
-              Dashboard
-            </Nav.Link>
-            <Nav.Link
-              href="/movie-list/watch-history"
-              active={active === "watch-history"}
-            >
-              Watch History
-            </Nav.Link>
-            <Nav.Link
-              href="/movie-list/wish-list"
-              active={active === "wish-list"}
-            >
-              Wishlist
-            </Nav.Link>
-            <Nav.Link href="/search" active={active === "explore"}>
-              Explore
-            </Nav.Link>
+            <Nav.Link href="/">Dashboard</Nav.Link>
+            <Nav.Link href="/movie-list/watch-history">Watch History</Nav.Link>
+            <Nav.Link href="/movie-list/wish-list">Wishlist</Nav.Link>
+            <Nav.Link href="/search">Explore</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
