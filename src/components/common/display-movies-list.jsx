@@ -16,22 +16,22 @@ const monthInWords = {
   12: "December",
 };
 
-export default function DisplayMoviesList({ movies, className }) {
+export default function DisplayMoviesList({ movies, className = "" }) {
   return (
     <>
-      <div className="">
-        <div
-          className={`search-results d-flex flex-row gap-2 justify-content-start w-fit mx-auto flex-wrap ${className}`}
-        >
-          {movies.map((movie) => {
-            const releaseDate = movie.release_date.split("-");
-            // console.log(releaseDate[1]);
-            releaseDate[1] = monthInWords[+releaseDate[1]];
-            movie.release_date = releaseDate.reverse().join(" ");
-            // console.log(movie);
-            return <MovieSearchResultCard movie={movie} key={movie.id} />;
-          })}
-        </div>
+      <div
+        className={`search-results d-flex flex-row gap-2 flex-wrap col-12 ${className} ${
+          !className.includes("justify-content") && "justify-content-center"
+        }`}
+      >
+        {movies.map((movie) => {
+          const releaseDate = movie.release_date.split("-");
+          // console.log(releaseDate[1]);
+          releaseDate[1] = monthInWords[+releaseDate[1]];
+          movie.release_date = releaseDate.reverse().join(" ");
+          // console.log(movie);
+          return <MovieSearchResultCard movie={movie} key={movie.id} />;
+        })}
       </div>
     </>
   );
