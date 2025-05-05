@@ -42,7 +42,7 @@ export default function MovieDetails() {
             // Display movie if available
             movie ? (
               <>
-                <div className="movie-details-top d-flex flex-row justify-content-center align-items-center">
+                <div className="movie-details-top w-100 hd-80 d-flex flex-row justify-content-center align-items-center">
                   <img
                     src={helpers.constructImagePath(movie.poster_path)}
                     alt=""
