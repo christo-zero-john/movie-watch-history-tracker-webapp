@@ -32,8 +32,11 @@ class Helpers {
   }
 
   constructImagePath(tmdbPath) {
+    const placeHolderImage = import(
+      "/src/assets/images/icons/image-placeholder.png"
+    );
     if (!tmdbPath) {
-      tmdbPath = "/src/assets/images/icons/image-placeholder.png";
+      tmdbPath = placeHolderImage;
     } else {
       if (
         !tmdbPath.includes("http") &&
