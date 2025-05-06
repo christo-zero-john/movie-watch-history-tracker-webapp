@@ -5,7 +5,7 @@ export default function NavBar({ active = null }) {
     <Navbar expand="md" className="navbar-dark p-0">
       <Container fluid>
         <Navbar.Brand href="/" className="fs-3 text-light fw-bolder en-iceberg">
-          MWHT
+          Movie Folio
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarNav" />
         <Navbar.Collapse id="navbarNav">
