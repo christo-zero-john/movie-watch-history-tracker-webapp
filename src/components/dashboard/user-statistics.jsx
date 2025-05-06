@@ -7,7 +7,7 @@ export default function UserStatistics({ userdata }) {
   function oneLineValue(right, left) {
     //
     return (
-      <div className="stat-item small d-flex flex-row align-items-center w-fit mx-4">
+      <div className="stat-item small d-flex flex-row align-items-center w-fit mx-2 mx-md-4">
         <p className="stat-value text-nowrap fw-bold mx-2 fs-5">{left}</p>
         <p className="stat-label text-nowrap">
           {right[0]}
