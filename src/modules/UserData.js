@@ -1,5 +1,7 @@
 import CoreActions from "./CoreActions";
+
 import Helpers from "./Helpers";
+
 import LocalDatabase from "./LocalDatabase";
 
 class UserData {
@@ -45,6 +47,7 @@ class UserData {
          * Calculate total watch time of the user and set userdata.data.watchTime
          */
         const calculatedRuntime = Helpers.constructRuntime(movie.runtime);
+
         this.data.watchTime[0] += calculatedRuntime[0];
         this.data.watchTime[1] += calculatedRuntime[1];
 
@@ -69,6 +72,7 @@ class UserData {
        * After completeing the loop, watch time in minutes will be greater than 60 (Because we are just adding up minutes of all n movies into the watchTime[1], which stores total minutes). Hence, we should convert it to hours and minutes once again and save the new results as final watch time.
        */
       const calculatedRuntime = Helpers.constructRuntime(
+
         this.data.watchTime[1]
       );
 
