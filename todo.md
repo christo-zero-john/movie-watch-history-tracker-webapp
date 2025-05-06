@@ -43,8 +43,15 @@
 - Continue: Work on the dashboard and implement
   - Movie item card
     - Basic item card ✅
-    - Action buttons of item card
+    - Action buttons of item card ✅
 
 ### 04 05 2025
 
-- Implement user data and user stats management
+- Setup movie details page ✅ `overdue: 05 05 2025`
+- Implement user data and user stats management ✅ `overdue: 05 05 2025`
+
+# To Fix
+
+- Userdata in statistics
+  - Userdata in user stats is not initialized properly. It is set using a setTimeout method. If userData.initializeUserData takes more than takes more than 500ms, then the data will be incorrect.
+  - Userdata in user stats in user dashboard wont update or listen to changes that happens in UserData.data.

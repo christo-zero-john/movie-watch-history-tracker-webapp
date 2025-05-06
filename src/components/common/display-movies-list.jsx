@@ -1,4 +1,4 @@
-import ActionButtons from "./action-buttons";
+import MovieSearchResultCard from "./movie-search-result-card";
 
 const monthInWords = {
   1: "January",
@@ -15,39 +15,23 @@ const monthInWords = {
   12: "December",
 };
 
-export default function DisplayMoviesList({ movies }) {
-  function getRandomColor() {
-    const colors = ["light", "warning", "primary", "danger", "success", "info"];
-
-    return colors[Math.floor(Math.random() * 5)];
-  }
-
+export default function DisplayMoviesList({ movies, className = "" }) {
   return (
-    <div className="search-results d-flex flex-row gap-2 justify-content-center flex-wrap col-12">
-      {movies.map((movie) => {
-        const releaseDate = movie.release_date.split("-");
-        console.log(releaseDate[1]);
-        releaseDate[1] = monthInWords[+releaseDate[1]];
-        movie.release_date = releaseDate.reverse().join(" ");
-        console.log(movie);
-        return (
-          <div
-            key={movie.id}
-            className={`card border border-${getRandomColor()} result-item col-5  col-md-2 m-2 rounded`}
-          >
-            <img
-              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-              alt={`poster-${movie.title}`}
-              className="img-fluid"
-              loading="lazy"
-            />
-            <div className="text-start result-content p-2 small">
-              <p className="movie-name fw-500">{movie.title}</p>
-              <p className="date small pt-2">{movie.release_date}</p>
-            </div>
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <div
+        className={`search-results d-flex flex-row gap-2 flex-wrap col-12 ${className} ${
+          !className.includes("justify-content") && "justify-content-center"
+        }`}
+      >
+        {movies.map((movie) => {
+          const releaseDate = movie.release_date.split("-");
+          // console.log(releaseDate[1]);
+          releaseDate[1] = monthInWords[+releaseDate[1]];
+          movie.release_date = releaseDate.reverse().join(" ");
+          // console.log(movie);
+          return <MovieSearchResultCard movie={movie} key={movie.id} />;
+        })}
+      </div>
+    </>
   );
 }

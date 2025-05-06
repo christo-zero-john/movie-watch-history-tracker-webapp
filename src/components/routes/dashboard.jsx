@@ -5,9 +5,18 @@ import NavBar from "../common/nav-bar";
 import UserStatistics from "../dashboard/user-statistics";
 import { Link } from "react-router";
 import MyGenre from "../dashboard/my-genre";
+import DisplayMoviesList from "../common/display-movies-list";
+import UserData from "../../modules/UserData";
 
 export default function Dashboard() {
   const [savedLists, setSavedLists] = useState(null);
+
+  const [userdata, setUserdata] = useState({
+    watchTime: [0, 0],
+    totalMoviesWatched: 0,
+    currentStreak: 0,
+    genres: [],
+  });
 
   useEffect(() => {
     const watchHistory = LocalDatabase.getWatchHistory();
@@ -22,6 +31,7 @@ export default function Dashboard() {
         watchHistory
       );
       // console.log(watchHistoryMovies, wishListMovies);
+      setTimeout(() => setUserdata(UserData.data), 500);
       setSavedLists(watchHistoryMovies);
     })();
   }, []);
@@ -29,7 +39,7 @@ export default function Dashboard() {
   return (
     <div className="bg-dark text-light hd-100 overflow-auto no-scrollbar">
       <NavBar active="dashboard" />
-      <UserStatistics />
+      <UserStatistics userdata={userdata} />
       <Link
         className="p-0 ps-2 add-movie-btn rounded-0 float-end sticky-bottom border-0 my-2 nav-link"
         type="button"
@@ -58,19 +68,21 @@ export default function Dashboard() {
                 id="my-movies"
               >
                 {
-                  
                   // Check whether the first list is empty or not. If empty means nothing in watch history
                   savedLists.length == 0 ? (
                     <p className="text-center text-warning w-100">
                       Add some movies to your watch history to appear here
                     </p>
                   ) : (
-                    savedLists.map((movie) => <p>{movie.title}</p>)
+                    <DisplayMoviesList
+                      movies={savedLists}
+                      className="flex-nowrap overflow-auto no-scrollbar justify-content-start"
+                    />
                   )
                 }
               </div>
 
-              <MyGenre />
+              <MyGenre genres={userdata.genres} />
             </section>
           </>
         )

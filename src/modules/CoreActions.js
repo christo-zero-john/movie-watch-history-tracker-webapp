@@ -109,5 +109,21 @@ class CoreActions {
       );
     }
   }
+
+  /**
+   * This method fetches the movie IDs in watch history and returns an array of movie objects
+   */
+  async getMoviesInWatchHistory() {
+    let watchHistory = LocalDatabase.getWatchHistory();
+    return await LocalDatabase.constructMoviesList(watchHistory);
+  }
+
+  /**
+   * This method fetches the movie IDs in wish list and returns an array of movie objects
+   */
+  async getMoviesInWishList() {
+    let wishList = LocalDatabase.getWishList();
+    return await LocalDatabase.constructMoviesList(wishList);
+  }
 }
 export default new CoreActions();

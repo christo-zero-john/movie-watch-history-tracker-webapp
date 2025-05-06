@@ -2,12 +2,35 @@
   transition: all 0.4s;
 }
 
+.bg-slideshow-img,
+.movie-details-bg-img {
+  position: fixed;
+  top: 0;
+  z-index: -100;
+  inset: 0;
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.2;
+  transition: all 1s;
+}
+
 .shadow-light {
   box-shadow: 0 0.5rem 1rem #ffffff45 !important;
 }
 
 .search-result__details * {
   font-size: 12px;
+}
+
+.search-result-item-top {
+  height: 300px;
+}
+
+.search-result-poster {
+  width: 500px;
+  height: 100%;
 }
 
 p {
@@ -25,16 +48,16 @@ p {
   box-shadow: inset 0 0 30px #ffffff55;
 }
 
-.nav-item .nav-link {
-  color: #fff;
+.nav-link {
+  color: #ffffffc6;
 }
 
-.nav-item .nav-link.active,
-.nav-item .nav-link:focus {
-  color: #ff824d;
+.active,
+.nav-link:focus {
+  color: #ff824d !important;
 }
 
-.nav-item .nav-link:hover,
+.nav-link:hover,
 .stat-label {
   color: #ffb64d;
 }
@@ -69,3 +92,178 @@ p {
   right: 20px;
 }
 
+.more-actions__icon {
+  width: 20px;
+  margin: 0 5px;
+  transform: translateY(-15px);
+  cursor: pointer;
+}
+
+.more-actions-btn {
+  font-size: 14px;
+  padding: auto;
+}
+
+.action-buttons {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  top: 48%;
+  left: 10px;
+  padding: 3px;
+  z-index: 1000;
+  background-color: #2b2b2b;
+  border-radius: 0.25rem;
+}
+
+.action-buttons button {
+  width: 100%;
+}
+
+.expanded-action-buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+}
+
+.expanded-action-buttons button {
+  margin: 0 5px;
+}
+
+.action-buttons-icon {
+  height: 30px;
+}
+
+.more-details-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  z-index: 100;
+  width: 30px;
+}
+
+/* Movie search result item expand (summary) */
+
+.movie-summary {
+  box-shadow: 2px 2px 20px #ffffff77;
+}
+
+.movie-summary-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.movie-summary-content {
+  background-color: #00000034;
+}
+
+.movie-summary-cover-img {
+  width: 200px;
+  height: fit-content;
+}
+
+.movie-summary-description {
+  text-align: justify;
+}
+
+/* Movie details page */
+
+.go-back-icon {
+  width: 60px;
+  height: 30px;
+}
+
+.small-icon {
+  height: 30px;
+}
+
+.genre-btn {
+  background-color: #76240166;
+}
+
+.genre-btn:hover {
+  background-color: #f86b2e7a;
+}
+
+.movie-details-top {
+  background-color: #21252959;
+}
+
+@media (min-width: 768px) {
+  .movie-item .hover-varient .top-side {
+    height: 50%;
+  }
+}
+
+.movie-item {
+  min-width: 100px;
+  min-height: 200px;
+}
+
+.movie-item {
+  position: relative;
+}
+
+.movie-item .hover-varient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#00000064 40%, #000000ff);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.movie-item .hover-variant .movie-name {
+  font-size: 13px;
+}
+.movie-item .hover-variant .original-name {
+  font-size: 10px;
+}
+
+.movie-item .hover-variant .movie-date-time p {
+  font-size: 2px;
+}
+
+.movie-item .hover-varient .top-side {
+  height: 35%;
+}
+
+.movie-item .hover-varient .genre p {
+  font-size: 11px;
+  color: #ff824d;
+}
+
+.movie-item .hover-varient .icon {
+  height: 30px;
+}
+
+.movie-item:hover .hover-varient {
+  opacity: 1;
+}
+
+.movie-item:hover img {
+  transform: rotateY(360deg);
+}
+
+.movie-item:hover {
+  scale: 1.1;
+}
+
+@media (min-width: 768px) {
+  .expanded-action-buttons {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+  }
+}

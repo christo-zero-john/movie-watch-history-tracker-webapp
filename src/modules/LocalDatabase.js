@@ -9,7 +9,7 @@ class LocalDatabase {
     return LocalDatabase.instance;
   }
 
-  initialzeDatabase() {
+  initializeDatabase() {
     // console.log("Initializing local database");
     if (!localStorage.getItem("watch-history")) {
       // console.log("No watch history found, creating an empty one.");
@@ -34,7 +34,7 @@ class LocalDatabase {
       `,
     });
 
-    // console.log("Local database initialized successfully.");
+    console.log("Local database initialized successfully.");
   }
 
   getWatchHistory() {
@@ -64,9 +64,14 @@ class LocalDatabase {
   /**
    * Recieves movie details fetched from the tmdb api and saves it to the local database (indexDB here).
    */
-  putMovieToDB(movieDetails) {
-    // console.log("Saving new movie to local database");
-    return this.movieDB.movies.add(movieDetails);
+  async putMovieToDB(movieDetails) {
+    console.log("Saving new movie to local database");
+    const response = await this.movieDB.movies.add(movieDetails);
+    if (response == movieDetails.id) {
+      console.log("Movie successfully saved to database");
+    } else {
+      console.log("Error saving movie to database");
+    }
   }
 
   /**
@@ -76,14 +81,14 @@ class LocalDatabase {
    */
   async getMovieFromDB(movieID) {
     // console.log("Fetching movie from local database");
+    // console.log(movieID);
     const movieDetails = await this.movieDB.movies.get(movieID);
     // console.log(movieDetails);
     if (!movieDetails) {
-      TMDB.getMovieById(movieID).then((data) => {
-        console.log(
-          "Movie not found in local database, fetching from TMDB API"
-        );
-        this.putMovieToDB(data);
+      console.log("Movie not found in local database, fetching from TMDB API");
+      return TMDB.getMovieById(movieID).then(async (data) => {
+        console.log(data);
+        await this.putMovieToDB(data);
         return data;
       });
     } else {
