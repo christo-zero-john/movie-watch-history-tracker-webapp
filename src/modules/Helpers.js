@@ -1,3 +1,5 @@
+import placeHolderImage from "/src/assets/images/icons/image-placeholder.png";
+
 class Helpers {
   constructor() {
     if (!Helpers.instance) {
@@ -32,9 +34,6 @@ class Helpers {
   }
 
   constructImagePath(tmdbPath) {
-    const placeHolderImage = import(
-      "/src/assets/images/icons/image-placeholder.png"
-    );
     if (!tmdbPath) {
       tmdbPath = placeHolderImage;
     } else {
