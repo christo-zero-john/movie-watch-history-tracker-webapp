@@ -2,10 +2,9 @@ import { useState } from "react";
 import ActionButtons from "./action-buttons";
 import { Link } from "react-router-dom";
 import Helpers from "../../modules/Helpers";
-import moreDetailsIcon from '../../assets/images/icons/more-details.png'
+import moreDetailsIcon from "../../assets/images/icons/more-details.png";
 
 export default function MovieSearchResultCard({ movie }) {
-
   movie.poster_path = Helpers.constructImagePath(movie.poster_path);
 
   movie.release_date = Helpers.dateToInWords(movie.release_date);
