@@ -5,7 +5,6 @@ import Helpers from "../../modules/Helpers";
 import moreDetailsIcon from '../../assets/images/icons/more-details.png'
 
 export default function MovieSearchResultCard({ movie }) {
-  const [showActionButtons, setShowActionButtons] = useState(false);
 
   movie.poster_path = Helpers.constructImagePath(movie.poster_path);
 
@@ -35,7 +34,7 @@ export default function MovieSearchResultCard({ movie }) {
       </div>
       <div className="text-start result-content p-2 small">
         <Link
-          href={`/details/${movie.id}`}
+          to={`/details/${movie.id}`}
           className="nav-link movie-name fw-500 pt-2"
         >
           {movie.title}
