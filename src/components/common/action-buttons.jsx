@@ -3,7 +3,7 @@ import CoreActions from "../../modules/CoreActions";
 import LocalDatabase from "../../modules/LocalDatabase";
 import { Link } from "react-router";
 import { useEffect } from "react";
-import helpers from "../../modules/helpers";
+import Helpers from "../../modules/Helpers";
 
 /**
  * This component is used to render action buttons of movie cards and movie details page. If the buttons need to be shown, then the expand prop will be true.
@@ -15,8 +15,8 @@ export default function ActionButtons({ movie, expand }) {
   const [reRender, setRerender] = useState(false);
   //   console.log(watcHistory, wishList);
 
-  movie.movie_runtime = helpers.constructRuntime(movie.runtime);
-  movie.release_date = helpers.dateToInWords(movie.release_date);
+  movie.movie_runtime = Helpers.constructRuntime(movie.runtime);
+  movie.release_date = Helpers.dateToInWords(movie.release_date);
 
   const [show, setShow] = useState(false);
 
