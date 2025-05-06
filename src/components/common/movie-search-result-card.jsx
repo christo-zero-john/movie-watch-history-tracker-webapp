@@ -2,6 +2,7 @@ import { useState } from "react";
 import ActionButtons from "./action-buttons";
 import { Link } from "react-router";
 import Helpers from "../../modules/Helpers";
+import moreDetailsIcon from '../../assets/images/icons/more-details.png'
 
 export default function MovieSearchResultCard({ movie }) {
   const [showActionButtons, setShowActionButtons] = useState(false);
@@ -25,7 +26,7 @@ export default function MovieSearchResultCard({ movie }) {
         <ActionButtons movie={movie} />
         <Link to={`/details/${movie.id}`}>
           <img
-            src="/src/assets/images/icons/more-details.png"
+            src={moreDetailsIcon}
             alt="info"
             className="more-details-icon"
             loading="lazy"
