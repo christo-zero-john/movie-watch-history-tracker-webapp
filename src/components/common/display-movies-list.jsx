@@ -1,3 +1,4 @@
+import Helpers from "../../modules/Helpers";
 import MovieSearchResultCard from "./movie-search-result-card";
 
 const monthInWords = {
@@ -24,10 +25,7 @@ export default function DisplayMoviesList({ movies, className = "" }) {
         }`}
       >
         {movies.map((movie) => {
-          const releaseDate = movie.release_date.split("-");
-          // console.log(releaseDate[1]);
-          releaseDate[1] = monthInWords[+releaseDate[1]];
-          movie.release_date = releaseDate.reverse().join(" ");
+          movie.release_date = Helpers.dateToInWords(movie.release_date);
           // console.log(movie);
           return <MovieSearchResultCard movie={movie} key={movie.id} />;
         })}
