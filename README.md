@@ -90,44 +90,6 @@ Ready to level up your movie experience?
 
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change. Before contributng read the [Contributions Guideline](CONTRIBUTIONS_GUIDELINE.md)
 
-1. Clone the repository
-
-```bash
-git clone https://github.com/christo-zero-john/movie-watch-history-tracker-webapp.git
-cd movie-watch-history-tracker-webapp
-```
-
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-
-3. Install dependencies
-
-```bash
-npm install
-# or
-pnpm install
-```
-
-4. Create a `.env` file in the root directory and add your TMDB API key:
-
-```env
-VITE_TMDB_TOKEN = your_api_key_here
-```
-
-5. Start the development server
-
-```bash
-npm run dev
-# or
-pnpm dev
-```
-
-6. Explore the issues in the repository or add your recommendations as a new issue and start developing.
-
-7. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-
-8. Push to the branch (`git push origin feature/AmazingFeature`)
-9. Open a Pull Request
-
 ## 📝 Code of Conduct
 
 Please read our [Code of Conduct](CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
