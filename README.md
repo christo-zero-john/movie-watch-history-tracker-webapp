@@ -77,12 +77,6 @@ Let’s get started! 🚀
 
 ## Contributions
 
-- Node.js (v14 or higher)
-- npm or pnpm
-- TMDB API key
-
-## Contributions
-
 1. Clone the repository
 ```bash
 git clone https://github.com/christo-zero-john/movie-watch-history-tracker-webapp.git
@@ -98,7 +92,7 @@ pnpm install
 
 3. Create a `.env` file in the root directory and add your TMDB API key:
 ```env
-VITE_TMDB_TOKEN=your_api_key_here
+VITE_TMDB_TOKEN = your_api_key_here
 ```
 
 4. Start the development server
@@ -112,7 +106,7 @@ pnpm dev
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change. Before contributng read the [Contributions Guideline](CONTRIBUTIONS_GUIDELINE.md)
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
