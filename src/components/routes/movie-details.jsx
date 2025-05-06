@@ -5,6 +5,7 @@ import ActionButtons from "../common/action-buttons";
 import { useEffect } from "react";
 import LocalDatabase from "../../modules/LocalDatabase";
 import Helpers from "../../modules/Helpers";
+import goBackIcon from '../../assets/images/icons/go-back-icon.png'
 
 export default function MovieDetails() {
   let { id } = useParams();
@@ -35,7 +36,7 @@ export default function MovieDetails() {
         <div className="ms-md-3 p-md-3">
           <button className="m-md-3 btn" onClick={() => window.history.back()}>
             <img
-              src="/src/assets/images/icons/go-back-icon.png"
+              src={goBackIcon}
               alt=""
               className="col-3 float-start"
             />
