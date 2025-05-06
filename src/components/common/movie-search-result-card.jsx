@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ActionButtons from "./action-buttons";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import Helpers from "../../modules/Helpers";
 import moreDetailsIcon from '../../assets/images/icons/more-details.png'
 
