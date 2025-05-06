@@ -59,27 +59,31 @@ class Helpers {
 
   dateToInWords(releaseDate) {
     // Convert only if needed
-    if (releaseDate.includes("-")) {
-      const monthInWords = {
-        1: "January",
-        2: "February",
-        3: "March",
-        4: "April",
-        5: "May",
-        6: "June",
-        7: "July",
-        8: "August",
-        9: "September",
-        10: "October",
-        11: "November",
-        12: "December",
-      };
+    if (releaseDate)
+      if (releaseDate.includes("-")) {
+        const monthInWords = {
+          1: "January",
+          2: "February",
+          3: "March",
+          4: "April",
+          5: "May",
+          6: "June",
+          7: "July",
+          8: "August",
+          9: "September",
+          10: "October",
+          11: "November",
+          12: "December",
+        };
 
-      releaseDate = releaseDate.split("-");
-      releaseDate[1] = monthInWords[+releaseDate[1]];
-      return releaseDate.reverse().join(" ");
-    } else {
-      return releaseDate;
+        releaseDate = releaseDate.split("-");
+        releaseDate[1] = monthInWords[+releaseDate[1]];
+        return releaseDate.reverse().join(" ");
+      } else {
+        return releaseDate;
+      }
+    else {
+      return "N I L";
     }
   }
 }
