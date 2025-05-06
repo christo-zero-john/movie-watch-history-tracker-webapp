@@ -1,10 +1,15 @@
 # Movie Folio - Portfolio of your movies
+
+`v1.0.0`
+
 > Previously `Movie Watch History Tracker Webapp`
 
+<div align="center">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"/>
+    <img src="https://img.shields.io/badge/React-18.2.0-blue" alt="React 18.2.0"/>
+    <img src="https://img.shields.io/badge/Vite-4.x-purple" alt="Vite 4.x"/>
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![React](https://img.shields.io/badge/React-18.2.0-blue)
-![Vite](https://img.shields.io/badge/Vite-4.x-purple)
+</div>
 
 ---
 
@@ -37,7 +42,7 @@ All your preferences and history are stored securely in your browser (using Inde
 > It deserves a portfolio.
 
 Ready to level up your movie experience?  
-Let’s get started! 🚀
+**_Let’s get started!_** 🚀
 
 ---
 
@@ -52,9 +57,13 @@ Let’s get started! 🚀
 - **Offline Support**: Works offline using local storage
 - **Responsive Design**: Works seamlessly on both desktop and mobile devices
 
-## 🚀 Live Demo
+---
 
-[View Live Demo](https://movie-watch-history-tracker-webapp.vercel.app/)
+<div align="center">
+<h3><a href="https://movie-watch-history-tracker-webapp.vercel.app/">🚀 Visit Movie Folio</a></h3>
+</div>
+
+---
 
 ## 🛠️ Tech Stack
 
@@ -66,53 +75,58 @@ Let’s get started! 🚀
 - **Database**: IndexedDB (Dexie.js) + Local Storage
 - **Deployment**: Vercel
 
+---
 
-## 🎯 Usage
+## 🎯 How to Use Movie Folio
+
 1. Goto [Movie Folio](https://movie-watch-history-tracker-webapp.vercel.app/search)
 1. Search for movies using the search bar
-2. Click on a movie to view its details
-3. Add movies to your watch history or wishlist
-4. View your watch statistics and genre preferences in the dashboard
-5. Get personalized movie recommendations
+1. Click on a movie to view its details
+1. Add movies to your watch history or wishlist
+1. View your watch statistics and genre preferences in the dashboard
+1. Get personalized movie recommendations
 
-## Contributions
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change. Before contributng read the [Contributions Guideline](CONTRIBUTIONS_GUIDELINE.md)
 
 1. Clone the repository
+
 ```bash
 git clone https://github.com/christo-zero-john/movie-watch-history-tracker-webapp.git
 cd movie-watch-history-tracker-webapp
 ```
 
-2. Install dependencies
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+
+3. Install dependencies
+
 ```bash
 npm install
 # or
 pnpm install
 ```
 
-3. Create a `.env` file in the root directory and add your TMDB API key:
+4. Create a `.env` file in the root directory and add your TMDB API key:
+
 ```env
 VITE_TMDB_TOKEN = your_api_key_here
 ```
 
-4. Start the development server
+5. Start the development server
+
 ```bash
 npm run dev
 # or
 pnpm dev
 ```
 
-5. Explore the issues in the repository or add your recommendations as a new issue and start developing.
+6. Explore the issues in the repository or add your recommendations as a new issue and start developing.
 
-## 🤝 Contributing
+7. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change. Before contributng read the [Contributions Guideline](CONTRIBUTIONS_GUIDELINE.md)
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+8. Push to the branch (`git push origin feature/AmazingFeature`)
+9. Open a Pull Request
 
 ## 📝 Code of Conduct
 
