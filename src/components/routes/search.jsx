@@ -1,6 +1,6 @@
 import { useState } from "react";
 import TMDB from "../../modules/TMDB";
-import Helpers from "../../modules/helpers";
+import Helpers from "../../modules/Helpers";
 import DisplayMoviesList from "../common/display-movies-list";
 import { useEffect } from "react";
 import NavBar from "../common/nav-bar";
