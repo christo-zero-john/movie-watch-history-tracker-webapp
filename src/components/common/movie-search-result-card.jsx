@@ -1,8 +1,7 @@
-import { useState } from "react";
 import ActionButtons from "./action-buttons";
-import { Link } from "react-router-dom";
 import Helpers from "../../modules/Helpers";
 import moreDetailsIcon from "../../assets/images/icons/more-details.png";
+import { Link } from "react-router";
 
 export default function MovieSearchResultCard({ movie }) {
   movie.poster_path = Helpers.constructImagePath(movie.poster_path);
@@ -32,7 +31,6 @@ export default function MovieSearchResultCard({ movie }) {
         </Link>
       </div>
       <div className="text-start result-content p-2 small">
-        
         <Link
           to={`/details/${movie.id}`}
           className="nav-link movie-name fw-500 pt-2"
