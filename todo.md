@@ -52,6 +52,10 @@
 - Setup movie details page ✅ `overdue: 05 05 2025`
 - Implement user data and user stats management ✅ `overdue: 05 05 2025`
 
+### 07 05 2025
+
+- Fix how Userdata is loaded in user-statistics. Refer issue #11
+
 # To Fix
 
 - Userdata in statistics
