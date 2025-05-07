@@ -1,7 +1,7 @@
 import ActionButtons from "./action-buttons";
 import Helpers from "../../modules/Helpers";
-import moreDetailsIcon from "../../assets/images/icons/more-details.png";
 import { Link } from "react-router";
+import Icons from "../../modules/Icons";
 
 export default function MovieSearchResultCard({ movie }) {
   movie.poster_path = Helpers.constructImagePath(movie.poster_path);
@@ -23,7 +23,7 @@ export default function MovieSearchResultCard({ movie }) {
         <ActionButtons movie={movie} />
         <Link to={`/details/${movie.id}`}>
           <img
-            src={moreDetailsIcon}
+            src={Icons.more_details_icon}
             alt="info"
             className="more-details-icon"
             loading="lazy"
