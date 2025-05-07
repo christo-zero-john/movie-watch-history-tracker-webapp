@@ -63,7 +63,7 @@ export default function Dashboard() {
         ) : (
           // If the lists are ready to be displayed, then first display the watch history.
           <>
-            <section className="watched-movies col-11 mx-auto my-5 mb-4">
+            <section className="watched-movies col-12 col-md-11 rounded-0 rounded-md-2 mx-auto my-3 mb-2 my-md-4">
               <h2 className="section-title fs-6">Watched Movies</h2>
               <div
                 className="movie-list p-3 p-md-4 rounded d-flex flex-row justify-content-start align-items-center flex-nowrap overflow-auto no-scrollbar"
@@ -83,9 +83,8 @@ export default function Dashboard() {
                   )
                 }
               </div>
-
-              <MyGenre genres={userdata.genres} />
             </section>
+            <MyGenre genres={userdata.genres} />
           </>
         )
       }
