@@ -8,7 +8,7 @@ export default function UserStatistics({ userdata }) {
     //
     return (
       <div className="stat-item small d-flex flex-row align-items-center w-fit mx-2 mx-md-4">
-        <p className="stat-value text-nowrap fw-bold me-1">{left}</p>
+        <p className="stat-value text-nowrap fw-bold me-2 fs-5">{left}</p>
         <p className="stat-label text-nowrap">
           {right[0]}
           <br />
@@ -36,7 +36,7 @@ export default function UserStatistics({ userdata }) {
   }
 
   return (
-    <section className="stats-container rounded md-w-fit mx-1 mx-md-3 mx-md-auto my-3 my-md-4 p-3 px-0 pb-0 pb-md-3 d-flex flex-row align-items-center flex-nowrap overflow-auto no-scrollbar">
+    <section className="stats-container rounded md-w-fit mx-md-3 mx-md-auto my-3 my-md-4 p-3 px-0 pb-0 pb-md-3 d-flex flex-row align-items-center flex-nowrap overflow-auto no-scrollbar">
       {twoLineValues(
         ["TOTAL", "WATCH TIME"],
         [`${userdata.watchTime[0]}HRS`, `${userdata.watchTime[1]}MINS`]
