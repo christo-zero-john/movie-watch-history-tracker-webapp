@@ -39,6 +39,8 @@ pnpm dev
 
 6. Explore the issues in the repository or add your recommendations as a new issue and start developing.
 
+> **Note:** Once you choose to work on an issue, assign it to yourself or request to be assigned, so that others know that you are working on it. It is recommended to work on issues that no one else is working on.
+
 7. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 
 8. Push to the branch (`git push origin feature/AmazingFeature`)
