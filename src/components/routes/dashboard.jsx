@@ -7,10 +7,10 @@ import { Link } from "react-router";
 import MyGenre from "../dashboard/my-genre";
 import DisplayMoviesList from "../common/display-movies-list";
 import UserData from "../../modules/UserData";
-import addMovieBtnIcon from '../../assets/images/icons/add-movie-btn.png'
+import addMovieBtnIcon from "../../assets/images/icons/add-movie-btn.png";
 
 export default function Dashboard() {
-  const [savedLists, setSavedLists] = useState(null);
+  const [watchHistory, setWatchHistory] = useState(null);
 
   const [userdata, setUserdata] = useState({
     watchTime: [0, 0],
@@ -31,9 +31,10 @@ export default function Dashboard() {
       let watchHistoryMovies = await LocalDatabase.constructMoviesList(
         watchHistory
       );
-      // console.log(watchHistoryMovies, wishListMovies);
-      setTimeout(() => setUserdata(UserData.data), 500);
-      setSavedLists(watchHistoryMovies);
+      setWatchHistory(watchHistoryMovies);
+
+      // Calculate and set userdata state
+      setUserdata(await UserData.calculateUserStats());
     })();
   }, []);
 
@@ -57,7 +58,7 @@ export default function Dashboard() {
       {
         // Check if the lists are ready to be displayed. If not, then display a message
 
-        !savedLists ? (
+        !watchHistory ? (
           <p className="alert alert-warning text-center">Fetching user data</p>
         ) : (
           // If the lists are ready to be displayed, then first display the watch history.
@@ -70,13 +71,13 @@ export default function Dashboard() {
               >
                 {
                   // Check whether the first list is empty or not. If empty means nothing in watch history
-                  savedLists.length == 0 ? (
+                  watchHistory.length == 0 ? (
                     <p className="text-center text-warning w-100">
                       Add some movies to your watch history to appear here
                     </p>
                   ) : (
                     <DisplayMoviesList
-                      movies={savedLists}
+                      movies={watchHistory}
                       className="flex-nowrap overflow-auto no-scrollbar justify-content-start"
                     />
                   )
