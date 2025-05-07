@@ -1,4 +1,4 @@
-import placeHolderImage from "/src/assets/images/icons/image-placeholder.png";
+import Icons from "./Icons";
 
 class Helpers {
   constructor() {
@@ -35,7 +35,7 @@ class Helpers {
 
   constructImagePath(tmdbPath) {
     if (!tmdbPath) {
-      tmdbPath = placeHolderImage;
+      tmdbPath = Icons.placeholder_image;
     } else {
       if (
         !tmdbPath.includes("http") &&
