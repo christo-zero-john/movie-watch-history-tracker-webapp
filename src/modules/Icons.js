@@ -5,8 +5,8 @@ import movie_in_wishlist_icon from "../assets/images/icons/movie-in-wishlist.png
 import add_to_wishlist_icon from "../assets/images/icons/add-to-wishlist.png";
 import more_actions_btn_icon from "../assets/images/icons/more-actions-btn.png";
 import more_details_icon from "../assets/images/icons/more-details.png";
-import add_movie_btn_icon from "../../assets/images/icons/add-movie-btn.png";
-import go_back_icon from "../../assets/images/icons/go-back-icon.png";
+import add_movie_btn_icon from "../assets/images/icons/add-movie-btn.png";
+import go_back_icon from "../assets/images/icons/go-back-icon.png";
 
 /**
  * Module used to manage app icons
