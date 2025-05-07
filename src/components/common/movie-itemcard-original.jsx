@@ -1,13 +1,11 @@
 import React from "react";
-import coverImage from '../../assets/images/temp/cover-image.jpg'
-import addToWatchHistoryIcon from '../../assets/images/icons/add-to-watch-history.png'
-import addToWishlistIcon from '../../assets/images/icons/add-to-wishlist.png'
+import Icons from "../../modules/Icons";
 
 export default function MovieItemcardOriginal() {
   return (
     <div className="movie-item col-6 col-md-2 me-3">
       <img
-        src={coverImage}
+        src="../../assets/images/temp/cover-image.jpg"
         alt=""
         className="cover-image img-fluid rounded"
       />
@@ -15,12 +13,12 @@ export default function MovieItemcardOriginal() {
       <div className="hover-varient ps-2 rounded">
         <div className="top-side w-fit m-3 ms-auto md-hd-50 d-flex flex-column justify-content-start align-items-center">
           <img
-            src={addToWatchHistoryIcon}
+            src={Icons.add_to_watch_history_icon}
             alt=""
             className="small-icon my-1"
           />
           <img
-            src={addToWishlistIcon}
+            src={Icons.add_to_wishlist_icon}
             alt=""
             className="small-icon my-1"
           />
