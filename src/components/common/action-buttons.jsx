@@ -4,12 +4,7 @@ import LocalDatabase from "../../modules/LocalDatabase";
 import { Link } from "react-router";
 import { useEffect } from "react";
 import Helpers from "../../modules/Helpers";
-import movieInWatchHistoryIcon from '../../assets/images/icons/movie-in-watch-history.png'
-import addToWatchHistoryIcon from '../../assets/images/icons/add-to-watch-history.png'
-import movieInWishlistIcon from '../../assets/images/icons/movie-in-wishlist.png'
-import addToWishlistIcon from '../../assets/images/icons/add-to-wishlist.png'
-import moreActionsBtnIcon from '../../assets/images/icons/more-actions-btn.png'
-import moreDetailsIcon from '../../assets/images/icons/more-details.png'
+import Icons from "../../modules/Icons";
 
 /**
  * This component is used to render action buttons of movie cards and movie details page. If the buttons need to be shown, then the expand prop will be true.
@@ -50,7 +45,7 @@ export default function ActionButtons({ movie, expand }) {
         >
           <p className="d-inline-block pt-1">Mark not watched</p>
           <img
-            src={movieInWatchHistoryIcon}
+            src={Icons.movie_in_watch_history_icon}
             alt=""
             className="action-buttons-icon bg-light float-end p-1"
           />
@@ -70,7 +65,7 @@ export default function ActionButtons({ movie, expand }) {
         >
           <p className="d-inline-block pt-1">Mark Watched</p>
           <img
-            src={addToWatchHistoryIcon}
+            src={Icons.add_to_watch_history_icon}
             alt=""
             className="action-buttons-icon bg-light float-end p-1"
           />
@@ -92,7 +87,7 @@ export default function ActionButtons({ movie, expand }) {
         >
           <p className="d-inline-block pt-1">Wishlisted</p>
           <img
-            src={movieInWishlistIcon}
+            src={Icons.movie_in_wishlist_icon}
             alt=""
             className="action-buttons-icon bg-light float-end p-1"
           />
@@ -112,7 +107,7 @@ export default function ActionButtons({ movie, expand }) {
         >
           <p className="d-inline-block pt-1">Wishlist</p>
           <img
-            src={addToWishlistIcon}
+            src={Icons.add_to_wishlist_icon}
             alt=""
             className="action-buttons-icon bg-light float-end p-1"
           />
@@ -136,7 +131,7 @@ export default function ActionButtons({ movie, expand }) {
         // This image lgo is acts as a button to show or hide action buttons. If displaying the 'expand' varient, then there is no need for this icon. So show the icon only if 'expand' == false
         !expand && (
           <img
-            src={moreActionsBtnIcon}
+            src={Icons.more_actions_btn_icon}
             alt=""
             className="more-actions__icon"
             onClick={() => {
@@ -170,7 +165,7 @@ export default function ActionButtons({ movie, expand }) {
                   >
                     <p className="d-inline-block pt-1">Goto Details</p>
                     <img
-                      src={moreDetailsIcon}
+                      src={Icons.more_details_icon}
                       alt=""
                       className="action-buttons-icon bg-light float-end p-1"
                     />
