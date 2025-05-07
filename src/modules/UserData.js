@@ -13,74 +13,66 @@ class UserData {
     // Initialize local database
     LocalDatabase.initializeDatabase();
 
-    this.data = {
+    return UserData.instance;
+  }
+
+  /** comment
+   * An async function that is used to calculate user statistics
+   */
+  async calculateUserStats() {
+    let userStats = {
       watchTime: [0, 0],
       totalMoviesWatched: 0,
       currentStreak: 0,
       genres: [],
     };
 
-    return UserData.instance;
-  }
+    /** comment
+     * Fetch all movies in watch history and setup userData.data
+     */
+    const watchHistory = await CoreActions.getMoviesInWatchHistory();
 
-  initializeUserData() {
-    console.log("Initializing user data");
+    // calculate total movies in watch history
+    userStats.totalMoviesWatched = watchHistory.length;
 
     /** comment
-     * An async function that could fetch all movies in watch history and wishlist and save those in userdata
+     * Loop through all movie item in the watchHistory and set the userdata.data
      */
-    (async () => {
+    watchHistory.forEach((movie) => {
       /** comment
-       * Fetch all movies in watch history and setup userData.data
+       * Calculate total watch time of the user and set userdata.data.watchTime
        */
-      this.watchHistory = await CoreActions.getMoviesInWatchHistory();
-      this.wishList = await CoreActions.getMoviesInWishList();
+      const calculatedRuntime = Helpers.constructRuntime(movie.runtime);
 
-      // calculate total movies in watch history
-      this.data.totalMoviesWatched = this.watchHistory.length;
+      userStats.watchTime[0] += calculatedRuntime[0];
+      userStats.watchTime[1] += calculatedRuntime[1];
 
       /** comment
-       * Loop through all movie item in the watchHistory and set the userdata.data
+       * Save all genres of user in userdata.data.genres. Loop through all genre of movie item and push it to userdata.data.genres if it is not already in it.
        */
-      this.watchHistory.forEach((movie) => {
-        /** comment
-         * Calculate total watch time of the user and set userdata.data.watchTime
-         */
-        const calculatedRuntime = Helpers.constructRuntime(movie.runtime);
-
-        this.data.watchTime[0] += calculatedRuntime[0];
-        this.data.watchTime[1] += calculatedRuntime[1];
-
-        /** comment
-         * Save all genres of user in userdata.data.genres. Loop through all genre of movie item and push it to userdata.data.genres if it is not already in it.
-         */
-        movie.genres.forEach((genre) => {
-          let flag = 0;
-          this.data.genres.forEach((InGenre) => {
-            if (InGenre.name == genre.name) {
-              flag = 1;
-            }
-          });
-          if (flag == 0) {
-            this.data.genres.push(genre);
+      movie.genres.forEach((genre) => {
+        let flag = 0;
+        userStats.genres.forEach((InGenre) => {
+          if (InGenre.name == genre.name) {
+            flag = 1;
           }
         });
+        if (flag == 0) {
+          userStats.genres.push(genre);
+        }
       });
+    });
 
-      /**
-       * comment
-       * After completeing the loop, watch time in minutes will be greater than 60 (Because we are just adding up minutes of all n movies into the watchTime[1], which stores total minutes). Hence, we should convert it to hours and minutes once again and save the new results as final watch time.
-       */
-      const calculatedRuntime = Helpers.constructRuntime(
+    /**
+     * comment
+     * After completeing the loop, watch time in minutes will be greater than 60 (Because we are just adding up minutes of all n movies into the watchTime[1], which stores total minutes). Hence, we should convert it to hours and minutes once again and save the new results as final watch time.
+     */
+    const calculatedRuntime = Helpers.constructRuntime(userStats.watchTime[1]);
 
-        this.data.watchTime[1]
-      );
+    userStats.watchTime[0] += calculatedRuntime[0];
+    userStats.watchTime[1] = calculatedRuntime[1];
 
-      this.data.watchTime[0] += calculatedRuntime[0];
-      this.data.watchTime[1] = calculatedRuntime[1];
-
-      console.log(this.data);
-    })();
+    return userStats;
   }
 }
 export default new UserData();
