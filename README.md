@@ -1,4 +1,4 @@
-# Movie Folio - Portfolio of your movies
+# Movie Folio - The Portfolio of your Movies
 
 `v1.0.0`
 
