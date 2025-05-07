@@ -7,7 +7,8 @@ import { Link } from "react-router";
 import MyGenre from "../dashboard/my-genre";
 import DisplayMoviesList from "../common/display-movies-list";
 import UserData from "../../modules/UserData";
-import addMovieBtnIcon from "../../assets/images/icons/add-movie-btn.png";
+import Icons from "../../modules/Icons";
+
 
 export default function Dashboard() {
   const [watchHistory, setWatchHistory] = useState(null);
@@ -50,7 +51,7 @@ export default function Dashboard() {
         >
           Add Movie
           <img
-            src={addMovieBtnIcon}
+            src={Icons.add_movie_btn_icon}
             alt=""
             className="ms-2 h-100"
             loading="lazy"
