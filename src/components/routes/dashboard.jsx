@@ -39,55 +39,59 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="bg-dark text-light hd-100 overflow-auto no-scrollbar">
+    <>
       <NavBar active="dashboard" />
-      <UserStatistics userdata={userdata} />
-      <Link
-        className="p-0 ps-2 add-movie-btn rounded-0 float-end sticky-bottom border-0 my-2 nav-link"
-        type="button"
-        to="/search"
-      >
-        Add Movie
-        <img
-          src={addMovieBtnIcon}
-          alt=""
-          className="ms-2 h-100"
-          loading="lazy"
-        />
-      </Link>
-      {
-        // Check if the lists are ready to be displayed. If not, then display a message
+      <div className="hd-100 overflow-auto no-scrollbar p-1">
+        <UserStatistics userdata={userdata} />
+        <Link
+          className="p-0 ps-2 add-movie-btn rounded-0 float-end sticky-bottom border-0 my-2 nav-link"
+          type="button"
+          to="/search"
+        >
+          Add Movie
+          <img
+            src={addMovieBtnIcon}
+            alt=""
+            className="ms-2 h-100"
+            loading="lazy"
+          />
+        </Link>
+        {
+          // Check if the lists are ready to be displayed. If not, then display a message
 
-        !watchHistory ? (
-          <p className="alert alert-warning text-center">Fetching user data</p>
-        ) : (
-          // If the lists are ready to be displayed, then first display the watch history.
-          <>
-            <section className="watched-movies col-12 col-md-11 rounded-0 rounded-md-2 mx-auto my-3 mb-2 my-md-4">
-              <h2 className="section-title fs-6">Watched Movies</h2>
-              <div
-                className="movie-list p-3 p-md-4 rounded d-flex flex-row justify-content-start align-items-center flex-nowrap overflow-auto no-scrollbar"
-                id="my-movies"
-              >
-                {
-                  // Check whether the first list is empty or not. If empty means nothing in watch history
-                  watchHistory.length == 0 ? (
-                    <p className="text-center text-warning w-100">
-                      Add some movies to your watch history to appear here
-                    </p>
-                  ) : (
-                    <DisplayMoviesList
-                      movies={watchHistory}
-                      className="flex-nowrap overflow-auto no-scrollbar justify-content-start"
-                    />
-                  )
-                }
-              </div>
-            </section>
-            <MyGenre genres={userdata.genres} />
-          </>
-        )
-      }
-    </div>
+          !watchHistory ? (
+            <p className="alert alert-warning text-center">
+              Fetching user data
+            </p>
+          ) : (
+            // If the lists are ready to be displayed, then first display the watch history.
+            <>
+              <section className="watched-movies col-12 col-md-11 rounded-0 rounded-md-2 mx-auto my-3 mb-2 my-md-4">
+                <h2 className="section-title fs-6">Watched Movies</h2>
+                <div
+                  className="movie-list p-3 p-md-4 rounded d-flex flex-row justify-content-start align-items-center flex-nowrap overflow-auto no-scrollbar"
+                  id="my-movies"
+                >
+                  {
+                    // Check whether the first list is empty or not. If empty means nothing in watch history
+                    watchHistory.length == 0 ? (
+                      <p className="text-center text-warning w-100">
+                        Add some movies to your watch history to appear here
+                      </p>
+                    ) : (
+                      <DisplayMoviesList
+                        movies={watchHistory}
+                        className="flex-nowrap overflow-auto no-scrollbar justify-content-start"
+                      />
+                    )
+                  }
+                </div>
+              </section>
+              <MyGenre genres={userdata.genres} />
+            </>
+          )
+        }
+      </div>
+    </>
   );
 }
