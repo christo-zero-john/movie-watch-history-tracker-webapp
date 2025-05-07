@@ -8,7 +8,6 @@
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"/>
     <img src="https://img.shields.io/badge/React-18.2.0-blue" alt="React 18.2.0"/>
     <img src="https://img.shields.io/badge/Vite-4.x-purple" alt="Vite 4.x"/>
-
 </div>
 
 ---
@@ -105,16 +104,23 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Vite](https://vitejs.dev/) for the fast build tool
 - [Bootstrap](https://getbootstrap.com/) for the UI components
 
+---
+
 ## 📞 Contact
 
-Chrito John
-[Instagram](https://instagram.com/christo.zero.john)
+#### Christo John
 
-[Linkedin](https://www.linkedin.com/in/christo-john-kalapurackal/)
+<div align="center">
+    <a href="https://instagram.com/christo.zero.john"> Instagram</a> | 
+    <a href="https://www.linkedin.com/in/christo-john-kalapurackal/">LinkedIn</a> | 
+    <a href="mailto:10.christojohn@gmail.com">Mail</a>
+</div>
 
-[Mail](mailto:10.christojohn@gmail.com)
+---
 
 Project Link: [https://github.com/christo-zero-john/movie-watch-history-tracker-webapp](https://github.com/christo-zero-john/movie-watch-history-tracker-webapp)
+
+---
 
 ## ⭐ Show your support
 
